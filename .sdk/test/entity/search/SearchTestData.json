@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "album": "s5a",
+        "album_id": "ALBUM01",
+        "artist": "s5c",
+        "cover_art": "s5d",
+        "duration": "s5e",
+        "genre": "s5f",
+        "id": "SEARCH00",
+        "release_date": "s61",
+        "title": "s62"
+      },
+      "SEARCH01": {
+        "album": "sb4",
+        "album_id": "ALBUM01",
+        "artist": "sb6",
+        "cover_art": "sb7",
+        "duration": "sb8",
+        "genre": "sb9",
+        "id": "SEARCH01",
+        "release_date": "sbb",
+        "title": "sbc"
+      },
+      "SEARCH02": {
+        "album": "s10e",
+        "album_id": "ALBUM01",
+        "artist": "s110",
+        "cover_art": "s111",
+        "duration": "s112",
+        "genre": "s113",
+        "id": "SEARCH02",
+        "release_date": "s115",
+        "title": "s116"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "album": "s168",
+        "album_id": "ALBUM01",
+        "artist": "s16a",
+        "cover_art": "s16b",
+        "duration": "s16c",
+        "genre": "s16d",
+        "release_date": "s16f",
+        "title": "s170"
+      }
+    }
+  }
+}

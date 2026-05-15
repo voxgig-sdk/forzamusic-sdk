@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "album": {
+      "ALBUM00": {
+        "artist": "s5a",
+        "cover_art": "s5b",
+        "genre": "s5c",
+        "id": "ALBUM00",
+        "label": "s5e",
+        "release_date": "s5f",
+        "title": "s60",
+        "total_track": "s61",
+        "track": []
+      },
+      "ALBUM01": {
+        "artist": "sb4",
+        "cover_art": "sb5",
+        "genre": "sb6",
+        "id": "ALBUM01",
+        "label": "sb8",
+        "release_date": "sb9",
+        "title": "sba",
+        "total_track": "sbb",
+        "track": []
+      },
+      "ALBUM02": {
+        "artist": "s10e",
+        "cover_art": "s10f",
+        "genre": "s110",
+        "id": "ALBUM02",
+        "label": "s112",
+        "release_date": "s113",
+        "title": "s114",
+        "total_track": "s115",
+        "track": []
+      }
+    }
+  },
+  "new": {
+    "album": {
+      "album_ref01": {
+        "artist": "s168",
+        "cover_art": "s169",
+        "genre": "s16a",
+        "label": "s16c",
+        "release_date": "s16d",
+        "title": "s16e",
+        "total_track": "s16f",
+        "track": []
+      }
+    }
+  }
+}

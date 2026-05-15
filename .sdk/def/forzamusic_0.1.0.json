@@ -1,0 +1,477 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ForzaMusic API",
+    "description": "The ForzaMusic API provides access to a massive collection of over 50 million songs, along with detailed metadata such as lyrics and album information. It enables developers to create engaging music applications with features like smart search, analytics, and lightning-fast response times.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://forzamusic-api-official.vercel.app/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://forzamusic-api-official.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/search": {
+      "get": {
+        "summary": "Search for songs",
+        "description": "Search through the massive collection of over 50 million songs with smart search capabilities",
+        "operationId": "searchSongs",
+        "tags": [
+          "Search"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query for song, artist, or album",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Shape of You"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of results to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful search response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Song"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of results found"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid query parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/song/{songId}": {
+      "get": {
+        "summary": "Get song details",
+        "description": "Retrieve detailed information about a specific song including metadata, lyrics, and album information",
+        "operationId": "getSongById",
+        "tags": [
+          "Songs"
+        ],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "path",
+            "description": "Unique identifier of the song",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Song details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SongDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Song not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/lyrics/{songId}": {
+      "get": {
+        "summary": "Get song lyrics",
+        "description": "Retrieve the lyrics for a specific song",
+        "operationId": "getLyrics",
+        "tags": [
+          "Lyrics"
+        ],
+        "parameters": [
+          {
+            "name": "songId",
+            "in": "path",
+            "description": "Unique identifier of the song",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lyrics retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "songId": {
+                      "type": "string"
+                    },
+                    "lyrics": {
+                      "type": "string",
+                      "description": "Full lyrics of the song"
+                    },
+                    "language": {
+                      "type": "string",
+                      "description": "Language of the lyrics"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lyrics not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/album/{albumId}": {
+      "get": {
+        "summary": "Get album information",
+        "description": "Retrieve detailed information about a specific album",
+        "operationId": "getAlbumById",
+        "tags": [
+          "Albums"
+        ],
+        "parameters": [
+          {
+            "name": "albumId",
+            "in": "path",
+            "description": "Unique identifier of the album",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Album details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Album"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Album not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Song": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the song"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the song"
+          },
+          "artist": {
+            "type": "string",
+            "description": "Primary artist of the song"
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of all artists involved"
+          },
+          "album": {
+            "type": "string",
+            "description": "Album name"
+          },
+          "albumId": {
+            "type": "string",
+            "description": "Album identifier"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration in seconds"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Release date of the song"
+          },
+          "genre": {
+            "type": "string",
+            "description": "Primary genre"
+          },
+          "coverArt": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to cover art image"
+          }
+        }
+      },
+      "SongDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Song"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "lyrics": {
+                "type": "string",
+                "description": "Full lyrics of the song"
+              },
+              "isrc": {
+                "type": "string",
+                "description": "International Standard Recording Code"
+              },
+              "label": {
+                "type": "string",
+                "description": "Record label"
+              },
+              "trackNumber": {
+                "type": "integer",
+                "description": "Track number on album"
+              },
+              "popularity": {
+                "type": "integer",
+                "description": "Popularity score (0-100)"
+              },
+              "explicit": {
+                "type": "boolean",
+                "description": "Whether the song contains explicit content"
+              }
+            }
+          }
+        ]
+      },
+      "Album": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the album"
+          },
+          "title": {
+            "type": "string",
+            "description": "Album title"
+          },
+          "artist": {
+            "type": "string",
+            "description": "Primary artist"
+          },
+          "artists": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "description": "Record label"
+          },
+          "totalTracks": {
+            "type": "integer",
+            "description": "Total number of tracks"
+          },
+          "coverArt": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Song"
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Search",
+      "description": "Smart search operations across the music catalog"
+    },
+    {
+      "name": "Songs",
+      "description": "Operations related to song metadata"
+    },
+    {
+      "name": "Lyrics",
+      "description": "Operations related to song lyrics"
+    },
+    {
+      "name": "Albums",
+      "description": "Operations related to album information"
+    }
+  ]
+}

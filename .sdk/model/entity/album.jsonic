@@ -1,0 +1,105 @@
+# Entity: album
+
+main: kit: entity: album: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "artist"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cover_art"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "genre"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "release_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "total_track"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "track"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "album"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "album_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/album/{albumId}"
+          parts: [
+            "api"
+            "album"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              albumId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

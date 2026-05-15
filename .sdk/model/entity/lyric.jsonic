@@ -1,0 +1,75 @@
+# Entity: lyric
+
+main: kit: entity: lyric: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lyric"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "song_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "success"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "lyric"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "song_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/lyrics/{songId}"
+          parts: [
+            "api"
+            "lyrics"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              songId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

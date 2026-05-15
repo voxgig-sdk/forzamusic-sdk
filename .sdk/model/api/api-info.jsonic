@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://forzamusic-api-official.vercel.app/"
+      }
+      description: "The ForzaMusic API provides access to a massive collection of over 50 million songs, along with detailed metadata such as lyrics and album information. It enables developers to create engaging music applications with features like smart search, analytics, and lightning-fast response times."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://forzamusic-api-official.vercel.app"
+        }
+      ]
+      title: "ForzaMusic API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

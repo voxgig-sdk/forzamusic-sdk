@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "song": {
+      "SONG00": {
+        "album": "s96",
+        "album_id": "ALBUM01",
+        "artist": "s98",
+        "cover_art": "s99",
+        "duration": "s9a",
+        "explicit": false,
+        "genre": "s9c",
+        "id": "SONG00",
+        "isrc": "s9e",
+        "label": "s9f",
+        "lyric": "sa0",
+        "popularity": "sa1",
+        "release_date": "sa2",
+        "title": "sa3",
+        "track_number": "sa4"
+      },
+      "SONG01": {
+        "album": "s12c",
+        "album_id": "ALBUM01",
+        "artist": "s12e",
+        "cover_art": "s12f",
+        "duration": "s130",
+        "explicit": false,
+        "genre": "s132",
+        "id": "SONG01",
+        "isrc": "s134",
+        "label": "s135",
+        "lyric": "s136",
+        "popularity": "s137",
+        "release_date": "s138",
+        "title": "s139",
+        "track_number": "s13a"
+      },
+      "SONG02": {
+        "album": "s1c2",
+        "album_id": "ALBUM01",
+        "artist": "s1c4",
+        "cover_art": "s1c5",
+        "duration": "s1c6",
+        "explicit": false,
+        "genre": "s1c8",
+        "id": "SONG02",
+        "isrc": "s1ca",
+        "label": "s1cb",
+        "lyric": "s1cc",
+        "popularity": "s1cd",
+        "release_date": "s1ce",
+        "title": "s1cf",
+        "track_number": "s1d0"
+      }
+    }
+  },
+  "new": {
+    "song": {
+      "song_ref01": {
+        "album": "s258",
+        "album_id": "ALBUM01",
+        "artist": "s25a",
+        "cover_art": "s25b",
+        "duration": "s25c",
+        "explicit": false,
+        "genre": "s25e",
+        "isrc": "s260",
+        "label": "s261",
+        "lyric": "s262",
+        "popularity": "s263",
+        "release_date": "s264",
+        "title": "s265",
+        "track_number": "s266"
+      }
+    }
+  }
+}

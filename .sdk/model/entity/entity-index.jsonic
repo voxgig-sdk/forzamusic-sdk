@@ -1,0 +1,6 @@
+# Entity Models
+
+@"album.jsonic"
+@"lyric.jsonic"
+@"search.jsonic"
+@"song.jsonic"

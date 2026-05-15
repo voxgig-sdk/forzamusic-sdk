@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "lyric": {
+      "LYRIC00": {
+        "language": "s28",
+        "lyric": "s29",
+        "song_id": "SONG01",
+        "success": false
+      },
+      "LYRIC01": {
+        "language": "s50",
+        "lyric": "s51",
+        "song_id": "SONG01",
+        "success": false
+      },
+      "LYRIC02": {
+        "language": "s78",
+        "lyric": "s79",
+        "song_id": "SONG01",
+        "success": false
+      }
+    }
+  },
+  "new": {
+    "lyric": {
+      "lyric_ref01": {
+        "language": "sa0",
+        "lyric": "sa1",
+        "song_id": "SONG01",
+        "success": false
+      }
+    }
+  }
+}

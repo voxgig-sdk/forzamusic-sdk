@@ -1,0 +1,35 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 4
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: album: {
+    path: "/api/album/{albumId}": {
+      rename: param: "albumId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: lyric: {
+    path: "/api/lyrics/{songId}": {
+      rename: param: "songId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: search: {
+    path: "/api/search": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: song: {
+    path: "/api/song/{songId}": {
+      rename: param: "songId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

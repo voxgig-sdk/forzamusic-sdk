@@ -1,0 +1,135 @@
+# Entity: song
+
+main: kit: entity: song: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "album"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "album_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "artist"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cover_art"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "duration"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "explicit"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "genre"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "isrc"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lyric"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "popularity"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "release_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "track_number"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "song"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "song_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/song/{songId}"
+          parts: [
+            "api"
+            "song"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              songId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
