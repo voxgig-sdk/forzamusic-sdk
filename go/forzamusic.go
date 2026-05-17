@@ -1,10 +1,10 @@
 package voxgigforzamusicsdk
 
 import (
-	"github.com/voxgig-sdk/forzamusic-sdk/core"
-	"github.com/voxgig-sdk/forzamusic-sdk/entity"
-	"github.com/voxgig-sdk/forzamusic-sdk/feature"
-	_ "github.com/voxgig-sdk/forzamusic-sdk/utility"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/core"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/entity"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/feature"
+	_ "github.com/voxgig-sdk/forzamusic-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

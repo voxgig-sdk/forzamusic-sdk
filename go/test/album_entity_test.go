@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/forzamusic-sdk"
-	"github.com/voxgig-sdk/forzamusic-sdk/core"
+	sdk "github.com/voxgig-sdk/forzamusic-sdk/go"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/forzamusic-sdk/go/utility/struct"
 )
 
 func TestAlbumEntity(t *testing.T) {

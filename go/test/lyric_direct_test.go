@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/forzamusic-sdk"
-	"github.com/voxgig-sdk/forzamusic-sdk/core"
+	sdk "github.com/voxgig-sdk/forzamusic-sdk/go"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/core"
 )
 
 func TestLyricDirect(t *testing.T) {

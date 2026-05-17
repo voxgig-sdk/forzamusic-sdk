@@ -5,19 +5,22 @@
         "language": "s28",
         "lyric": "s29",
         "song_id": "SONG01",
-        "success": false
+        "success": false,
+        "id": "LYRIC00"
       },
       "LYRIC01": {
         "language": "s50",
         "lyric": "s51",
         "song_id": "SONG01",
-        "success": false
+        "success": false,
+        "id": "LYRIC01"
       },
       "LYRIC02": {
         "language": "s78",
         "lyric": "s79",
         "song_id": "SONG01",
-        "success": false
+        "success": false,
+        "id": "LYRIC02"
       }
     }
   },

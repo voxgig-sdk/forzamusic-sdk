@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/forzamusic-sdk/core"
+	"github.com/voxgig-sdk/forzamusic-sdk/go/core"
 )
 
 type BaseFeature struct {

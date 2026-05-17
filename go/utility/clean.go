@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/forzamusic-sdk/core"
+import "github.com/voxgig-sdk/forzamusic-sdk/go/core"
 
 func cleanUtil(ctx *core.Context, val any) any {
 	return val
