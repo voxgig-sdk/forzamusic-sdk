@@ -83,7 +83,6 @@ def search_basic_setup(extra)
     "FORZAMUSIC_TEST_SEARCH_ENTID" => idmap,
     "FORZAMUSIC_TEST_LIVE" => "FALSE",
     "FORZAMUSIC_TEST_EXPLAIN" => "FALSE",
-    "FORZAMUSIC_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def search_basic_setup(extra)
   if env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORZAMUSIC_APIKEY"],
       },
       extra || {},
     ])

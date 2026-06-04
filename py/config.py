@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://forzamusic-api-official.vercel.app",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

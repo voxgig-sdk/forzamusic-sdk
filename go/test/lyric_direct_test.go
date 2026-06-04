@@ -117,14 +117,12 @@ func lyricDirectSetup(mockres any) *lyricDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FORZAMUSIC_TEST_LYRIC_ENTID": map[string]any{},
 		"FORZAMUSIC_TEST_LIVE":    "FALSE",
-		"FORZAMUSIC_APIKEY":       "NONE",
 	})
 
 	live := env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["FORZAMUSIC_APIKEY"],
 		}
 		client := sdk.NewForzamusicSDK(mergedOpts)
 

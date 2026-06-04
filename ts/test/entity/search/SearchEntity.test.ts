@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FORZAMUSIC_TEST_SEARCH_ENTID': idmap,
     'FORZAMUSIC_TEST_LIVE': 'FALSE',
     'FORZAMUSIC_TEST_EXPLAIN': 'FALSE',
-    'FORZAMUSIC_APIKEY': 'NONE',
   })
 
   idmap = env['FORZAMUSIC_TEST_SEARCH_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ForzamusicSDK(merge([
       {
-        apikey: env.FORZAMUSIC_APIKEY,
       },
       extra
     ]))

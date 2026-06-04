@@ -16,8 +16,26 @@ main: {
       ]
       title: "ForzaMusic API"
       version: "1.0.0"
+      tagline: "Curated open music collection with 50M+ tracks, lyrics, and album metadata for radio-style streaming and developer experimentation"
+      homepage: "https://forzamusic-api-official.vercel.app"
+      docs_url: "https://freepublicapis.com/forzamusic-api"
+      about_md: `ForzaMusic API is a community-listed music data service indexed on [Free Public APIs](https://freepublicapis.com/forzamusic-api). It advertises itself as the largest open collection of curated music tracks, intended for radio-style streaming, educational projects, and developer experimentation.
+
+What the catalogue listing describes:
+
+- A library of 50M+ songs with associated metadata
+- Lyrics content alongside song records
+- Album information linked to tracks
+- Search and analytics features over the catalogue
+
+Operational notes: the public catalogue entry reports the upstream service as currently unreliable, and neither authentication requirements nor rate limits are documented. Treat availability as best-effort and verify endpoint behaviour against the live server before relying on it.`
+      entity_desc: {
+        album: "Album records that group songs and carry release-level metadata."
+        lyric: "Lyric content associated with songs in the catalogue."
+        search: "Search operations across the music catalogue (songs, albums, lyrics)."
+        song: "Individual song records with metadata such as title, artist, and album linkage."
+      }
+      auth: false
     }
   }
-}
-
 }

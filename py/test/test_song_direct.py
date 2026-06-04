@@ -69,14 +69,12 @@ def _song_direct_setup(mockres):
     env = runner.env_override({
         "FORZAMUSIC_TEST_SONG_ENTID": {},
         "FORZAMUSIC_TEST_LIVE": "FALSE",
-        "FORZAMUSIC_APIKEY": "NONE",
     })
 
     live = env.get("FORZAMUSIC_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("FORZAMUSIC_APIKEY"),
         }
         client = ForzamusicSDK(merged_opts)
         return {
