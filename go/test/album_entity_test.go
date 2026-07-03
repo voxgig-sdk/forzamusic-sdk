@@ -123,6 +123,7 @@ func albumBasicSetup(extra map[string]any) *entityTestSetup {
 		"FORZAMUSIC_TEST_ALBUM_ENTID": idmap,
 		"FORZAMUSIC_TEST_LIVE":      "FALSE",
 		"FORZAMUSIC_TEST_EXPLAIN":   "FALSE",
+		"FORZAMUSIC_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FORZAMUSIC_TEST_ALBUM_ENTID"])
@@ -133,6 +134,7 @@ func albumBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FORZAMUSIC_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["FORZAMUSIC_APIKEY"],
 			},
 			extra,
 		})

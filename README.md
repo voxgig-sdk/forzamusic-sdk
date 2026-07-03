@@ -1,21 +1,8 @@
 # Forzamusic SDK
 
-Curated open music collection with 50M+ tracks, lyrics, and album metadata for radio-style streaming and developer experimentation
+ForzaMusic API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About ForzaMusic API
-
-ForzaMusic API is a community-listed music data service indexed on [Free Public APIs](https://freepublicapis.com/forzamusic-api). It advertises itself as the largest open collection of curated music tracks, intended for radio-style streaming, educational projects, and developer experimentation.
-
-What the catalogue listing describes:
-
-- A library of 50M+ songs with associated metadata
-- Lyrics content alongside song records
-- Album information linked to tracks
-- Search and analytics features over the catalogue
-
-Operational notes: the public catalogue entry reports the upstream service as currently unreliable, and neither authentication requirements nor rate limits are documented. Treat availability as best-effort and verify endpoint behaviour against the live server before relying on it.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install forzamusic-sdk
 luarocks install forzamusic-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ForzamusicSDK } from 'forzamusic'
 
-const client = new ForzamusicSDK({})
+const client = new ForzamusicSDK({
+  apikey: process.env.FORZAMUSIC_APIKEY,
+})
 
+// Load album data
+const album = await client.Album().load({})
+console.log(album.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,10 +90,10 @@ The API exposes 4 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Album** | Album records that group songs and carry release-level metadata. | `/api/album/{albumId}` |
-| **Lyric** | Lyric content associated with songs in the catalogue. | `/api/lyrics/{songId}` |
-| **Search** | Search operations across the music catalogue (songs, albums, lyrics). | `/api/search` |
-| **Song** | Individual song records with metadata such as title, artist, and album linkage. | `/api/song/{songId}` |
+| **Album** |  | `/api/album/{albumId}` |
+| **Lyric** |  | `/api/lyrics/{songId}` |
+| **Search** |  | `/api/search` |
+| **Song** |  | `/api/song/{songId}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,15 +103,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from forzamusic_sdk import ForzamusicSDK
 
-client = ForzamusicSDK({})
+client = ForzamusicSDK({
+    "apikey": os.environ.get("FORZAMUSIC_APIKEY"),
+})
 
 
 # Load a specific album
-album, err = client.Album(None).load(
-    {"id": "example_id"}, None
-)
+album, err = client.Album().load({"id": "example_id"})
+print(album)
 ```
 
 ### PHP
@@ -129,13 +122,14 @@ album, err = client.Album(None).load(
 <?php
 require_once 'forzamusic_sdk.php';
 
-$client = new ForzamusicSDK([]);
+$client = new ForzamusicSDK([
+    "apikey" => getenv("FORZAMUSIC_APIKEY"),
+]);
 
 
 // Load a specific album
-[$album, $err] = $client->Album(null)->load(
-    ["id" => "example_id"], null
-);
+[$album, $err] = $client->Album()->load(["id" => "example_id"]);
+print_r($album);
 ```
 
 ### Golang
@@ -143,8 +137,13 @@ $client = new ForzamusicSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/forzamusic-sdk/go"
 
-client := sdk.NewForzamusicSDK(map[string]any{})
+client := sdk.NewForzamusicSDK(map[string]any{
+    "apikey": os.Getenv("FORZAMUSIC_APIKEY"),
+})
 
+// Load album data
+album, err := client.Album(nil).Load(map[string]any{}, nil)
+fmt.Println(album)
 ```
 
 ### Ruby
@@ -152,13 +151,14 @@ client := sdk.NewForzamusicSDK(map[string]any{})
 ```ruby
 require_relative "Forzamusic_sdk"
 
-client = ForzamusicSDK.new({})
+client = ForzamusicSDK.new({
+  "apikey" => ENV["FORZAMUSIC_APIKEY"],
+})
 
 
 # Load a specific album
-album, err = client.Album(nil).load(
-  { "id" => "example_id" }, nil
-)
+album, err = client.Album().load({ "id" => "example_id" })
+puts album
 ```
 
 ### Lua
@@ -166,13 +166,14 @@ album, err = client.Album(nil).load(
 ```lua
 local sdk = require("forzamusic_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FORZAMUSIC_APIKEY"),
+})
 
 
 -- Load a specific album
-local album, err = client:Album(nil):load(
-  { id = "example_id" }, nil
-)
+local album, err = client:Album():load({ id = "example_id" })
+print(album)
 ```
 
 ## Unit testing in offline mode
@@ -191,25 +192,21 @@ const result = await client.Album().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ForzamusicSDK.test(None, None)
-result, err = client.Album(None).load(
-    {"id": "test01"}, None
-)
+client = ForzamusicSDK.test()
+result, err = client.Album().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ForzamusicSDK::test(null, null);
-[$result, $err] = $client->Album(null)->load(
-    ["id" => "test01"], null
-);
+$client = ForzamusicSDK::test();
+[$result, $err] = $client->Album()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Album(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -218,19 +215,15 @@ result, err := client.Album(nil).Load(
 ### Ruby
 
 ```ruby
-client = ForzamusicSDK.test(nil, nil)
-result, err = client.Album(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ForzamusicSDK.test
+result, err = client.Album().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Album(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Album():load({ id = "test01" })
 ```
 
 ## How it works
@@ -334,11 +327,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the ForzaMusic API
-
-- Upstream: [https://forzamusic-api-official.vercel.app](https://forzamusic-api-official.vercel.app)
-- API docs: [https://freepublicapis.com/forzamusic-api](https://freepublicapis.com/forzamusic-api)
 
 ---
 

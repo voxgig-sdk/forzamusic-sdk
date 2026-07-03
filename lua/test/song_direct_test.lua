@@ -72,12 +72,14 @@ function song_direct_setup(mockres)
   local env = runner.env_override({
     ["FORZAMUSIC_TEST_SONG_ENTID"] = {},
     ["FORZAMUSIC_TEST_LIVE"] = "FALSE",
+    ["FORZAMUSIC_APIKEY"] = "NONE",
   })
 
   local live = env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FORZAMUSIC_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -82,6 +82,7 @@ def lyric_basic_setup(extra)
     "FORZAMUSIC_TEST_LYRIC_ENTID" => idmap,
     "FORZAMUSIC_TEST_LIVE" => "FALSE",
     "FORZAMUSIC_TEST_EXPLAIN" => "FALSE",
+    "FORZAMUSIC_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -93,6 +94,7 @@ def lyric_basic_setup(extra)
   if env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FORZAMUSIC_APIKEY"],
       },
       extra || {},
     ])

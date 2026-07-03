@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -120,7 +120,7 @@ local album = client:Album(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Album(nil):load({ id = "album_id" }, nil)
+local result, err = client:Album():load({ id = "album_id" })
 ```
 
 ### Common Methods
@@ -175,7 +175,7 @@ local lyric = client:Lyric(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Lyric(nil):load({ id = "lyric_id" }, nil)
+local result, err = client:Lyric():load({ id = "lyric_id" })
 ```
 
 ### Common Methods
@@ -235,7 +235,7 @@ local search = client:Search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Search(nil):list(nil, nil)
+local results, err = client:Search():list()
 ```
 
 ### Common Methods
@@ -301,7 +301,7 @@ local song = client:Song(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Song(nil):load({ id = "song_id" }, nil)
+local result, err = client:Song():load({ id = "song_id" })
 ```
 
 ### Common Methods

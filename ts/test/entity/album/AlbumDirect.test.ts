@@ -80,12 +80,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FORZAMUSIC_TEST_ALBUM_ENTID': {},
     'FORZAMUSIC_TEST_LIVE': 'FALSE',
+    'FORZAMUSIC_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FORZAMUSIC_TEST_LIVE
 
   if (live) {
     const client = new ForzamusicSDK({
+      apikey: env.FORZAMUSIC_APIKEY,
     })
 
     let idmap: any = env['FORZAMUSIC_TEST_ALBUM_ENTID']

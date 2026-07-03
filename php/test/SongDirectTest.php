@@ -77,12 +77,14 @@ function song_direct_setup($mockres)
     $env = Runner::env_override([
         "FORZAMUSIC_TEST_SONG_ENTID" => [],
         "FORZAMUSIC_TEST_LIVE" => "FALSE",
+        "FORZAMUSIC_APIKEY" => "NONE",
     ]);
 
     $live = $env["FORZAMUSIC_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["FORZAMUSIC_APIKEY"],
         ];
         $client = new ForzamusicSDK($merged_opts);
         return [
