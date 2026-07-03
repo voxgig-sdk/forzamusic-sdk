@@ -10,7 +10,7 @@ The Python SDK for the Forzamusic API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install forzamusic-sdk
+pip install voxgig-sdk-forzamusic
 ```
 
 Or install from source:

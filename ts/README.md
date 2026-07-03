@@ -10,7 +10,7 @@ The TypeScript SDK for the Forzamusic API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install forzamusic
+npm install @voxgig-sdk/forzamusic
 ```
 ## Tutorial: your first API call
 

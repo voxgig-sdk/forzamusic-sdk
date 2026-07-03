@@ -10,7 +10,7 @@ The Lua SDK for the Forzamusic API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install forzamusic-sdk
+luarocks install voxgig-sdk-forzamusic
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The PHP SDK for the Forzamusic API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/forzamusic-sdk
+composer require voxgig-sdk/forzamusic
 ```
 
 

@@ -10,13 +10,13 @@ The Ruby SDK for the Forzamusic API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install forzamusic-sdk
+gem install voxgig-sdk-forzamusic
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "forzamusic-sdk"
+gem "voxgig-sdk-forzamusic"
 ```
 
 Then run:
