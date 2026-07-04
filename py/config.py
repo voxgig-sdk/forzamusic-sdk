@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://forzamusic-api-official.vercel.app",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -112,6 +109,7 @@ def make_config():
                       "orig": "album_id",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },
@@ -194,6 +192,7 @@ def make_config():
                       "orig": "song_id",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },
@@ -485,6 +484,7 @@ def make_config():
                       "orig": "song_id",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },

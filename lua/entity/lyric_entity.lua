@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch LyricLoadMatch
+---@param ctrl? table
+---@return Lyric
+---@return string? err
 function LyricEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

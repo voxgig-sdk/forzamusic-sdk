@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -146,7 +145,7 @@ Alias for `ForzamusicSDK.test()`.
 ## AlbumEntity
 
 ```ts
-const album = client.Album()
+const album = client.album
 ```
 
 ### Fields
@@ -170,7 +169,7 @@ const album = client.Album()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Album().load({ id: 'album_id' })
+const result = await client.album.load({ id: 'album_id' })
 ```
 
 ### Common Methods
@@ -204,7 +203,7 @@ Return a copy of the entity options.
 ## LyricEntity
 
 ```ts
-const lyric = client.Lyric()
+const lyric = client.lyric
 ```
 
 ### Fields
@@ -223,7 +222,7 @@ const lyric = client.Lyric()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Lyric().load({ id: 'lyric_id' })
+const result = await client.lyric.load({ id: 'lyric_id' })
 ```
 
 ### Common Methods
@@ -257,7 +256,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.Search()
+const search = client.search
 ```
 
 ### Fields
@@ -281,7 +280,7 @@ const search = client.Search()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Search().list()
+const results = await client.search.list()
 ```
 
 ### Common Methods
@@ -315,7 +314,7 @@ Return a copy of the entity options.
 ## SongEntity
 
 ```ts
-const song = client.Song()
+const song = client.song
 ```
 
 ### Fields
@@ -345,7 +344,7 @@ const song = client.Song()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Song().load({ id: 'song_id' })
+const result = await client.song.load({ id: 'song_id' })
 ```
 
 ### Common Methods

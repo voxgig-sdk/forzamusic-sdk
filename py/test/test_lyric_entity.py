@@ -49,8 +49,7 @@ class TestLyricEntity:
         # LOAD
         lyric_ref01_ent = client.Lyric(None)
         lyric_ref01_match_dt0 = {}
-        lyric_ref01_data_dt0_loaded, err = lyric_ref01_ent.load(lyric_ref01_match_dt0, None)
-        assert err is None
+        lyric_ref01_data_dt0_loaded = lyric_ref01_ent.load(lyric_ref01_match_dt0, None)
         assert lyric_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _lyric_basic_setup(extra):
         "FORZAMUSIC_TEST_LYRIC_ENTID": idmap,
         "FORZAMUSIC_TEST_LIVE": "FALSE",
         "FORZAMUSIC_TEST_EXPLAIN": "FALSE",
-        "FORZAMUSIC_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _lyric_basic_setup(extra):
     if env.get("FORZAMUSIC_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORZAMUSIC_APIKEY"),
             },
             extra or {},
         ])

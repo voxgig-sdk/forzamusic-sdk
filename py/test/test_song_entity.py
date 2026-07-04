@@ -51,8 +51,7 @@ class TestSongEntity:
         song_ref01_match_dt0 = {
             "id": song_ref01_data["id"],
         }
-        song_ref01_data_dt0_loaded, err = song_ref01_ent.load(song_ref01_match_dt0, None)
-        assert err is None
+        song_ref01_data_dt0_loaded = song_ref01_ent.load(song_ref01_match_dt0, None)
         song_ref01_data_dt0_load_result = helpers.to_map(song_ref01_data_dt0_loaded)
         assert song_ref01_data_dt0_load_result is not None
         assert song_ref01_data_dt0_load_result["id"] == song_ref01_data["id"]
@@ -95,7 +94,6 @@ def _song_basic_setup(extra):
         "FORZAMUSIC_TEST_SONG_ENTID": idmap,
         "FORZAMUSIC_TEST_LIVE": "FALSE",
         "FORZAMUSIC_TEST_EXPLAIN": "FALSE",
-        "FORZAMUSIC_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _song_basic_setup(extra):
     if env.get("FORZAMUSIC_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORZAMUSIC_APIKEY"),
             },
             extra or {},
         ])

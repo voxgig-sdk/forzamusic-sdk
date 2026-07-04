@@ -85,6 +85,27 @@ func (e *AlbumEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Album; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *AlbumEntity) DataTyped(data ...Album) Album {
+	if len(data) > 0 {
+		return typedFrom[Album](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Album](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Album (all fields
+// optional at the wire level).
+func (e *AlbumEntity) MatchTyped(match ...Album) Album {
+	if len(match) > 0 {
+		return typedFrom[Album](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Album](e.Match())
+}
+
 
 func (e *AlbumEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *AlbumEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, e
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// AlbumLoadMatch and returns an Album. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *AlbumEntity) LoadTyped(reqmatch AlbumLoadMatch, ctrl map[string]any) (Album, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Album{}, err
+	}
+	return typedFrom[Album](res), nil
 }
 
 

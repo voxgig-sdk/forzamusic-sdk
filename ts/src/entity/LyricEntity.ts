@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Lyric,
+  LyricLoadMatch,
+} from '../ForzamusicTypes'
 
 // TODO: needs Entity superclass
-class LyricEntity extends ForzamusicEntityBase {
+class LyricEntity extends ForzamusicEntityBase<Lyric> {
 
   constructor(client: ForzamusicSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class LyricEntity extends ForzamusicEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: LyricLoadMatch, ctrl?: Control): Promise<Lyric> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class LyricEntity extends ForzamusicEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Lyric> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

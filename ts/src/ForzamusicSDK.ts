@@ -5,6 +5,8 @@ import { LyricEntity } from './entity/LyricEntity'
 import { SearchEntity } from './entity/SearchEntity'
 import { SongEntity } from './entity/SongEntity'
 
+export type * from './ForzamusicTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -205,24 +207,56 @@ class ForzamusicSDK {
 
 
 
+  _album?: AlbumEntity
+
+  // Idiomatic facade: `client.album.list()` / `client.album.load({ id })`.
+  get album(): AlbumEntity {
+    return (this._album ??= new AlbumEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.album` instead. */
   Album(data?: any) {
     const self = this
     return new AlbumEntity(self,data)
   }
 
 
+  _lyric?: LyricEntity
+
+  // Idiomatic facade: `client.lyric.list()` / `client.lyric.load({ id })`.
+  get lyric(): LyricEntity {
+    return (this._lyric ??= new LyricEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.lyric` instead. */
   Lyric(data?: any) {
     const self = this
     return new LyricEntity(self,data)
   }
 
 
+  _search?: SearchEntity
+
+  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
+  get search(): SearchEntity {
+    return (this._search ??= new SearchEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.search` instead. */
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)
   }
 
 
+  _song?: SongEntity
+
+  // Idiomatic facade: `client.song.list()` / `client.song.load({ id })`.
+  get song(): SongEntity {
+    return (this._song ??= new SongEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.song` instead. */
   Song(data?: any) {
     const self = this
     return new SongEntity(self,data)

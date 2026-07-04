@@ -244,24 +244,76 @@ end
 
 
 
+-- Idiomatic facade: client:album():list() / client:album():load({ id = ... })
+function ForzamusicSDK:album(data)
+  local EntityMod = require("entity.album_entity")
+  if data == nil then
+    if self._album == nil then
+      self._album = EntityMod.new(self, nil)
+    end
+    return self._album
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:album() instead.
 function ForzamusicSDK:Album(data)
   local EntityMod = require("entity.album_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:lyric():list() / client:lyric():load({ id = ... })
+function ForzamusicSDK:lyric(data)
+  local EntityMod = require("entity.lyric_entity")
+  if data == nil then
+    if self._lyric == nil then
+      self._lyric = EntityMod.new(self, nil)
+    end
+    return self._lyric
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:lyric() instead.
 function ForzamusicSDK:Lyric(data)
   local EntityMod = require("entity.lyric_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
+function ForzamusicSDK:search(data)
+  local EntityMod = require("entity.search_entity")
+  if data == nil then
+    if self._search == nil then
+      self._search = EntityMod.new(self, nil)
+    end
+    return self._search
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:search() instead.
 function ForzamusicSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:song():list() / client:song():load({ id = ... })
+function ForzamusicSDK:song(data)
+  local EntityMod = require("entity.song_entity")
+  if data == nil then
+    if self._song == nil then
+      self._song = EntityMod.new(self, nil)
+    end
+    return self._song
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:song() instead.
 function ForzamusicSDK:Song(data)
   local EntityMod = require("entity.song_entity")
   return EntityMod.new(self, data)

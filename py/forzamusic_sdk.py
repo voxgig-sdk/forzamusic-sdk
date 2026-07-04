@@ -144,16 +144,23 @@ class ForzamusicSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class ForzamusicSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,30 +212,74 @@ class ForzamusicSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def album(self):
+        """Idiomatic facade: client.album.list() / client.album.load({"id": ...})."""
+        from entity.album_entity import AlbumEntity
+        cached = getattr(self, "_album", None)
+        if cached is None:
+            cached = AlbumEntity(self, None)
+            self._album = cached
+        return cached
 
     def Album(self, data=None):
+        # Deprecated: use client.album instead.
         from entity.album_entity import AlbumEntity
         return AlbumEntity(self, data)
 
 
+    @property
+    def lyric(self):
+        """Idiomatic facade: client.lyric.list() / client.lyric.load({"id": ...})."""
+        from entity.lyric_entity import LyricEntity
+        cached = getattr(self, "_lyric", None)
+        if cached is None:
+            cached = LyricEntity(self, None)
+            self._lyric = cached
+        return cached
+
     def Lyric(self, data=None):
+        # Deprecated: use client.lyric instead.
         from entity.lyric_entity import LyricEntity
         return LyricEntity(self, data)
 
 
+    @property
+    def search(self):
+        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
+        from entity.search_entity import SearchEntity
+        cached = getattr(self, "_search", None)
+        if cached is None:
+            cached = SearchEntity(self, None)
+            self._search = cached
+        return cached
+
     def Search(self, data=None):
+        # Deprecated: use client.search instead.
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
+    @property
+    def song(self):
+        """Idiomatic facade: client.song.list() / client.song.load({"id": ...})."""
+        from entity.song_entity import SongEntity
+        cached = getattr(self, "_song", None)
+        if cached is None:
+            cached = SongEntity(self, None)
+            self._song = cached
+        return cached
+
     def Song(self, data=None):
+        # Deprecated: use client.song instead.
         from entity.song_entity import SongEntity
         return SongEntity(self, data)
 

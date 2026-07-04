@@ -15,9 +15,6 @@ module ForzamusicConfig
       },
       "options" => {
         "base" => "https://forzamusic-api-official.vercel.app",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -112,6 +109,7 @@ module ForzamusicConfig
                         "orig" => "album_id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -194,6 +192,7 @@ module ForzamusicConfig
                         "orig" => "song_id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -485,6 +484,7 @@ module ForzamusicConfig
                         "orig" => "song_id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

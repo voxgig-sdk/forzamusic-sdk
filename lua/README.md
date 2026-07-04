@@ -9,12 +9,9 @@ The Lua SDK for the Forzamusic API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-forzamusic
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/forzamusic-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("forzamusic_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FORZAMUSIC_APIKEY"),
-})
+local client = sdk.new()
 ```
 
-### 3. Load a album
+### 3. Load an album
 
 ```lua
-local result, err = client:Album():load({ id = "example_id" })
+local result, err = client:album():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Forzamusic():load({ id = "test01" })
+local result, err = client:album():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -121,7 +116,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FORZAMUSIC_TEST_LIVE=TRUE
-FORZAMUSIC_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -287,7 +280,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.Album()`
+Create an instance: `const album = client.album`
 
 #### Operations
 
@@ -312,13 +305,13 @@ Create an instance: `const album = client.Album()`
 #### Example: Load
 
 ```ts
-const album = await client.Album().load({ id: 'album_id' })
+const album = await client.album.load({ id: 'album_id' })
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.Lyric()`
+Create an instance: `const lyric = client.lyric`
 
 #### Operations
 
@@ -338,13 +331,13 @@ Create an instance: `const lyric = client.Lyric()`
 #### Example: Load
 
 ```ts
-const lyric = await client.Lyric().load({ id: 'lyric_id' })
+const lyric = await client.lyric.load({ id: 'lyric_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -369,13 +362,13 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.Song()`
+Create an instance: `const song = client.song`
 
 #### Operations
 
@@ -406,7 +399,7 @@ Create an instance: `const song = client.Song()`
 #### Example: Load
 
 ```ts
-const song = await client.Song().load({ id: 'song_id' })
+const song = await client.song.load({ id: 'song_id' })
 ```
 
 
@@ -481,11 +474,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local album = client:album()
+album:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- album:data_get() now returns the loaded album data
+-- album:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

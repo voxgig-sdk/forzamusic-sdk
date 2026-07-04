@@ -49,8 +49,7 @@ class LyricEntityTest extends TestCase
         // LOAD
         $lyric_ref01_ent = $client->Lyric(null);
         $lyric_ref01_match_dt0 = [];
-        [$lyric_ref01_data_dt0_loaded, $err] = $lyric_ref01_ent->load($lyric_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $lyric_ref01_data_dt0_loaded = $lyric_ref01_ent->load($lyric_ref01_match_dt0, null);
         $this->assertNotNull($lyric_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function lyric_basic_setup($extra)
         "FORZAMUSIC_TEST_LYRIC_ENTID" => $idmap,
         "FORZAMUSIC_TEST_LIVE" => "FALSE",
         "FORZAMUSIC_TEST_EXPLAIN" => "FALSE",
-        "FORZAMUSIC_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function lyric_basic_setup($extra)
     if ($env["FORZAMUSIC_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FORZAMUSIC_APIKEY"],
             ],
             $extra ?? [],
         ]);

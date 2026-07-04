@@ -44,8 +44,7 @@ class SongEntityTest < Minitest::Test
     song_ref01_match_dt0 = {
       "id" => song_ref01_data["id"],
     }
-    song_ref01_data_dt0_loaded, err = song_ref01_ent.load(song_ref01_match_dt0, nil)
-    assert_nil err
+    song_ref01_data_dt0_loaded = song_ref01_ent.load(song_ref01_match_dt0, nil)
     song_ref01_data_dt0_load_result = Helpers.to_map(song_ref01_data_dt0_loaded)
     assert !song_ref01_data_dt0_load_result.nil?
     assert_equal song_ref01_data_dt0_load_result["id"], song_ref01_data["id"]
@@ -86,7 +85,6 @@ def song_basic_setup(extra)
     "FORZAMUSIC_TEST_SONG_ENTID" => idmap,
     "FORZAMUSIC_TEST_LIVE" => "FALSE",
     "FORZAMUSIC_TEST_EXPLAIN" => "FALSE",
-    "FORZAMUSIC_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def song_basic_setup(extra)
   if env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORZAMUSIC_APIKEY"],
       },
       extra || {},
     ])

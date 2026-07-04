@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -96,7 +95,7 @@ same parameters as `direct()`.
 ## AlbumEntity
 
 ```lua
-local album = client:Album(nil)
+local album = client:album(nil)
 ```
 
 ### Fields
@@ -120,7 +119,7 @@ local album = client:Album(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Album():load({ id = "album_id" })
+local result, err = client:album():load({ id = "album_id" })
 ```
 
 ### Common Methods
@@ -156,7 +155,7 @@ Return the entity name.
 ## LyricEntity
 
 ```lua
-local lyric = client:Lyric(nil)
+local lyric = client:lyric(nil)
 ```
 
 ### Fields
@@ -175,7 +174,7 @@ local lyric = client:Lyric(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Lyric():load({ id = "lyric_id" })
+local result, err = client:lyric():load({ id = "lyric_id" })
 ```
 
 ### Common Methods
@@ -211,7 +210,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:Search(nil)
+local search = client:search(nil)
 ```
 
 ### Fields
@@ -235,7 +234,7 @@ local search = client:Search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Search():list()
+local results, err = client:search():list()
 ```
 
 ### Common Methods
@@ -271,7 +270,7 @@ Return the entity name.
 ## SongEntity
 
 ```lua
-local song = client:Song(nil)
+local song = client:song(nil)
 ```
 
 ### Fields
@@ -301,7 +300,7 @@ local song = client:Song(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Song():load({ id = "song_id" })
+local result, err = client:song():load({ id = "song_id" })
 ```
 
 ### Common Methods

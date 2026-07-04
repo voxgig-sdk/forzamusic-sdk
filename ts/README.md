@@ -9,9 +9,12 @@ The TypeScript SDK for the Forzamusic API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/forzamusic
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/forzamusic-sdk/releases](https://github.com/voxgig-sdk/forzamusic-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ForzamusicSDK } from 'forzamusic'
+import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
 
-const client = new ForzamusicSDK({
-  apikey: process.env.FORZAMUSIC_APIKEY,
-})
+const client = new ForzamusicSDK()
 ```
 
-### 3. Load a album
+### 3. Load an album
 
 ```ts
-const result = await client.Album().load({ id: 'example_id' })
+const result = await client.album.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ForzamusicSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.album.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ForzamusicSDK({ apikey: '...' })
+const client = new ForzamusicSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.album
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new ForzamusicSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -134,7 +134,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FORZAMUSIC_TEST_LIVE=TRUE
-FORZAMUSIC_APIKEY=<your-key>
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new ForzamusicSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new ForzamusicSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -332,7 +329,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.Album()`
+Create an instance: `const album = client.album`
 
 #### Operations
 
@@ -357,13 +354,13 @@ Create an instance: `const album = client.Album()`
 #### Example: Load
 
 ```ts
-const album = await client.Album().load({ id: 'album_id' })
+const album = await client.album.load({ id: 'album_id' })
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.Lyric()`
+Create an instance: `const lyric = client.lyric`
 
 #### Operations
 
@@ -383,13 +380,13 @@ Create an instance: `const lyric = client.Lyric()`
 #### Example: Load
 
 ```ts
-const lyric = await client.Lyric().load({ id: 'lyric_id' })
+const lyric = await client.lyric.load({ id: 'lyric_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -414,13 +411,13 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.Song()`
+Create an instance: `const song = client.song`
 
 #### Operations
 
@@ -451,7 +448,7 @@ Create an instance: `const song = client.Song()`
 #### Example: Load
 
 ```ts
-const song = await client.Song().load({ id: 'song_id' })
+const song = await client.song.load({ id: 'song_id' })
 ```
 
 
@@ -512,7 +509,7 @@ forzamusic/
 Import the SDK from the package root:
 
 ```ts
-import { ForzamusicSDK } from 'forzamusic'
+import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
 ```
 
 ### Entity state
@@ -522,11 +519,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const album = client.album
+await album.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// album.data() now returns the loaded album data
+// album.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

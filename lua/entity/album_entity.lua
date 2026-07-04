@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch AlbumLoadMatch
+---@param ctrl? table
+---@return Album
+---@return string? err
 function AlbumEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

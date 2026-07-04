@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://forzamusic-api-official.vercel.app",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -111,6 +108,7 @@ func MakeConfig() map[string]any {
 											"orig": "album_id",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 								},
@@ -193,6 +191,7 @@ func MakeConfig() map[string]any {
 											"orig": "song_id",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 								},
@@ -484,6 +483,7 @@ func MakeConfig() map[string]any {
 											"orig": "song_id",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 									},
 								},

@@ -245,21 +245,33 @@ func (sdk *ForzamusicSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Album returns a Album entity bound to this client.
+// Idiomatic usage: client.Album(nil).List(nil, nil) or
+// client.Album(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ForzamusicSDK) Album(data map[string]any) ForzamusicEntity {
 	return NewAlbumEntityFunc(sdk, data)
 }
 
 
+// Lyric returns a Lyric entity bound to this client.
+// Idiomatic usage: client.Lyric(nil).List(nil, nil) or
+// client.Lyric(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ForzamusicSDK) Lyric(data map[string]any) ForzamusicEntity {
 	return NewLyricEntityFunc(sdk, data)
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ForzamusicSDK) Search(data map[string]any) ForzamusicEntity {
 	return NewSearchEntityFunc(sdk, data)
 }
 
 
+// Song returns a Song entity bound to this client.
+// Idiomatic usage: client.Song(nil).List(nil, nil) or
+// client.Song(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ForzamusicSDK) Song(data map[string]any) ForzamusicEntity {
 	return NewSongEntityFunc(sdk, data)
 }

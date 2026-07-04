@@ -51,8 +51,7 @@ class TestAlbumEntity:
         album_ref01_match_dt0 = {
             "id": album_ref01_data["id"],
         }
-        album_ref01_data_dt0_loaded, err = album_ref01_ent.load(album_ref01_match_dt0, None)
-        assert err is None
+        album_ref01_data_dt0_loaded = album_ref01_ent.load(album_ref01_match_dt0, None)
         album_ref01_data_dt0_load_result = helpers.to_map(album_ref01_data_dt0_loaded)
         assert album_ref01_data_dt0_load_result is not None
         assert album_ref01_data_dt0_load_result["id"] == album_ref01_data["id"]
@@ -95,7 +94,6 @@ def _album_basic_setup(extra):
         "FORZAMUSIC_TEST_ALBUM_ENTID": idmap,
         "FORZAMUSIC_TEST_LIVE": "FALSE",
         "FORZAMUSIC_TEST_EXPLAIN": "FALSE",
-        "FORZAMUSIC_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _album_basic_setup(extra):
     if env.get("FORZAMUSIC_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FORZAMUSIC_APIKEY"),
             },
             extra or {},
         ])

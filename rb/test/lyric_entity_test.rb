@@ -42,8 +42,7 @@ class LyricEntityTest < Minitest::Test
     # LOAD
     lyric_ref01_ent = client.Lyric(nil)
     lyric_ref01_match_dt0 = {}
-    lyric_ref01_data_dt0_loaded, err = lyric_ref01_ent.load(lyric_ref01_match_dt0, nil)
-    assert_nil err
+    lyric_ref01_data_dt0_loaded = lyric_ref01_ent.load(lyric_ref01_match_dt0, nil)
     assert !lyric_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def lyric_basic_setup(extra)
     "FORZAMUSIC_TEST_LYRIC_ENTID" => idmap,
     "FORZAMUSIC_TEST_LIVE" => "FALSE",
     "FORZAMUSIC_TEST_EXPLAIN" => "FALSE",
-    "FORZAMUSIC_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def lyric_basic_setup(extra)
   if env["FORZAMUSIC_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FORZAMUSIC_APIKEY"],
       },
       extra || {},
     ])

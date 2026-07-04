@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://forzamusic-api-official.vercel.app',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -147,7 +143,8 @@ class Config {
                     "name": "id",
                     "orig": "album_id",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -229,7 +226,8 @@ class Config {
                     "name": "id",
                     "orig": "song_id",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },
@@ -520,7 +518,8 @@ class Config {
                     "name": "id",
                     "orig": "song_id",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

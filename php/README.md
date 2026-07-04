@@ -9,9 +9,10 @@ The PHP SDK for the Forzamusic API — an entity-oriented client using PHP conve
 
 
 ## Install
-```bash
-composer require voxgig-sdk/forzamusic
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/forzamusic-sdk/releases](https://github.com/voxgig-sdk/forzamusic-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,17 +26,18 @@ loading a specific record.
 <?php
 require_once 'forzamusic_sdk.php';
 
-$client = new ForzamusicSDK([
-    "apikey" => getenv("FORZAMUSIC_APIKEY"),
-]);
+$client = new ForzamusicSDK();
 ```
 
-### 3. Load a album
+### 3. Load an album
 
 ```php
-[$result, $err] = $client->Album()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->album()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -46,28 +48,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -81,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ForzamusicSDK::test();
 
-[$result, $err] = $client->Forzamusic()->load(["id" => "test01"]);
+$result = $client->album()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -116,7 +121,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FORZAMUSIC_TEST_LIVE=TRUE
-FORZAMUSIC_APIKEY=<your-key>
 ```
 
 Then run:
@@ -139,7 +143,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -188,8 +191,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -282,7 +289,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.Album()`
+Create an instance: `const album = client.album`
 
 #### Operations
 
@@ -307,13 +314,13 @@ Create an instance: `const album = client.Album()`
 #### Example: Load
 
 ```ts
-const album = await client.Album().load({ id: 'album_id' })
+const album = await client.album.load({ id: 'album_id' })
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.Lyric()`
+Create an instance: `const lyric = client.lyric`
 
 #### Operations
 
@@ -333,13 +340,13 @@ Create an instance: `const lyric = client.Lyric()`
 #### Example: Load
 
 ```ts
-const lyric = await client.Lyric().load({ id: 'lyric_id' })
+const lyric = await client.lyric.load({ id: 'lyric_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -364,13 +371,13 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.Song()`
+Create an instance: `const song = client.song`
 
 #### Operations
 
@@ -401,7 +408,7 @@ Create an instance: `const song = client.Song()`
 #### Example: Load
 
 ```ts
-const song = await client.Song().load({ id: 'song_id' })
+const song = await client.song.load({ id: 'song_id' })
 ```
 
 
@@ -476,11 +483,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$album = $client->album();
+$album->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $album->dataGet() now returns the loaded album data
+// $album->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration
