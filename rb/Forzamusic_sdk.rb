@@ -208,52 +208,28 @@ class ForzamusicSDK
   end
 
 
-  # Idiomatic facade: client.album.list / client.album.load({ "id" => ... })
-  def album
-    require_relative 'entity/album_entity'
-    @album ||= AlbumEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.album instead.
+  # Canonical facade: client.Album.list / client.Album.load({ "id" => ... })
   def Album(data = nil)
     require_relative 'entity/album_entity'
     AlbumEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.lyric.list / client.lyric.load({ "id" => ... })
-  def lyric
-    require_relative 'entity/lyric_entity'
-    @lyric ||= LyricEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.lyric instead.
+  # Canonical facade: client.Lyric.list / client.Lyric.load({ "id" => ... })
   def Lyric(data = nil)
     require_relative 'entity/lyric_entity'
     LyricEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.search.list / client.search.load({ "id" => ... })
-  def search
-    require_relative 'entity/search_entity'
-    @search ||= SearchEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.search instead.
+  # Canonical facade: client.Search.list / client.Search.load({ "id" => ... })
   def Search(data = nil)
     require_relative 'entity/search_entity'
     SearchEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.song.list / client.song.load({ "id" => ... })
-  def song
-    require_relative 'entity/song_entity'
-    @song ||= SongEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.song instead.
+  # Canonical facade: client.Song.list / client.Song.load({ "id" => ... })
   def Song(data = nil)
     require_relative 'entity/song_entity'
     SongEntity.new(self, data)

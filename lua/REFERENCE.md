@@ -95,7 +95,7 @@ same parameters as `direct()`.
 ## AlbumEntity
 
 ```lua
-local album = client:album(nil)
+local album = client:Album(nil)
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ local album = client:album(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:album():load({ id = "album_id" })
+local result, err = client:Album():load({ id = "album_id" })
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## LyricEntity
 
 ```lua
-local lyric = client:lyric(nil)
+local lyric = client:Lyric(nil)
 ```
 
 ### Fields
@@ -174,7 +174,7 @@ local lyric = client:lyric(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:lyric():load({ id = "lyric_id" })
+local result, err = client:Lyric():load({ id = "lyric_id" })
 ```
 
 ### Common Methods
@@ -210,7 +210,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:search(nil)
+local search = client:Search(nil)
 ```
 
 ### Fields
@@ -234,7 +234,7 @@ local search = client:search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:search():list()
+local results, err = client:Search():list()
 ```
 
 ### Common Methods
@@ -270,7 +270,7 @@ Return the entity name.
 ## SongEntity
 
 ```lua
-local song = client:song(nil)
+local song = client:Song(nil)
 ```
 
 ### Fields
@@ -300,7 +300,7 @@ local song = client:song(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:song():load({ id = "song_id" })
+local result, err = client:Song():load({ id = "song_id" })
 ```
 
 ### Common Methods

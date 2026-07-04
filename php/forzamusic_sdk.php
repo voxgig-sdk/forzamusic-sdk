@@ -233,10 +233,10 @@ class ForzamusicSDK
 
     private $_album = null;
 
-    // Idiomatic facade: $client->album()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Album() (PHP method
-    // names are case-insensitive).
-    public function album($data = null)
+    // Canonical facade: $client->Album()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->album()
+    // resolves here too.
+    public function Album($data = null)
     {
         require_once __DIR__ . '/entity/album_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ForzamusicSDK
 
     private $_lyric = null;
 
-    // Idiomatic facade: $client->lyric()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Lyric() (PHP method
-    // names are case-insensitive).
-    public function lyric($data = null)
+    // Canonical facade: $client->Lyric()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->lyric()
+    // resolves here too.
+    public function Lyric($data = null)
     {
         require_once __DIR__ . '/entity/lyric_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class ForzamusicSDK
 
     private $_search = null;
 
-    // Idiomatic facade: $client->search()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Search() (PHP method
-    // names are case-insensitive).
-    public function search($data = null)
+    // Canonical facade: $client->Search()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->search()
+    // resolves here too.
+    public function Search($data = null)
     {
         require_once __DIR__ . '/entity/search_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class ForzamusicSDK
 
     private $_song = null;
 
-    // Idiomatic facade: $client->song()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Song() (PHP method
-    // names are case-insensitive).
-    public function song($data = null)
+    // Canonical facade: $client->Song()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->song()
+    // resolves here too.
+    public function Song($data = null)
     {
         require_once __DIR__ . '/entity/song_entity.php';
         if ($data === null) {

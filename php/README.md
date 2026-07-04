@@ -33,9 +33,10 @@ $client = new ForzamusicSDK();
 
 ```php
 try {
-    $result = $client->album()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Album record (throws on error).
+    $album = $client->Album()->load(["id" => "example_id"]);
+    print_r($album);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ForzamusicSDK::test();
+$client = ForzamusicSDK::test([
+    "entity" => ["album" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->album()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$album = $client->Album()->load(["id" => "test01"]);
+print_r($album);
 ```
 
 ### Use a custom fetch function
@@ -166,7 +171,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Album` | `($data): AlbumEntity` | Create a Album entity instance. |
+| `Album` | `($data): AlbumEntity` | Create an Album entity instance. |
 | `Lyric` | `($data): LyricEntity` | Create a Lyric entity instance. |
 | `Search` | `($data): SearchEntity` | Create a Search entity instance. |
 | `Song` | `($data): SongEntity` | Create a Song entity instance. |
@@ -289,7 +294,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.album`
+Create an instance: `$album = $client->Album();`
 
 #### Operations
 
@@ -313,14 +318,15 @@ Create an instance: `const album = client.album`
 
 #### Example: Load
 
-```ts
-const album = await client.album.load({ id: 'album_id' })
+```php
+// load() returns the bare Album record (throws on error).
+$album = $client->Album()->load(["id" => "album_id"]);
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.lyric`
+Create an instance: `$lyric = $client->Lyric();`
 
 #### Operations
 
@@ -339,14 +345,15 @@ Create an instance: `const lyric = client.lyric`
 
 #### Example: Load
 
-```ts
-const lyric = await client.lyric.load({ id: 'lyric_id' })
+```php
+// load() returns the bare Lyric record (throws on error).
+$lyric = $client->Lyric()->load(["id" => "lyric_id"]);
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `$search = $client->Search();`
 
 #### Operations
 
@@ -370,14 +377,15 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```php
+// list() returns an array of Search records (throws on error).
+$searchs = $client->Search()->list();
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.song`
+Create an instance: `$song = $client->Song();`
 
 #### Operations
 
@@ -407,8 +415,9 @@ Create an instance: `const song = client.song`
 
 #### Example: Load
 
-```ts
-const song = await client.song.load({ id: 'song_id' })
+```php
+// load() returns the bare Song record (throws on error).
+$song = $client->Song()->load(["id" => "song_id"]);
 ```
 
 
@@ -483,7 +492,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$album = $client->album();
+$album = $client->Album();
 $album->load(["id" => "example_id"]);
 
 // $album->dataGet() now returns the loaded album data

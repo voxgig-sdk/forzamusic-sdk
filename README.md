@@ -26,9 +26,9 @@ import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
 
 const client = new ForzamusicSDK()
 
-// Load album data
-const album = await client.album.load({})
-console.log(album.data)
+// Load album data (returns a Album)
+const album = await client.Album().load()
+console.log(album)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -87,8 +87,8 @@ from forzamusic_sdk import ForzamusicSDK
 client = ForzamusicSDK()
 
 
-# Load a specific album
-album = client.album.load({"id": "example_id"})
+# Load a specific album (returns the record, raises on error)
+album = client.Album().load({"id": "example_id"})
 print(album)
 ```
 
@@ -101,8 +101,8 @@ require_once 'forzamusic_sdk.php';
 $client = new ForzamusicSDK();
 
 
-// Load a specific album
-$album = $client->album()->load(["id" => "example_id"]);
+// Load a specific album (returns the bare record; throws on error)
+$album = $client->Album()->load(["id" => "example_id"]);
 print_r($album);
 ```
 
@@ -126,8 +126,8 @@ require_relative "Forzamusic_sdk"
 client = ForzamusicSDK.new
 
 
-# Load a specific album
-album = client.album.load({ "id" => "example_id" })
+# Load a specific album (returns the bare record; raises on error)
+album = client.Album.load({ "id" => "example_id" })
 puts album
 ```
 
@@ -140,7 +140,7 @@ local client = sdk.new()
 
 
 -- Load a specific album
-local album, err = client:album():load({ id = "example_id" })
+local album, err = client:Album():load({ id = "example_id" })
 print(album)
 ```
 
@@ -153,22 +153,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ForzamusicSDK.test()
-const result = await client.album.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const album = await client.Album().load({ id: 'test01' })
+// album is a bare Album populated with mock data
+console.log(album)
 ```
 
 ### Python
 
 ```python
 client = ForzamusicSDK.test()
-result = client.album.load({"id": "test01"})
+album = client.Album().load({"id": "test01"})
+print(album)
 ```
 
 ### PHP
 
 ```php
-$client = ForzamusicSDK::test();
-$result = $client->album()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ForzamusicSDK::test([
+    "entity" => ["album" => ["test01" => ["id" => "test01"]]],
+]);
+$album = $client->Album()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -183,15 +188,18 @@ result, err := client.Album(nil).Load(
 ### Ruby
 
 ```ruby
-client = ForzamusicSDK.test
-result = client.album.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ForzamusicSDK.test({
+  "entity" => { "album" => { "test01" => { "id" => "test01" } } },
+})
+album = client.Album.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:album():load({ id = "test01" })
+local result, err = client:Album():load({ id = "test01" })
 ```
 
 ## How it works
@@ -239,6 +247,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -33,10 +33,12 @@ client = ForzamusicSDK()
 
 ### 3. Load an album
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.album.load({"id": "example_id"})
-    print(result)
+    album = client.Album().load({"id": "example_id"})
+    print(album)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ForzamusicSDK.test()
 
-result = client.album.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+album = client.Album().load({"id": "test01"})
+# album contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Album` | `(data) -> AlbumEntity` | Create a Album entity instance. |
+| `Album` | `(data) -> AlbumEntity` | Create an Album entity instance. |
 | `Lyric` | `(data) -> LyricEntity` | Create a Lyric entity instance. |
 | `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 | `Song` | `(data) -> SongEntity` | Create a Song entity instance. |
@@ -284,7 +287,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.album`
+Create an instance: `album = client.Album()`
 
 #### Operations
 
@@ -308,14 +311,14 @@ Create an instance: `const album = client.album`
 
 #### Example: Load
 
-```ts
-const album = await client.album.load({ id: 'album_id' })
+```python
+album = client.Album().load({"id": "album_id"})
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.lyric`
+Create an instance: `lyric = client.Lyric()`
 
 #### Operations
 
@@ -334,14 +337,14 @@ Create an instance: `const lyric = client.lyric`
 
 #### Example: Load
 
-```ts
-const lyric = await client.lyric.load({ id: 'lyric_id' })
+```python
+lyric = client.Lyric().load({"id": "lyric_id"})
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -365,14 +368,14 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```python
+searchs = client.Search().list({})
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.song`
+Create an instance: `song = client.Song()`
 
 #### Operations
 
@@ -402,8 +405,8 @@ Create an instance: `const song = client.song`
 
 #### Example: Load
 
-```ts
-const song = await client.song.load({ id: 'song_id' })
+```python
+song = client.Song().load({"id": "song_id"})
 ```
 
 
@@ -477,7 +480,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-album = client.album
+album = client.Album()
 album.load({"id": "example_id"})
 
 # album.data_get() now returns the loaded album data

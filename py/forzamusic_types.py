@@ -4,90 +4,86 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Album:
-    artist: Optional[str] = None
-    cover_art: Optional[str] = None
-    genre: Optional[str] = None
-    id: Optional[str] = None
-    label: Optional[str] = None
-    release_date: Optional[str] = None
-    title: Optional[str] = None
-    total_track: Optional[int] = None
-    track: Optional[list] = None
+class Album(TypedDict, total=False):
+    artist: str
+    cover_art: str
+    genre: str
+    id: str
+    label: str
+    release_date: str
+    title: str
+    total_track: int
+    track: list
 
 
-@dataclass
-class AlbumLoadMatch:
+class AlbumLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Lyric:
-    language: Optional[str] = None
-    lyric: Optional[str] = None
-    song_id: Optional[str] = None
-    success: Optional[bool] = None
+class Lyric(TypedDict, total=False):
+    language: str
+    lyric: str
+    song_id: str
+    success: bool
 
 
-@dataclass
-class LyricLoadMatch:
+class LyricLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Search:
-    album: Optional[str] = None
-    album_id: Optional[str] = None
-    artist: Optional[str] = None
-    cover_art: Optional[str] = None
-    duration: Optional[int] = None
-    genre: Optional[str] = None
-    id: Optional[str] = None
-    release_date: Optional[str] = None
-    title: Optional[str] = None
-
-
-@dataclass
-class SearchListMatch:
-    album: Optional[str] = None
-    album_id: Optional[str] = None
-    artist: Optional[str] = None
-    cover_art: Optional[str] = None
-    duration: Optional[int] = None
-    genre: Optional[str] = None
-    id: Optional[str] = None
-    release_date: Optional[str] = None
-    title: Optional[str] = None
-
-
-@dataclass
-class Song:
-    album: Optional[str] = None
-    album_id: Optional[str] = None
-    artist: Optional[str] = None
-    cover_art: Optional[str] = None
-    duration: Optional[int] = None
-    explicit: Optional[bool] = None
-    genre: Optional[str] = None
-    id: Optional[str] = None
-    isrc: Optional[str] = None
-    label: Optional[str] = None
-    lyric: Optional[str] = None
-    popularity: Optional[int] = None
-    release_date: Optional[str] = None
-    title: Optional[str] = None
-    track_number: Optional[int] = None
-
-
-@dataclass
-class SongLoadMatch:
+class Search(TypedDict, total=False):
+    album: str
+    album_id: str
+    artist: str
+    cover_art: str
+    duration: int
+    genre: str
     id: str
+    release_date: str
+    title: str
 
+
+class SearchListMatch(TypedDict, total=False):
+    album: str
+    album_id: str
+    artist: str
+    cover_art: str
+    duration: int
+    genre: str
+    id: str
+    release_date: str
+    title: str
+
+
+class Song(TypedDict, total=False):
+    album: str
+    album_id: str
+    artist: str
+    cover_art: str
+    duration: int
+    explicit: bool
+    genre: str
+    id: str
+    isrc: str
+    label: str
+    lyric: str
+    popularity: int
+    release_date: str
+    title: str
+    track_number: int
+
+
+class SongLoadMatch(TypedDict):
+    id: str

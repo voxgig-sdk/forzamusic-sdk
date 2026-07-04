@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:album():list() / client:album():load({ id = ... })
-function ForzamusicSDK:album(data)
+-- Idiomatic facade: client:Album():list() / client:Album():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ForzamusicSDK:Album(data)
   local EntityMod = require("entity.album_entity")
   if data == nil then
     if self._album == nil then
@@ -256,15 +257,10 @@ function ForzamusicSDK:album(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:album() instead.
-function ForzamusicSDK:Album(data)
-  local EntityMod = require("entity.album_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:lyric():list() / client:lyric():load({ id = ... })
-function ForzamusicSDK:lyric(data)
+-- Idiomatic facade: client:Lyric():list() / client:Lyric():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ForzamusicSDK:Lyric(data)
   local EntityMod = require("entity.lyric_entity")
   if data == nil then
     if self._lyric == nil then
@@ -275,15 +271,10 @@ function ForzamusicSDK:lyric(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:lyric() instead.
-function ForzamusicSDK:Lyric(data)
-  local EntityMod = require("entity.lyric_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
-function ForzamusicSDK:search(data)
+-- Idiomatic facade: client:Search():list() / client:Search():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ForzamusicSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   if data == nil then
     if self._search == nil then
@@ -294,15 +285,10 @@ function ForzamusicSDK:search(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:search() instead.
-function ForzamusicSDK:Search(data)
-  local EntityMod = require("entity.search_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:song():list() / client:song():load({ id = ... })
-function ForzamusicSDK:song(data)
+-- Idiomatic facade: client:Song():list() / client:Song():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ForzamusicSDK:Song(data)
   local EntityMod = require("entity.song_entity")
   if data == nil then
     if self._song == nil then
@@ -310,12 +296,6 @@ function ForzamusicSDK:song(data)
     end
     return self._song
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:song() instead.
-function ForzamusicSDK:Song(data)
-  local EntityMod = require("entity.song_entity")
   return EntityMod.new(self, data)
 end
 

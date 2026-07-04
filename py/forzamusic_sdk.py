@@ -220,73 +220,33 @@ class ForzamusicSDK:
         }
 
 
-    @property
-    def album(self):
-        """Idiomatic facade: client.album.list() / client.album.load({"id": ...})."""
-        from entity.album_entity import AlbumEntity
-        cached = getattr(self, "_album", None)
-        if cached is None:
-            cached = AlbumEntity(self, None)
-            self._album = cached
-        return cached
-
-    def Album(self, data=None):
-        # Deprecated: use client.album instead.
+    def Album(self, data=None) -> "AlbumEntity":
+        """Entity factory: client.Album().list({}) / client.Album().load({"id": ...})."""
         from entity.album_entity import AlbumEntity
         return AlbumEntity(self, data)
 
 
-    @property
-    def lyric(self):
-        """Idiomatic facade: client.lyric.list() / client.lyric.load({"id": ...})."""
-        from entity.lyric_entity import LyricEntity
-        cached = getattr(self, "_lyric", None)
-        if cached is None:
-            cached = LyricEntity(self, None)
-            self._lyric = cached
-        return cached
-
-    def Lyric(self, data=None):
-        # Deprecated: use client.lyric instead.
+    def Lyric(self, data=None) -> "LyricEntity":
+        """Entity factory: client.Lyric().list({}) / client.Lyric().load({"id": ...})."""
         from entity.lyric_entity import LyricEntity
         return LyricEntity(self, data)
 
 
-    @property
-    def search(self):
-        """Idiomatic facade: client.search.list() / client.search.load({"id": ...})."""
-        from entity.search_entity import SearchEntity
-        cached = getattr(self, "_search", None)
-        if cached is None:
-            cached = SearchEntity(self, None)
-            self._search = cached
-        return cached
-
-    def Search(self, data=None):
-        # Deprecated: use client.search instead.
+    def Search(self, data=None) -> "SearchEntity":
+        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
-    @property
-    def song(self):
-        """Idiomatic facade: client.song.list() / client.song.load({"id": ...})."""
-        from entity.song_entity import SongEntity
-        cached = getattr(self, "_song", None)
-        if cached is None:
-            cached = SongEntity(self, None)
-            self._song = cached
-        return cached
-
-    def Song(self, data=None):
-        # Deprecated: use client.song instead.
+    def Song(self, data=None) -> "SongEntity":
+        """Entity factory: client.Song().list({}) / client.Song().load({"id": ...})."""
         from entity.song_entity import SongEntity
         return SongEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ForzamusicSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -306,3 +266,12 @@ class ForzamusicSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.album_entity import AlbumEntity
+    from entity.lyric_entity import LyricEntity
+    from entity.search_entity import SearchEntity
+    from entity.song_entity import SongEntity

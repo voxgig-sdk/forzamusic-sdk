@@ -97,7 +97,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AlbumEntity
 
 ```php
-$album = $client->album();
+$album = $client->Album();
 ```
 
 ### Fields
@@ -121,7 +121,7 @@ $album = $client->album();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->album()->load(["id" => "album_id"]);
+$result = $client->Album()->load(["id" => "album_id"]);
 ```
 
 ### Common Methods
@@ -157,7 +157,7 @@ Return the entity name.
 ## LyricEntity
 
 ```php
-$lyric = $client->lyric();
+$lyric = $client->Lyric();
 ```
 
 ### Fields
@@ -176,7 +176,7 @@ $lyric = $client->lyric();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->lyric()->load(["id" => "lyric_id"]);
+$result = $client->Lyric()->load(["id" => "lyric_id"]);
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ Return the entity name.
 ## SearchEntity
 
 ```php
-$search = $client->search();
+$search = $client->Search();
 ```
 
 ### Fields
@@ -236,7 +236,7 @@ $search = $client->search();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->search()->list([]);
+$results = $client->Search()->list([]);
 ```
 
 ### Common Methods
@@ -272,7 +272,7 @@ Return the entity name.
 ## SongEntity
 
 ```php
-$song = $client->song();
+$song = $client->Song();
 ```
 
 ### Fields
@@ -302,7 +302,7 @@ $song = $client->song();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->song()->load(["id" => "song_id"]);
+$result = $client->Song()->load(["id" => "song_id"]);
 ```
 
 ### Common Methods

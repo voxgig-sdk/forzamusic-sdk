@@ -32,8 +32,9 @@ client = ForzamusicSDK.new
 
 ```ruby
 begin
-  result = client.album.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Album record (raises on error).
+  album = client.Album.load({ "id" => "example_id" })
+  puts album
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ForzamusicSDK.test
+client = ForzamusicSDK.test({
+  "entity" => { "album" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.album.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+album = client.Album.load({ "id" => "test01" })
+puts album
 ```
 
 ### Use a custom fetch function
@@ -162,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Album` | `(data) -> AlbumEntity` | Create a Album entity instance. |
+| `Album` | `(data) -> AlbumEntity` | Create an Album entity instance. |
 | `Lyric` | `(data) -> LyricEntity` | Create a Lyric entity instance. |
 | `Search` | `(data) -> SearchEntity` | Create a Search entity instance. |
 | `Song` | `(data) -> SongEntity` | Create a Song entity instance. |
@@ -284,7 +289,7 @@ API path: `/api/song/{songId}`
 
 ### Album
 
-Create an instance: `const album = client.album`
+Create an instance: `album = client.Album`
 
 #### Operations
 
@@ -308,14 +313,15 @@ Create an instance: `const album = client.album`
 
 #### Example: Load
 
-```ts
-const album = await client.album.load({ id: 'album_id' })
+```ruby
+# load returns the bare Album record (raises on error).
+album = client.Album.load({ "id" => "album_id" })
 ```
 
 
 ### Lyric
 
-Create an instance: `const lyric = client.lyric`
+Create an instance: `lyric = client.Lyric`
 
 #### Operations
 
@@ -334,14 +340,15 @@ Create an instance: `const lyric = client.lyric`
 
 #### Example: Load
 
-```ts
-const lyric = await client.lyric.load({ id: 'lyric_id' })
+```ruby
+# load returns the bare Lyric record (raises on error).
+lyric = client.Lyric.load({ "id" => "lyric_id" })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -365,14 +372,15 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```ruby
+# list returns an Array of Search records (raises on error).
+searchs = client.Search.list
 ```
 
 
 ### Song
 
-Create an instance: `const song = client.song`
+Create an instance: `song = client.Song`
 
 #### Operations
 
@@ -402,8 +410,9 @@ Create an instance: `const song = client.song`
 
 #### Example: Load
 
-```ts
-const song = await client.song.load({ id: 'song_id' })
+```ruby
+# load returns the bare Song record (raises on error).
+song = client.Song.load({ "id" => "song_id" })
 ```
 
 
@@ -478,7 +487,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-album = client.album
+album = client.Album
 album.load({ "id" => "example_id" })
 
 # album.data_get now returns the loaded album data

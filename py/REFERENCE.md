@@ -92,7 +92,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AlbumEntity
 
 ```python
-album = client.album
+album = client.Album()
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ album = client.album
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.album.load({"id": "album_id"})
+result = client.Album().load({"id": "album_id"})
 ```
 
 ### Common Methods
@@ -151,7 +151,7 @@ Return the entity name.
 ## LyricEntity
 
 ```python
-lyric = client.lyric
+lyric = client.Lyric()
 ```
 
 ### Fields
@@ -170,7 +170,7 @@ lyric = client.lyric
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.lyric.load({"id": "lyric_id"})
+result = client.Lyric().load({"id": "lyric_id"})
 ```
 
 ### Common Methods
@@ -205,7 +205,7 @@ Return the entity name.
 ## SearchEntity
 
 ```python
-search = client.search
+search = client.Search()
 ```
 
 ### Fields
@@ -229,7 +229,9 @@ search = client.search
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.search.list({})
+results = client.Search().list({})
+for search in results:
+    print(search)
 ```
 
 ### Common Methods
@@ -264,7 +266,7 @@ Return the entity name.
 ## SongEntity
 
 ```python
-song = client.song
+song = client.Song()
 ```
 
 ### Fields
@@ -294,7 +296,7 @@ song = client.song
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.song.load({"id": "song_id"})
+result = client.Song().load({"id": "song_id"})
 ```
 
 ### Common Methods

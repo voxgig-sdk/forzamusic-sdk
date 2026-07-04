@@ -98,7 +98,7 @@ same parameters as `direct()`. Raises on error.
 ## AlbumEntity
 
 ```ruby
-album = client.album
+album = client.Album
 ```
 
 ### Fields
@@ -122,7 +122,7 @@ album = client.album
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.album.load({ "id" => "album_id" })
+result = client.Album.load({ "id" => "album_id" })
 ```
 
 ### Common Methods
@@ -158,7 +158,7 @@ Return the entity name.
 ## LyricEntity
 
 ```ruby
-lyric = client.lyric
+lyric = client.Lyric
 ```
 
 ### Fields
@@ -177,7 +177,7 @@ lyric = client.lyric
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.lyric.load({ "id" => "lyric_id" })
+result = client.Lyric.load({ "id" => "lyric_id" })
 ```
 
 ### Common Methods
@@ -213,7 +213,7 @@ Return the entity name.
 ## SearchEntity
 
 ```ruby
-search = client.search
+search = client.Search
 ```
 
 ### Fields
@@ -237,7 +237,7 @@ search = client.search
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.search.list(nil)
+results = client.Search.list(nil)
 ```
 
 ### Common Methods
@@ -273,7 +273,7 @@ Return the entity name.
 ## SongEntity
 
 ```ruby
-song = client.song
+song = client.Song
 ```
 
 ### Fields
@@ -303,7 +303,7 @@ song = client.song
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.song.load({ "id" => "song_id" })
+result = client.Song.load({ "id" => "song_id" })
 ```
 
 ### Common Methods
