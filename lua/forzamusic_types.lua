@@ -41,6 +41,15 @@
 ---@field title? string
 
 ---@class SearchListMatch
+---@field album? string
+---@field album_id? string
+---@field artist? string
+---@field cover_art? string
+---@field duration? number
+---@field genre? string
+---@field id? string
+---@field release_date? string
+---@field title? string
 
 ---@class Song
 ---@field album? string

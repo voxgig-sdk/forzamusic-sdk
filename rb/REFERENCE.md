@@ -8,7 +8,7 @@ Complete API reference for the Forzamusic Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'forzamusic_sdk'
+require_relative 'Forzamusic_sdk'
 
 client = ForzamusicSDK.new(options)
 ```
@@ -105,15 +105,15 @@ album = client.Album
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `total_track` | ``$INTEGER`` | No |  |
-| `track` | ``$ARRAY`` | No |  |
+| `artist` | `String` | No |  |
+| `cover_art` | `String` | No |  |
+| `genre` | `String` | No |  |
+| `id` | `String` | No |  |
+| `label` | `String` | No |  |
+| `release_date` | `String` | No |  |
+| `title` | `String` | No |  |
+| `total_track` | `Integer` | No |  |
+| `track` | `Array` | No |  |
 
 ### Operations
 
@@ -165,10 +165,10 @@ lyric = client.Lyric
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `song_id` | ``$STRING`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `language` | `String` | No |  |
+| `lyric` | `String` | No |  |
+| `song_id` | `String` | No |  |
+| `success` | `Boolean` | No |  |
 
 ### Operations
 
@@ -220,24 +220,24 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `album` | `String` | No |  |
+| `album_id` | `String` | No |  |
+| `artist` | `String` | No |  |
+| `cover_art` | `String` | No |  |
+| `duration` | `Integer` | No |  |
+| `genre` | `String` | No |  |
+| `id` | `String` | No |  |
+| `release_date` | `String` | No |  |
+| `title` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods
@@ -280,21 +280,21 @@ song = client.Song
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `explicit` | ``$BOOLEAN`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `isrc` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `popularity` | ``$INTEGER`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `track_number` | ``$INTEGER`` | No |  |
+| `album` | `String` | No |  |
+| `album_id` | `String` | No |  |
+| `artist` | `String` | No |  |
+| `cover_art` | `String` | No |  |
+| `duration` | `Integer` | No |  |
+| `explicit` | `Boolean` | No |  |
+| `genre` | `String` | No |  |
+| `id` | `String` | No |  |
+| `isrc` | `String` | No |  |
+| `label` | `String` | No |  |
+| `lyric` | `String` | No |  |
+| `popularity` | `Integer` | No |  |
+| `release_date` | `String` | No |  |
+| `title` | `String` | No |  |
+| `track_number` | `Integer` | No |  |
 
 ### Operations
 

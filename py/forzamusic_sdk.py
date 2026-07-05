@@ -221,25 +221,25 @@ class ForzamusicSDK:
 
 
     def Album(self, data=None) -> "AlbumEntity":
-        """Entity factory: client.Album().list({}) / client.Album().load({"id": ...})."""
+        """Entity factory: client.Album().list() / client.Album().load({"id": ...})."""
         from entity.album_entity import AlbumEntity
         return AlbumEntity(self, data)
 
 
     def Lyric(self, data=None) -> "LyricEntity":
-        """Entity factory: client.Lyric().list({}) / client.Lyric().load({"id": ...})."""
+        """Entity factory: client.Lyric().list() / client.Lyric().load({"id": ...})."""
         from entity.lyric_entity import LyricEntity
         return LyricEntity(self, data)
 
 
     def Search(self, data=None) -> "SearchEntity":
-        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
+        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 
 
     def Song(self, data=None) -> "SongEntity":
-        """Entity factory: client.Song().list({}) / client.Song().load({"id": ...})."""
+        """Entity factory: client.Song().list() / client.Song().load({"id": ...})."""
         from entity.song_entity import SongEntity
         return SongEntity(self, data)
 

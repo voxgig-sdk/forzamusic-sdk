@@ -99,15 +99,15 @@ album = client.Album()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `total_track` | ``$INTEGER`` | No |  |
-| `track` | ``$ARRAY`` | No |  |
+| `artist` | `str` | No |  |
+| `cover_art` | `str` | No |  |
+| `genre` | `str` | No |  |
+| `id` | `str` | No |  |
+| `label` | `str` | No |  |
+| `release_date` | `str` | No |  |
+| `title` | `str` | No |  |
+| `total_track` | `int` | No |  |
+| `track` | `list` | No |  |
 
 ### Operations
 
@@ -158,10 +158,10 @@ lyric = client.Lyric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `song_id` | ``$STRING`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `language` | `str` | No |  |
+| `lyric` | `str` | No |  |
+| `song_id` | `str` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -212,24 +212,24 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `album` | `str` | No |  |
+| `album_id` | `str` | No |  |
+| `artist` | `str` | No |  |
+| `cover_art` | `str` | No |  |
+| `duration` | `int` | No |  |
+| `genre` | `str` | No |  |
+| `id` | `str` | No |  |
+| `release_date` | `str` | No |  |
+| `title` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```
@@ -273,21 +273,21 @@ song = client.Song()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `explicit` | ``$BOOLEAN`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `isrc` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `popularity` | ``$INTEGER`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `track_number` | ``$INTEGER`` | No |  |
+| `album` | `str` | No |  |
+| `album_id` | `str` | No |  |
+| `artist` | `str` | No |  |
+| `cover_art` | `str` | No |  |
+| `duration` | `int` | No |  |
+| `explicit` | `bool` | No |  |
+| `genre` | `str` | No |  |
+| `id` | `str` | No |  |
+| `isrc` | `str` | No |  |
+| `label` | `str` | No |  |
+| `lyric` | `str` | No |  |
+| `popularity` | `int` | No |  |
+| `release_date` | `str` | No |  |
+| `title` | `str` | No |  |
+| `track_number` | `int` | No |  |
 
 ### Operations
 

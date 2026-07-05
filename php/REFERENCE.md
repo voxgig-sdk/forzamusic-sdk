@@ -57,11 +57,11 @@ Create a new `SearchEntity` instance. Pass `null` for no initial data.
 
 Create a new `SongEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ForzamusicUtility`
 
 Return a copy of the SDK utility object.
 
@@ -104,15 +104,15 @@ $album = $client->Album();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `total_track` | ``$INTEGER`` | No |  |
-| `track` | ``$ARRAY`` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `label` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `total_track` | `int` | No |  |
+| `track` | `array` | No |  |
 
 ### Operations
 
@@ -126,19 +126,19 @@ $result = $client->Album()->load(["id" => "album_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -147,7 +147,7 @@ Set the entity match criteria.
 Create a new `AlbumEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -164,10 +164,10 @@ $lyric = $client->Lyric();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `song_id` | ``$STRING`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `language` | `string` | No |  |
+| `lyric` | `string` | No |  |
+| `song_id` | `string` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -181,19 +181,19 @@ $result = $client->Lyric()->load(["id" => "lyric_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -202,7 +202,7 @@ Set the entity match criteria.
 Create a new `LyricEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -219,41 +219,41 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `album` | `string` | No |  |
+| `album_id` | `string` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Search()->list([]);
+$results = $client->Search()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -262,7 +262,7 @@ Set the entity match criteria.
 Create a new `SearchEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -279,21 +279,21 @@ $song = $client->Song();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `explicit` | ``$BOOLEAN`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `isrc` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `popularity` | ``$INTEGER`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `track_number` | ``$INTEGER`` | No |  |
+| `album` | `string` | No |  |
+| `album_id` | `string` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `explicit` | `bool` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `isrc` | `string` | No |  |
+| `label` | `string` | No |  |
+| `lyric` | `string` | No |  |
+| `popularity` | `int` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `track_number` | `int` | No |  |
 
 ### Operations
 
@@ -307,19 +307,19 @@ $result = $client->Song()->load(["id" => "song_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -328,7 +328,7 @@ Set the entity match criteria.
 Create a new `SongEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

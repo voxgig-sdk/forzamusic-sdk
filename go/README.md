@@ -4,6 +4,8 @@
 
 The Golang SDK for the Forzamusic API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.Album(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -49,12 +51,41 @@ func main() {
     client := sdk.New()
 
     // Load a single album — the value is the loaded record.
-    album, err := client.Album(nil).Load(map[string]any{"id": "example_id"}, nil)
+    album, err := client.Album(nil).Load(map[string]any{"id": "example"}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(album)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+album, err := client.Album(nil).Load(map[string]any{"id": "example_id"}, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = album
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -110,7 +141,7 @@ album, err := client.Album(nil).Load(
 if err != nil {
     panic(err)
 }
-fmt.Println(album) // the loaded mock data
+fmt.Println(album) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -200,9 +231,6 @@ All entities implement the `ForzamusicEntity` interface.
 | --- | --- | --- |
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
-| `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -215,7 +243,7 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `Load` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
@@ -224,7 +252,7 @@ slice):
 
     album, err := client.Album(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // album is the loaded record
+    // album is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -323,15 +351,15 @@ Create an instance: `album := client.Album(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `label` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
-| `total_track` | ``$INTEGER`` |  |
-| `track` | ``$ARRAY`` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `label` | `string` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
+| `total_track` | `int` |  |
+| `track` | `[]any` |  |
 
 #### Example: Load
 
@@ -358,10 +386,10 @@ Create an instance: `lyric := client.Lyric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `language` | ``$STRING`` |  |
-| `lyric` | ``$STRING`` |  |
-| `song_id` | ``$STRING`` |  |
-| `success` | ``$BOOLEAN`` |  |
+| `language` | `string` |  |
+| `lyric` | `string` |  |
+| `song_id` | `string` |  |
+| `success` | `bool` |  |
 
 #### Example: Load
 
@@ -388,15 +416,15 @@ Create an instance: `search := client.Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | ``$STRING`` |  |
-| `album_id` | ``$STRING`` |  |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `duration` | ``$INTEGER`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
+| `album` | `string` |  |
+| `album_id` | `string` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `duration` | `int` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
 
 #### Example: List
 
@@ -423,21 +451,21 @@ Create an instance: `song := client.Song(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | ``$STRING`` |  |
-| `album_id` | ``$STRING`` |  |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `duration` | ``$INTEGER`` |  |
-| `explicit` | ``$BOOLEAN`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `isrc` | ``$STRING`` |  |
-| `label` | ``$STRING`` |  |
-| `lyric` | ``$STRING`` |  |
-| `popularity` | ``$INTEGER`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
-| `track_number` | ``$INTEGER`` |  |
+| `album` | `string` |  |
+| `album_id` | `string` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `duration` | `int` |  |
+| `explicit` | `bool` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `isrc` | `string` |  |
+| `label` | `string` |  |
+| `lyric` | `string` |  |
+| `popularity` | `int` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
+| `track_number` | `int` |  |
 
 #### Example: Load
 
@@ -450,12 +478,16 @@ fmt.Println(song) // the loaded record
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -472,9 +504,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -522,7 +554,7 @@ stores the returned data and match criteria internally.
 album := client.Album(nil)
 album.Load(map[string]any{"id": "example_id"}, nil)
 
-// album.Data() now returns the loaded album data
+// album.Data() now returns the album data from the last load
 // album.Match() returns the last match criteria
 ```
 

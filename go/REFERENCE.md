@@ -109,15 +109,15 @@ album := client.Album(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `total_track` | ``$INTEGER`` | No |  |
-| `track` | ``$ARRAY`` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `label` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `total_track` | `int` | No |  |
+| `track` | `[]any` | No |  |
 
 ### Operations
 
@@ -163,10 +163,10 @@ lyric := client.Lyric(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `song_id` | ``$STRING`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `language` | `string` | No |  |
+| `lyric` | `string` | No |  |
+| `song_id` | `string` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -212,15 +212,15 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
+| `album` | `string` | No |  |
+| `album_id` | `string` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
 
 ### Operations
 
@@ -266,21 +266,21 @@ song := client.Song(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | ``$STRING`` | No |  |
-| `album_id` | ``$STRING`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `cover_art` | ``$STRING`` | No |  |
-| `duration` | ``$INTEGER`` | No |  |
-| `explicit` | ``$BOOLEAN`` | No |  |
-| `genre` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `isrc` | ``$STRING`` | No |  |
-| `label` | ``$STRING`` | No |  |
-| `lyric` | ``$STRING`` | No |  |
-| `popularity` | ``$INTEGER`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `track_number` | ``$INTEGER`` | No |  |
+| `album` | `string` | No |  |
+| `album_id` | `string` | No |  |
+| `artist` | `string` | No |  |
+| `cover_art` | `string` | No |  |
+| `duration` | `int` | No |  |
+| `explicit` | `bool` | No |  |
+| `genre` | `string` | No |  |
+| `id` | `string` | No |  |
+| `isrc` | `string` | No |  |
+| `label` | `string` | No |  |
+| `lyric` | `string` | No |  |
+| `popularity` | `int` | No |  |
+| `release_date` | `string` | No |  |
+| `title` | `string` | No |  |
+| `track_number` | `int` | No |  |
 
 ### Operations
 

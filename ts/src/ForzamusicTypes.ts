@@ -44,7 +44,17 @@ export interface Search {
   title?: string
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  album?: string
+  album_id?: string
+  artist?: string
+  cover_art?: string
+  duration?: number
+  genre?: string
+  id?: string
+  release_date?: string
+  title?: string
+}
 
 export interface Song {
   album?: string

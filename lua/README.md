@@ -4,6 +4,8 @@
 
 The Lua SDK for the Forzamusic API — an entity-oriented client using Lua conventions.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:Album()` — each with the same small set of operations (`list`, `load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -37,6 +39,28 @@ local client = sdk.new()
 local album, err = client:Album():load({ id = "example_id" })
 if err then error(err) end
 print(album)
+```
+
+
+## Error handling
+
+Entity operations return `(value, err)`. Check `err` before using
+the value:
+
+```lua
+local album, err = client:Album():load({ id = "example_id" })
+if err then error(err) end
+```
+
+`direct` follows the same `(value, err)` convention:
+
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example_id" },
+})
+if err then error(err) end
 ```
 
 
@@ -83,7 +107,7 @@ Create a mock client for unit testing — no server required:
 local client = sdk.test()
 
 local result, err = client:Album():load({ id = "test01" })
--- result is the loaded data; err is set on failure
+-- result is the returned data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -174,9 +198,6 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> any, err` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> any, err` | Remove an entity. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -191,7 +212,7 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `load` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
@@ -297,15 +318,15 @@ Create an instance: `local album = client:Album(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `label` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
-| `total_track` | ``$INTEGER`` |  |
-| `track` | ``$ARRAY`` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `label` | `string` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
+| `total_track` | `number` |  |
+| `track` | `table` |  |
 
 #### Example: Load
 
@@ -328,10 +349,10 @@ Create an instance: `local lyric = client:Lyric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `language` | ``$STRING`` |  |
-| `lyric` | ``$STRING`` |  |
-| `song_id` | ``$STRING`` |  |
-| `success` | ``$BOOLEAN`` |  |
+| `language` | `string` |  |
+| `lyric` | `string` |  |
+| `song_id` | `string` |  |
+| `success` | `boolean` |  |
 
 #### Example: Load
 
@@ -354,15 +375,15 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | ``$STRING`` |  |
-| `album_id` | ``$STRING`` |  |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `duration` | ``$INTEGER`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
+| `album` | `string` |  |
+| `album_id` | `string` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `duration` | `number` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
 
 #### Example: List
 
@@ -385,21 +406,21 @@ Create an instance: `local song = client:Song(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | ``$STRING`` |  |
-| `album_id` | ``$STRING`` |  |
-| `artist` | ``$STRING`` |  |
-| `cover_art` | ``$STRING`` |  |
-| `duration` | ``$INTEGER`` |  |
-| `explicit` | ``$BOOLEAN`` |  |
-| `genre` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `isrc` | ``$STRING`` |  |
-| `label` | ``$STRING`` |  |
-| `lyric` | ``$STRING`` |  |
-| `popularity` | ``$INTEGER`` |  |
-| `release_date` | ``$STRING`` |  |
-| `title` | ``$STRING`` |  |
-| `track_number` | ``$INTEGER`` |  |
+| `album` | `string` |  |
+| `album_id` | `string` |  |
+| `artist` | `string` |  |
+| `cover_art` | `string` |  |
+| `duration` | `number` |  |
+| `explicit` | `boolean` |  |
+| `genre` | `string` |  |
+| `id` | `string` |  |
+| `isrc` | `string` |  |
+| `label` | `string` |  |
+| `lyric` | `string` |  |
+| `popularity` | `number` |  |
+| `release_date` | `string` |  |
+| `title` | `string` |  |
+| `track_number` | `number` |  |
 
 #### Example: Load
 
@@ -408,12 +429,16 @@ local song, err = client:Song():load({ id = "song_id" })
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -430,8 +455,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -482,7 +508,7 @@ stores the returned data and match criteria internally.
 local album = client:Album()
 album:load({ id = "example_id" })
 
--- album:data_get() now returns the loaded album data
+-- album:data_get() now returns the album data from the last load
 -- album:match_get() returns the last match criteria
 ```
 
