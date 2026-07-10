@@ -103,6 +103,7 @@ same parameters as `Direct()`.
 
 ```go
 album := client.Album(nil)
+fmt.Println(album.GetName()) // "album"
 ```
 
 ### Fields
@@ -127,6 +128,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Album(nil).Load(map[string]any{"id": "album_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -157,6 +162,7 @@ Return the entity name.
 
 ```go
 lyric := client.Lyric(nil)
+fmt.Println(lyric.GetName()) // "lyric"
 ```
 
 ### Fields
@@ -176,6 +182,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Lyric(nil).Load(map[string]any{"id": "lyric_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -206,6 +216,7 @@ Return the entity name.
 
 ```go
 search := client.Search(nil)
+fmt.Println(search.GetName()) // "search"
 ```
 
 ### Fields
@@ -230,6 +241,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Search(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -260,6 +275,7 @@ Return the entity name.
 
 ```go
 song := client.Song(nil)
+fmt.Println(song.GetName()) // "song"
 ```
 
 ### Fields
@@ -290,6 +306,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Song(nil).Load(map[string]any{"id": "song_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

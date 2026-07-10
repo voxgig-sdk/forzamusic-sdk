@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single album — the value is the loaded record.
-    album, err := client.Album(nil).Load(map[string]any{"id": "example"}, nil)
+    album, err := client.Album(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
