@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Forzamusic SDK exists test
 
 local sdk = require("forzamusic_sdk")
 
