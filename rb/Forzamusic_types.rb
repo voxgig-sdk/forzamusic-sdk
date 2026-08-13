@@ -13,7 +13,10 @@
 # @!attribute [rw] artist
 #   @return [String, nil]
 #
-# @!attribute [rw] cover_art
+# @!attribute [rw] artists
+#   @return [Array, nil]
+#
+# @!attribute [rw] coverArt
 #   @return [String, nil]
 #
 # @!attribute [rw] genre
@@ -25,27 +28,28 @@
 # @!attribute [rw] label
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
 #   @return [String, nil]
 #
-# @!attribute [rw] total_track
+# @!attribute [rw] totalTracks
 #   @return [Integer, nil]
 #
-# @!attribute [rw] track
+# @!attribute [rw] tracks
 #   @return [Array, nil]
 Album = Struct.new(
   :artist,
-  :cover_art,
+  :artists,
+  :coverArt,
   :genre,
   :id,
   :label,
-  :release_date,
+  :releaseDate,
   :title,
-  :total_track,
-  :track,
+  :totalTracks,
+  :tracks,
   keyword_init: true
 )
 
@@ -63,18 +67,18 @@ AlbumLoadMatch = Struct.new(
 # @!attribute [rw] language
 #   @return [String, nil]
 #
-# @!attribute [rw] lyric
+# @!attribute [rw] lyrics
 #   @return [String, nil]
 #
-# @!attribute [rw] song_id
+# @!attribute [rw] songId
 #   @return [String, nil]
 #
 # @!attribute [rw] success
 #   @return [Boolean, nil]
 Lyric = Struct.new(
   :language,
-  :lyric,
-  :song_id,
+  :lyrics,
+  :songId,
   :success,
   keyword_init: true
 )
@@ -93,13 +97,16 @@ LyricLoadMatch = Struct.new(
 # @!attribute [rw] album
 #   @return [String, nil]
 #
-# @!attribute [rw] album_id
+# @!attribute [rw] albumId
 #   @return [String, nil]
 #
 # @!attribute [rw] artist
 #   @return [String, nil]
 #
-# @!attribute [rw] cover_art
+# @!attribute [rw] artists
+#   @return [Array, nil]
+#
+# @!attribute [rw] coverArt
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -111,20 +118,21 @@ LyricLoadMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
 #   @return [String, nil]
 Search = Struct.new(
   :album,
-  :album_id,
+  :albumId,
   :artist,
-  :cover_art,
+  :artists,
+  :coverArt,
   :duration,
   :genre,
   :id,
-  :release_date,
+  :releaseDate,
   :title,
   keyword_init: true
 )
@@ -134,13 +142,16 @@ Search = Struct.new(
 # @!attribute [rw] album
 #   @return [String, nil]
 #
-# @!attribute [rw] album_id
+# @!attribute [rw] albumId
 #   @return [String, nil]
 #
 # @!attribute [rw] artist
 #   @return [String, nil]
 #
-# @!attribute [rw] cover_art
+# @!attribute [rw] artists
+#   @return [Array, nil]
+#
+# @!attribute [rw] coverArt
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -152,20 +163,21 @@ Search = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
 #   @return [String, nil]
 SearchListMatch = Struct.new(
   :album,
-  :album_id,
+  :albumId,
   :artist,
-  :cover_art,
+  :artists,
+  :coverArt,
   :duration,
   :genre,
   :id,
-  :release_date,
+  :releaseDate,
   :title,
   keyword_init: true
 )
@@ -175,13 +187,16 @@ SearchListMatch = Struct.new(
 # @!attribute [rw] album
 #   @return [String, nil]
 #
-# @!attribute [rw] album_id
+# @!attribute [rw] albumId
 #   @return [String, nil]
 #
 # @!attribute [rw] artist
 #   @return [String, nil]
 #
-# @!attribute [rw] cover_art
+# @!attribute [rw] artists
+#   @return [Array, nil]
+#
+# @!attribute [rw] coverArt
 #   @return [String, nil]
 #
 # @!attribute [rw] duration
@@ -202,36 +217,37 @@ SearchListMatch = Struct.new(
 # @!attribute [rw] label
 #   @return [String, nil]
 #
-# @!attribute [rw] lyric
+# @!attribute [rw] lyrics
 #   @return [String, nil]
 #
 # @!attribute [rw] popularity
 #   @return [Integer, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] title
 #   @return [String, nil]
 #
-# @!attribute [rw] track_number
+# @!attribute [rw] trackNumber
 #   @return [Integer, nil]
 Song = Struct.new(
   :album,
-  :album_id,
+  :albumId,
   :artist,
-  :cover_art,
+  :artists,
+  :coverArt,
   :duration,
   :explicit,
   :genre,
   :id,
   :isrc,
   :label,
-  :lyric,
+  :lyrics,
   :popularity,
-  :release_date,
+  :releaseDate,
   :title,
-  :track_number,
+  :trackNumber,
   keyword_init: true
 )
 

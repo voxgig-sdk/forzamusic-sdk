@@ -16,11 +16,11 @@
 import pytest
 
 from forzamusic_sdk import ForzamusicSDK
-from core.error import ForzamusicError
-from core.result import ForzamusicResult
-from core.response import ForzamusicResponse
-from core.spec import ForzamusicSpec
-from feature.base_feature import ForzamusicBaseFeature
+from forzamusic_sdk.core.error import ForzamusicError
+from forzamusic_sdk.core.result import ForzamusicResult
+from forzamusic_sdk.core.response import ForzamusicResponse
+from forzamusic_sdk.core.spec import ForzamusicSpec
+from forzamusic_sdk.feature.base_feature import ForzamusicBaseFeature
 
 
 def _client():

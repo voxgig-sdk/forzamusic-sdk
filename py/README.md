@@ -38,7 +38,7 @@ client = ForzamusicSDK()
 
 ### 3. Load an album
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ForzamusicSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 album = client.Album().load({"id": "test01"})
 # album contains the mock response record
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -245,14 +246,15 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `genre` |  |
 | `id` |  |
 | `label` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `total_track` |  |
-| `track` |  |
+| `totalTracks` |  |
+| `tracks` |  |
 
 Operations: Load.
 
@@ -263,8 +265,8 @@ API path: `/api/album/{albumId}`
 | Field | Description |
 | --- | --- |
 | `language` |  |
-| `lyric` |  |
-| `song_id` |  |
+| `lyrics` |  |
+| `songId` |  |
 | `success` |  |
 
 Operations: Load.
@@ -276,13 +278,14 @@ API path: `/api/lyrics/{songId}`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `genre` |  |
 | `id` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
 
 Operations: List.
@@ -294,20 +297,21 @@ API path: `/api/search`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `explicit` |  |
 | `genre` |  |
 | `id` |  |
 | `isrc` |  |
 | `label` |  |
-| `lyric` |  |
+| `lyrics` |  |
 | `popularity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `track_number` |  |
+| `trackNumber` |  |
 
 Operations: Load.
 
@@ -333,14 +337,15 @@ Create an instance: `album = client.Album()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `artist` | `str` |  |
-| `cover_art` | `str` |  |
+| `artists` | `list` |  |
+| `coverArt` | `str` |  |
 | `genre` | `str` |  |
 | `id` | `str` |  |
 | `label` | `str` |  |
-| `release_date` | `str` |  |
+| `releaseDate` | `str` |  |
 | `title` | `str` |  |
-| `total_track` | `int` |  |
-| `track` | `list` |  |
+| `totalTracks` | `int` |  |
+| `tracks` | `list` |  |
 
 #### Example: Load
 
@@ -364,8 +369,8 @@ Create an instance: `lyric = client.Lyric()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `language` | `str` |  |
-| `lyric` | `str` |  |
-| `song_id` | `str` |  |
+| `lyrics` | `str` |  |
+| `songId` | `str` |  |
 | `success` | `bool` |  |
 
 #### Example: Load
@@ -390,13 +395,14 @@ Create an instance: `search = client.Search()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `str` |  |
-| `album_id` | `str` |  |
+| `albumId` | `str` |  |
 | `artist` | `str` |  |
-| `cover_art` | `str` |  |
+| `artists` | `list` |  |
+| `coverArt` | `str` |  |
 | `duration` | `int` |  |
 | `genre` | `str` |  |
 | `id` | `str` |  |
-| `release_date` | `str` |  |
+| `releaseDate` | `str` |  |
 | `title` | `str` |  |
 
 #### Example: List
@@ -421,20 +427,21 @@ Create an instance: `song = client.Song()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `str` |  |
-| `album_id` | `str` |  |
+| `albumId` | `str` |  |
 | `artist` | `str` |  |
-| `cover_art` | `str` |  |
+| `artists` | `list` |  |
+| `coverArt` | `str` |  |
 | `duration` | `int` |  |
 | `explicit` | `bool` |  |
 | `genre` | `str` |  |
 | `id` | `str` |  |
 | `isrc` | `str` |  |
 | `label` | `str` |  |
-| `lyric` | `str` |  |
+| `lyrics` | `str` |  |
 | `popularity` | `int` |  |
-| `release_date` | `str` |  |
+| `releaseDate` | `str` |  |
 | `title` | `str` |  |
-| `track_number` | `int` |  |
+| `trackNumber` | `int` |  |
 
 #### Example: Load
 

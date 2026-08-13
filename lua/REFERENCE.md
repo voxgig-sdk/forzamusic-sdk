@@ -103,14 +103,15 @@ local album = client:Album(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `table` | No |  |
+| `coverArt` | `string` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
 | `label` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
-| `total_track` | `number` | No |  |
-| `track` | `table` | No |  |
+| `totalTracks` | `number` | No |  |
+| `tracks` | `table` | No |  |
 
 ### Operations
 
@@ -163,8 +164,8 @@ local lyric = client:Lyric(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `language` | `string` | No |  |
-| `lyric` | `string` | No |  |
-| `song_id` | `string` | No |  |
+| `lyrics` | `string` | No |  |
+| `songId` | `string` | No |  |
 | `success` | `boolean` | No |  |
 
 ### Operations
@@ -218,13 +219,14 @@ local search = client:Search(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `string` | No |  |
-| `album_id` | `string` | No |  |
+| `albumId` | `string` | No |  |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `table` | No |  |
+| `coverArt` | `string` | No |  |
 | `duration` | `number` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
 
 ### Operations
@@ -278,20 +280,21 @@ local song = client:Song(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `string` | No |  |
-| `album_id` | `string` | No |  |
+| `albumId` | `string` | No |  |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `table` | No |  |
+| `coverArt` | `string` | No |  |
 | `duration` | `number` | No |  |
 | `explicit` | `boolean` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
 | `isrc` | `string` | No |  |
 | `label` | `string` | No |  |
-| `lyric` | `string` | No |  |
+| `lyrics` | `string` | No |  |
 | `popularity` | `number` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
-| `track_number` | `number` | No |  |
+| `trackNumber` | `number` | No |  |
 
 ### Operations
 

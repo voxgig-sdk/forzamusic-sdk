@@ -35,7 +35,7 @@ $client = new ForzamusicSDK();
 
 ```php
 try {
-    // load() returns the bare Album record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Album record (throws on error).
     $album = $client->Album()->load(["id" => "example_id"]);
     print_r($album);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = ForzamusicSDK::test([
     "entity" => ["album" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $album = $client->Album()->load(["id" => "test01"]);
 print_r($album);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -252,14 +253,15 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `genre` |  |
 | `id` |  |
 | `label` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `total_track` |  |
-| `track` |  |
+| `totalTracks` |  |
+| `tracks` |  |
 
 Operations: Load.
 
@@ -270,8 +272,8 @@ API path: `/api/album/{albumId}`
 | Field | Description |
 | --- | --- |
 | `language` |  |
-| `lyric` |  |
-| `song_id` |  |
+| `lyrics` |  |
+| `songId` |  |
 | `success` |  |
 
 Operations: Load.
@@ -283,13 +285,14 @@ API path: `/api/lyrics/{songId}`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `genre` |  |
 | `id` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
 
 Operations: List.
@@ -301,20 +304,21 @@ API path: `/api/search`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `explicit` |  |
 | `genre` |  |
 | `id` |  |
 | `isrc` |  |
 | `label` |  |
-| `lyric` |  |
+| `lyrics` |  |
 | `popularity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `track_number` |  |
+| `trackNumber` |  |
 
 Operations: Load.
 
@@ -340,19 +344,20 @@ Create an instance: `$album = $client->Album();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `array` |  |
+| `coverArt` | `string` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `label` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `total_track` | `int` |  |
-| `track` | `array` |  |
+| `totalTracks` | `int` |  |
+| `tracks` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Album record (throws on error).
+// load() returns the ENTITY — call data_get() for the Album record (throws on error).
 $album = $client->Album()->load(["id" => "album_id"]);
 ```
 
@@ -372,14 +377,14 @@ Create an instance: `$lyric = $client->Lyric();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `language` | `string` |  |
-| `lyric` | `string` |  |
-| `song_id` | `string` |  |
+| `lyrics` | `string` |  |
+| `songId` | `string` |  |
 | `success` | `bool` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Lyric record (throws on error).
+// load() returns the ENTITY — call data_get() for the Lyric record (throws on error).
 $lyric = $client->Lyric()->load(["id" => "lyric_id"]);
 ```
 
@@ -399,13 +404,14 @@ Create an instance: `$search = $client->Search();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `array` |  |
+| `coverArt` | `string` |  |
 | `duration` | `int` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
 
 #### Example: List
@@ -431,25 +437,26 @@ Create an instance: `$song = $client->Song();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `array` |  |
+| `coverArt` | `string` |  |
 | `duration` | `int` |  |
 | `explicit` | `bool` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `isrc` | `string` |  |
 | `label` | `string` |  |
-| `lyric` | `string` |  |
+| `lyrics` | `string` |  |
 | `popularity` | `int` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `track_number` | `int` |  |
+| `trackNumber` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Song record (throws on error).
+// load() returns the ENTITY — call data_get() for the Song record (throws on error).
 $song = $client->Song()->load(["id" => "song_id"]);
 ```
 

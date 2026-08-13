@@ -8,22 +8,23 @@
 
 ---@class Album
 ---@field artist? string
----@field cover_art? string
+---@field artists? table
+---@field coverArt? string
 ---@field genre? string
 ---@field id? string
 ---@field label? string
----@field release_date? string
+---@field releaseDate? string
 ---@field title? string
----@field total_track? number
----@field track? table
+---@field totalTracks? number
+---@field tracks? table
 
 ---@class AlbumLoadMatch
 ---@field id string
 
 ---@class Lyric
 ---@field language? string
----@field lyric? string
----@field song_id? string
+---@field lyrics? string
+---@field songId? string
 ---@field success? boolean
 
 ---@class LyricLoadMatch
@@ -31,42 +32,45 @@
 
 ---@class Search
 ---@field album? string
----@field album_id? string
+---@field albumId? string
 ---@field artist? string
----@field cover_art? string
+---@field artists? table
+---@field coverArt? string
 ---@field duration? number
 ---@field genre? string
 ---@field id? string
----@field release_date? string
+---@field releaseDate? string
 ---@field title? string
 
 ---@class SearchListMatch
 ---@field album? string
----@field album_id? string
+---@field albumId? string
 ---@field artist? string
----@field cover_art? string
+---@field artists? table
+---@field coverArt? string
 ---@field duration? number
 ---@field genre? string
 ---@field id? string
----@field release_date? string
+---@field releaseDate? string
 ---@field title? string
 
 ---@class Song
 ---@field album? string
----@field album_id? string
+---@field albumId? string
 ---@field artist? string
----@field cover_art? string
+---@field artists? table
+---@field coverArt? string
 ---@field duration? number
 ---@field explicit? boolean
 ---@field genre? string
 ---@field id? string
 ---@field isrc? string
 ---@field label? string
----@field lyric? string
+---@field lyrics? string
 ---@field popularity? number
----@field release_date? string
+---@field releaseDate? string
 ---@field title? string
----@field track_number? number
+---@field trackNumber? number
 
 ---@class SongLoadMatch
 ---@field id string

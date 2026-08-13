@@ -49,7 +49,7 @@ describe("AlbumEntity", function()
     }
     local album_ref01_data_dt0_loaded, err = album_ref01_ent:load(album_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local album_ref01_data_dt0_load_result = helpers.to_map(album_ref01_data_dt0_loaded)
+    local album_ref01_data_dt0_load_result = helpers.to_map(type(album_ref01_data_dt0_loaded) == 'table' and album_ref01_data_dt0_loaded.data_get and album_ref01_data_dt0_loaded:data_get() or album_ref01_data_dt0_loaded)
     assert.is_not_nil(album_ref01_data_dt0_load_result)
     assert.are.equal(album_ref01_data_dt0_load_result["id"], album_ref01_data["id"])
 

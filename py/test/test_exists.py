@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Forzamusic SDK exists test
 
 import pytest
 from forzamusic_sdk import ForzamusicSDK

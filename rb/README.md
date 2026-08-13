@@ -34,7 +34,7 @@ client = ForzamusicSDK.new
 
 ```ruby
 begin
-  # load returns the bare Album record (raises on error).
+  # load returns the ENTITY — call data_get for the Album record (raises on error).
   album = client.Album.load({ "id" => "example_id" })
   puts album
 rescue => err
@@ -120,7 +120,8 @@ client = ForzamusicSDK.test({
   "entity" => { "album" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 album = client.Album.load({ "id" => "test01" })
 puts album
 ```
@@ -242,14 +243,15 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `genre` |  |
 | `id` |  |
 | `label` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `total_track` |  |
-| `track` |  |
+| `totalTracks` |  |
+| `tracks` |  |
 
 Operations: Load.
 
@@ -260,8 +262,8 @@ API path: `/api/album/{albumId}`
 | Field | Description |
 | --- | --- |
 | `language` |  |
-| `lyric` |  |
-| `song_id` |  |
+| `lyrics` |  |
+| `songId` |  |
 | `success` |  |
 
 Operations: Load.
@@ -273,13 +275,14 @@ API path: `/api/lyrics/{songId}`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `genre` |  |
 | `id` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
 
 Operations: List.
@@ -291,20 +294,21 @@ API path: `/api/search`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `explicit` |  |
 | `genre` |  |
 | `id` |  |
 | `isrc` |  |
 | `label` |  |
-| `lyric` |  |
+| `lyrics` |  |
 | `popularity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `track_number` |  |
+| `trackNumber` |  |
 
 Operations: Load.
 
@@ -330,19 +334,20 @@ Create an instance: `album = client.Album`
 | Field | Type | Description |
 | --- | --- | --- |
 | `artist` | `String` |  |
-| `cover_art` | `String` |  |
+| `artists` | `Array` |  |
+| `coverArt` | `String` |  |
 | `genre` | `String` |  |
 | `id` | `String` |  |
 | `label` | `String` |  |
-| `release_date` | `String` |  |
+| `releaseDate` | `String` |  |
 | `title` | `String` |  |
-| `total_track` | `Integer` |  |
-| `track` | `Array` |  |
+| `totalTracks` | `Integer` |  |
+| `tracks` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Album record (raises on error).
+# load returns the ENTITY — call data_get for the Album record (raises on error).
 album = client.Album.load({ "id" => "album_id" })
 ```
 
@@ -362,14 +367,14 @@ Create an instance: `lyric = client.Lyric`
 | Field | Type | Description |
 | --- | --- | --- |
 | `language` | `String` |  |
-| `lyric` | `String` |  |
-| `song_id` | `String` |  |
+| `lyrics` | `String` |  |
+| `songId` | `String` |  |
 | `success` | `Boolean` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Lyric record (raises on error).
+# load returns the ENTITY — call data_get for the Lyric record (raises on error).
 lyric = client.Lyric.load({ "id" => "lyric_id" })
 ```
 
@@ -389,13 +394,14 @@ Create an instance: `search = client.Search`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `String` |  |
-| `album_id` | `String` |  |
+| `albumId` | `String` |  |
 | `artist` | `String` |  |
-| `cover_art` | `String` |  |
+| `artists` | `Array` |  |
+| `coverArt` | `String` |  |
 | `duration` | `Integer` |  |
 | `genre` | `String` |  |
 | `id` | `String` |  |
-| `release_date` | `String` |  |
+| `releaseDate` | `String` |  |
 | `title` | `String` |  |
 
 #### Example: List
@@ -421,25 +427,26 @@ Create an instance: `song = client.Song`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `String` |  |
-| `album_id` | `String` |  |
+| `albumId` | `String` |  |
 | `artist` | `String` |  |
-| `cover_art` | `String` |  |
+| `artists` | `Array` |  |
+| `coverArt` | `String` |  |
 | `duration` | `Integer` |  |
 | `explicit` | `Boolean` |  |
 | `genre` | `String` |  |
 | `id` | `String` |  |
 | `isrc` | `String` |  |
 | `label` | `String` |  |
-| `lyric` | `String` |  |
+| `lyrics` | `String` |  |
 | `popularity` | `Integer` |  |
-| `release_date` | `String` |  |
+| `releaseDate` | `String` |  |
 | `title` | `String` |  |
-| `track_number` | `Integer` |  |
+| `trackNumber` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Song record (raises on error).
+# load returns the ENTITY — call data_get for the Song record (raises on error).
 song = client.Song.load({ "id" => "song_id" })
 ```
 

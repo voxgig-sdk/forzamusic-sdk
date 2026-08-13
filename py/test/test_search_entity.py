@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from forzamusic_sdk.utility.voxgig_struct import voxgig_struct as vs
 from forzamusic_sdk import ForzamusicSDK
-from core import helpers
+from forzamusic_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestSearchEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from forzamusic_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = ForzamusicSDK.test(

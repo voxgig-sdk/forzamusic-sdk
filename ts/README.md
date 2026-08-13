@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = ForzamusicSDK.test()
 
 const album = await client.Album().load({ id: 'test01' })
-// album is a bare entity populated with mock response data
+// album is the entity, populated with mock response data
+// — call album.data() for the record itself
 console.log(album)
 ```
 
@@ -291,14 +292,15 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `genre` |  |
 | `id` |  |
 | `label` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `total_track` |  |
-| `track` |  |
+| `totalTracks` |  |
+| `tracks` |  |
 
 Operations: load.
 
@@ -309,8 +311,8 @@ API path: `/api/album/{albumId}`
 | Field | Description |
 | --- | --- |
 | `language` |  |
-| `lyric` |  |
-| `song_id` |  |
+| `lyrics` |  |
+| `songId` |  |
 | `success` |  |
 
 Operations: load.
@@ -322,13 +324,14 @@ API path: `/api/lyrics/{songId}`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `genre` |  |
 | `id` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
 
 Operations: list.
@@ -340,20 +343,21 @@ API path: `/api/search`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `explicit` |  |
 | `genre` |  |
 | `id` |  |
 | `isrc` |  |
 | `label` |  |
-| `lyric` |  |
+| `lyrics` |  |
 | `popularity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `track_number` |  |
+| `trackNumber` |  |
 
 Operations: load.
 
@@ -379,14 +383,15 @@ Create an instance: `const album = client.Album()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `any[]` |  |
+| `coverArt` | `string` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `label` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `total_track` | `number` |  |
-| `track` | `any[]` |  |
+| `totalTracks` | `number` |  |
+| `tracks` | `any[]` |  |
 
 #### Example: Load
 
@@ -410,8 +415,8 @@ Create an instance: `const lyric = client.Lyric()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `language` | `string` |  |
-| `lyric` | `string` |  |
-| `song_id` | `string` |  |
+| `lyrics` | `string` |  |
+| `songId` | `string` |  |
 | `success` | `boolean` |  |
 
 #### Example: Load
@@ -436,13 +441,14 @@ Create an instance: `const search = client.Search()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `any[]` |  |
+| `coverArt` | `string` |  |
 | `duration` | `number` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
 
 #### Example: List
@@ -467,20 +473,21 @@ Create an instance: `const song = client.Song()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `any[]` |  |
+| `coverArt` | `string` |  |
 | `duration` | `number` |  |
 | `explicit` | `boolean` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `isrc` | `string` |  |
 | `label` | `string` |  |
-| `lyric` | `string` |  |
+| `lyrics` | `string` |  |
 | `popularity` | `number` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `track_number` | `number` |  |
+| `trackNumber` | `number` |  |
 
 #### Example: Load
 

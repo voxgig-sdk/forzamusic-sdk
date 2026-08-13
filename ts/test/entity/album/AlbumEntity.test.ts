@@ -63,7 +63,7 @@ describe('AlbumEntity', async () => {
     const album_ref01_ent = client.Album()
     const album_ref01_match_dt0: any = {}
     album_ref01_match_dt0.id = album_ref01_data.id
-    const album_ref01_data_dt0 = await album_ref01_ent.load(album_ref01_match_dt0)
+    const album_ref01_data_dt0 = (await album_ref01_ent.load(album_ref01_match_dt0)).data()
     assert(album_ref01_data_dt0.id === album_ref01_data.id)
 
 

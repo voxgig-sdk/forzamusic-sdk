@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ForzamusicControl
-from core.error import ForzamusicError
-from core.result import ForzamusicResult
-from core.spec import ForzamusicSpec
+from forzamusic_sdk.config import make_config
+from forzamusic_sdk.features import _make_feature
+from forzamusic_sdk.core.control import ForzamusicControl
+from forzamusic_sdk.core.error import ForzamusicError
+from forzamusic_sdk.core.result import ForzamusicResult
+from forzamusic_sdk.core.spec import ForzamusicSpec
 
 
 # True when this SDK was generated with the named feature.

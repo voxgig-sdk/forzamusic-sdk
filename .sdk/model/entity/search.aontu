@@ -11,7 +11,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "album_id"
+      name: "albumId"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,12 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "cover_art"
+      name: "artists"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "coverArt"
       req: false
       type: "`$STRING`"
     }
@@ -41,7 +46,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
-      name: "release_date"
+      name: "releaseDate"
       req: false
       type: "`$STRING`"
     }
@@ -106,7 +111,7 @@ main: kit: entity: search: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

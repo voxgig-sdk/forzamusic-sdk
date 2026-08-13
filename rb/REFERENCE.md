@@ -106,14 +106,15 @@ album = client.Album
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `artist` | `String` | No |  |
-| `cover_art` | `String` | No |  |
+| `artists` | `Array` | No |  |
+| `coverArt` | `String` | No |  |
 | `genre` | `String` | No |  |
 | `id` | `String` | No |  |
 | `label` | `String` | No |  |
-| `release_date` | `String` | No |  |
+| `releaseDate` | `String` | No |  |
 | `title` | `String` | No |  |
-| `total_track` | `Integer` | No |  |
-| `track` | `Array` | No |  |
+| `totalTracks` | `Integer` | No |  |
+| `tracks` | `Array` | No |  |
 
 ### Operations
 
@@ -166,8 +167,8 @@ lyric = client.Lyric
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `language` | `String` | No |  |
-| `lyric` | `String` | No |  |
-| `song_id` | `String` | No |  |
+| `lyrics` | `String` | No |  |
+| `songId` | `String` | No |  |
 | `success` | `Boolean` | No |  |
 
 ### Operations
@@ -221,13 +222,14 @@ search = client.Search
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `String` | No |  |
-| `album_id` | `String` | No |  |
+| `albumId` | `String` | No |  |
 | `artist` | `String` | No |  |
-| `cover_art` | `String` | No |  |
+| `artists` | `Array` | No |  |
+| `coverArt` | `String` | No |  |
 | `duration` | `Integer` | No |  |
 | `genre` | `String` | No |  |
 | `id` | `String` | No |  |
-| `release_date` | `String` | No |  |
+| `releaseDate` | `String` | No |  |
 | `title` | `String` | No |  |
 
 ### Operations
@@ -281,20 +283,21 @@ song = client.Song
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `String` | No |  |
-| `album_id` | `String` | No |  |
+| `albumId` | `String` | No |  |
 | `artist` | `String` | No |  |
-| `cover_art` | `String` | No |  |
+| `artists` | `Array` | No |  |
+| `coverArt` | `String` | No |  |
 | `duration` | `Integer` | No |  |
 | `explicit` | `Boolean` | No |  |
 | `genre` | `String` | No |  |
 | `id` | `String` | No |  |
 | `isrc` | `String` | No |  |
 | `label` | `String` | No |  |
-| `lyric` | `String` | No |  |
+| `lyrics` | `String` | No |  |
 | `popularity` | `Integer` | No |  |
-| `release_date` | `String` | No |  |
+| `releaseDate` | `String` | No |  |
 | `title` | `String` | No |  |
-| `track_number` | `Integer` | No |  |
+| `trackNumber` | `Integer` | No |  |
 
 ### Operations
 

@@ -100,14 +100,15 @@ album = client.Album()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `artist` | `str` | No |  |
-| `cover_art` | `str` | No |  |
+| `artists` | `list` | No |  |
+| `coverArt` | `str` | No |  |
 | `genre` | `str` | No |  |
 | `id` | `str` | No |  |
 | `label` | `str` | No |  |
-| `release_date` | `str` | No |  |
+| `releaseDate` | `str` | No |  |
 | `title` | `str` | No |  |
-| `total_track` | `int` | No |  |
-| `track` | `list` | No |  |
+| `totalTracks` | `int` | No |  |
+| `tracks` | `list` | No |  |
 
 ### Operations
 
@@ -159,8 +160,8 @@ lyric = client.Lyric()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `language` | `str` | No |  |
-| `lyric` | `str` | No |  |
-| `song_id` | `str` | No |  |
+| `lyrics` | `str` | No |  |
+| `songId` | `str` | No |  |
 | `success` | `bool` | No |  |
 
 ### Operations
@@ -213,13 +214,14 @@ search = client.Search()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `str` | No |  |
-| `album_id` | `str` | No |  |
+| `albumId` | `str` | No |  |
 | `artist` | `str` | No |  |
-| `cover_art` | `str` | No |  |
+| `artists` | `list` | No |  |
+| `coverArt` | `str` | No |  |
 | `duration` | `int` | No |  |
 | `genre` | `str` | No |  |
 | `id` | `str` | No |  |
-| `release_date` | `str` | No |  |
+| `releaseDate` | `str` | No |  |
 | `title` | `str` | No |  |
 
 ### Operations
@@ -274,20 +276,21 @@ song = client.Song()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `str` | No |  |
-| `album_id` | `str` | No |  |
+| `albumId` | `str` | No |  |
 | `artist` | `str` | No |  |
-| `cover_art` | `str` | No |  |
+| `artists` | `list` | No |  |
+| `coverArt` | `str` | No |  |
 | `duration` | `int` | No |  |
 | `explicit` | `bool` | No |  |
 | `genre` | `str` | No |  |
 | `id` | `str` | No |  |
 | `isrc` | `str` | No |  |
 | `label` | `str` | No |  |
-| `lyric` | `str` | No |  |
+| `lyrics` | `str` | No |  |
 | `popularity` | `int` | No |  |
-| `release_date` | `str` | No |  |
+| `releaseDate` | `str` | No |  |
 | `title` | `str` | No |  |
-| `track_number` | `int` | No |  |
+| `trackNumber` | `int` | No |  |
 
 ### Operations
 

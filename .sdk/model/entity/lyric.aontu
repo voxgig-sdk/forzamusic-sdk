@@ -11,12 +11,12 @@ main: kit: entity: lyric: {
       type: "`$STRING`"
     }
     {
-      name: "lyric"
+      name: "lyrics"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "song_id"
+      name: "songId"
       req: false
       type: "`$STRING`"
     }

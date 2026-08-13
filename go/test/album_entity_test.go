@@ -68,7 +68,7 @@ func TestAlbumEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		albumRef01DataDt0LoadResult := core.ToMapAny(albumRef01DataDt0Loaded)
+		albumRef01DataDt0LoadResult := core.ToMapAny(entityData(albumRef01DataDt0Loaded))
 		if albumRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

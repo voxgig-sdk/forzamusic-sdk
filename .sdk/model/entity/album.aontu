@@ -11,7 +11,12 @@ main: kit: entity: album: {
       type: "`$STRING`"
     }
     {
-      name: "cover_art"
+      name: "artists"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "coverArt"
       req: false
       type: "`$STRING`"
     }
@@ -31,7 +36,7 @@ main: kit: entity: album: {
       type: "`$STRING`"
     }
     {
-      name: "release_date"
+      name: "releaseDate"
       req: false
       type: "`$STRING`"
     }
@@ -41,12 +46,12 @@ main: kit: entity: album: {
       type: "`$STRING`"
     }
     {
-      name: "total_track"
+      name: "totalTracks"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "track"
+      name: "tracks"
       req: false
       type: "`$ARRAY`"
     }

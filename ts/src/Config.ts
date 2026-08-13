@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Forzamusic',
   }
 
 
@@ -72,59 +72,66 @@ class Config {
         },
         {
           "active": true,
-          "name": "cover_art",
+          "name": "artists",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "genre",
+          "name": "coverArt",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "id",
+          "name": "genre",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "label",
+          "name": "id",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "release_date",
+          "name": "label",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "title",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "total_track",
+          "name": "title",
           "req": false,
-          "type": "`$INTEGER`",
+          "type": "`$STRING`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "track",
+          "name": "totalTracks",
+          "req": false,
+          "type": "`$INTEGER`",
+          "index$": 8
+        },
+        {
+          "active": true,
+          "name": "tracks",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 8
+          "index$": 9
         }
       ],
       "name": "album",
@@ -148,6 +155,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/album/{albumId}",
               "parts": [
@@ -190,14 +198,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "lyric",
+          "name": "lyrics",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "song_id",
+          "name": "songId",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -231,6 +239,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/lyrics/{songId}",
               "parts": [
@@ -273,7 +282,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "album_id",
+          "name": "albumId",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -287,45 +296,52 @@ class Config {
         },
         {
           "active": true,
-          "name": "cover_art",
+          "name": "artists",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "coverArt",
           "req": false,
           "type": "`$STRING`",
-          "index$": 3
+          "index$": 4
         },
         {
           "active": true,
           "name": "duration",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 4
+          "index$": 5
         },
         {
           "active": true,
           "name": "genre",
           "req": false,
           "type": "`$STRING`",
-          "index$": 5
+          "index$": 6
         },
         {
           "active": true,
           "name": "id",
           "req": false,
           "type": "`$STRING`",
-          "index$": 6
+          "index$": 7
         },
         {
           "active": true,
-          "name": "release_date",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
-          "index$": 7
+          "index$": 8
         },
         {
           "active": true,
           "name": "title",
           "req": false,
           "type": "`$STRING`",
-          "index$": 8
+          "index$": 9
         }
       ],
       "name": "search",
@@ -367,6 +383,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/search",
               "parts": [
@@ -382,7 +399,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.results`"
               },
               "index$": 0
             }
@@ -405,7 +422,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "album_id",
+          "name": "albumId",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -419,87 +436,94 @@ class Config {
         },
         {
           "active": true,
-          "name": "cover_art",
+          "name": "artists",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 3
+        },
+        {
+          "active": true,
+          "name": "coverArt",
           "req": false,
           "type": "`$STRING`",
-          "index$": 3
+          "index$": 4
         },
         {
           "active": true,
           "name": "duration",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 4
+          "index$": 5
         },
         {
           "active": true,
           "name": "explicit",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 5
+          "index$": 6
         },
         {
           "active": true,
           "name": "genre",
           "req": false,
           "type": "`$STRING`",
-          "index$": 6
+          "index$": 7
         },
         {
           "active": true,
           "name": "id",
           "req": false,
           "type": "`$STRING`",
-          "index$": 7
+          "index$": 8
         },
         {
           "active": true,
           "name": "isrc",
           "req": false,
           "type": "`$STRING`",
-          "index$": 8
+          "index$": 9
         },
         {
           "active": true,
           "name": "label",
           "req": false,
           "type": "`$STRING`",
-          "index$": 9
+          "index$": 10
         },
         {
           "active": true,
-          "name": "lyric",
+          "name": "lyrics",
           "req": false,
           "type": "`$STRING`",
-          "index$": 10
+          "index$": 11
         },
         {
           "active": true,
           "name": "popularity",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 11
-        },
-        {
-          "active": true,
-          "name": "release_date",
-          "req": false,
-          "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "title",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "track_number",
+          "name": "title",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 14
+        },
+        {
+          "active": true,
+          "name": "trackNumber",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 14
+          "index$": 15
         }
       ],
       "name": "song",
@@ -523,6 +547,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/song/{songId}",
               "parts": [

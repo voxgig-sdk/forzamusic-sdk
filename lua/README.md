@@ -231,14 +231,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `genre` |  |
 | `id` |  |
 | `label` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `total_track` |  |
-| `track` |  |
+| `totalTracks` |  |
+| `tracks` |  |
 
 Operations: Load.
 
@@ -249,8 +250,8 @@ API path: `/api/album/{albumId}`
 | Field | Description |
 | --- | --- |
 | `language` |  |
-| `lyric` |  |
-| `song_id` |  |
+| `lyrics` |  |
+| `songId` |  |
 | `success` |  |
 
 Operations: Load.
@@ -262,13 +263,14 @@ API path: `/api/lyrics/{songId}`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `genre` |  |
 | `id` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
 
 Operations: List.
@@ -280,20 +282,21 @@ API path: `/api/search`
 | Field | Description |
 | --- | --- |
 | `album` |  |
-| `album_id` |  |
+| `albumId` |  |
 | `artist` |  |
-| `cover_art` |  |
+| `artists` |  |
+| `coverArt` |  |
 | `duration` |  |
 | `explicit` |  |
 | `genre` |  |
 | `id` |  |
 | `isrc` |  |
 | `label` |  |
-| `lyric` |  |
+| `lyrics` |  |
 | `popularity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `title` |  |
-| `track_number` |  |
+| `trackNumber` |  |
 
 Operations: Load.
 
@@ -319,14 +322,15 @@ Create an instance: `local album = client:Album(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `table` |  |
+| `coverArt` | `string` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `label` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `total_track` | `number` |  |
-| `track` | `table` |  |
+| `totalTracks` | `number` |  |
+| `tracks` | `table` |  |
 
 #### Example: Load
 
@@ -350,8 +354,8 @@ Create an instance: `local lyric = client:Lyric(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `language` | `string` |  |
-| `lyric` | `string` |  |
-| `song_id` | `string` |  |
+| `lyrics` | `string` |  |
+| `songId` | `string` |  |
 | `success` | `boolean` |  |
 
 #### Example: Load
@@ -376,13 +380,14 @@ Create an instance: `local search = client:Search(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `table` |  |
+| `coverArt` | `string` |  |
 | `duration` | `number` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
 
 #### Example: List
@@ -407,20 +412,21 @@ Create an instance: `local song = client:Song(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `album` | `string` |  |
-| `album_id` | `string` |  |
+| `albumId` | `string` |  |
 | `artist` | `string` |  |
-| `cover_art` | `string` |  |
+| `artists` | `table` |  |
+| `coverArt` | `string` |  |
 | `duration` | `number` |  |
 | `explicit` | `boolean` |  |
 | `genre` | `string` |  |
 | `id` | `string` |  |
 | `isrc` | `string` |  |
 | `label` | `string` |  |
-| `lyric` | `string` |  |
+| `lyrics` | `string` |  |
 | `popularity` | `number` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `title` | `string` |  |
-| `track_number` | `number` |  |
+| `trackNumber` | `number` |  |
 
 #### Example: Load
 

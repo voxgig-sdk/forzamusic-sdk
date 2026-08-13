@@ -3,22 +3,22 @@
     "lyric": {
       "LYRIC00": {
         "language": "s28",
-        "lyric": "s29",
-        "song_id": "SONG01",
+        "lyrics": "s29",
+        "songId": "s2a",
         "success": false,
         "id": "LYRIC00"
       },
       "LYRIC01": {
         "language": "s50",
-        "lyric": "s51",
-        "song_id": "SONG01",
+        "lyrics": "s51",
+        "songId": "s52",
         "success": false,
         "id": "LYRIC01"
       },
       "LYRIC02": {
         "language": "s78",
-        "lyric": "s79",
-        "song_id": "SONG01",
+        "lyrics": "s79",
+        "songId": "s7a",
         "success": false,
         "id": "LYRIC02"
       }
@@ -28,8 +28,8 @@
     "lyric": {
       "lyric_ref01": {
         "language": "sa0",
-        "lyric": "sa1",
-        "song_id": "SONG01",
+        "lyrics": "sa1",
+        "songId": "sa2",
         "success": false
       }
     }

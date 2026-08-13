@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from forzamusic_sdk.utility.voxgig_struct import voxgig_struct as vs
 from forzamusic_sdk import ForzamusicSDK
-from core import helpers
+from forzamusic_sdk.core import helpers
 from test import runner
 
 

@@ -52,7 +52,7 @@ class AlbumEntityTest extends TestCase
             "id" => $album_ref01_data["id"],
         ];
         $album_ref01_data_dt0_loaded = $album_ref01_ent->load($album_ref01_match_dt0, null);
-        $album_ref01_data_dt0_load_result = Helpers::to_map($album_ref01_data_dt0_loaded);
+        $album_ref01_data_dt0_load_result = Helpers::to_map(is_object($album_ref01_data_dt0_loaded) && method_exists($album_ref01_data_dt0_loaded, 'data_get') ? $album_ref01_data_dt0_loaded->data_get() : $album_ref01_data_dt0_loaded);
         $this->assertNotNull($album_ref01_data_dt0_load_result);
         $this->assertEquals($album_ref01_data_dt0_load_result["id"], $album_ref01_data["id"]);
 

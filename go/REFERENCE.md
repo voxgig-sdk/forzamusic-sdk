@@ -111,14 +111,15 @@ fmt.Println(album.GetName()) // "album"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `[]any` | No |  |
+| `coverArt` | `string` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
 | `label` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
-| `total_track` | `int` | No |  |
-| `track` | `[]any` | No |  |
+| `totalTracks` | `int` | No |  |
+| `tracks` | `[]any` | No |  |
 
 ### Operations
 
@@ -170,8 +171,8 @@ fmt.Println(lyric.GetName()) // "lyric"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `language` | `string` | No |  |
-| `lyric` | `string` | No |  |
-| `song_id` | `string` | No |  |
+| `lyrics` | `string` | No |  |
+| `songId` | `string` | No |  |
 | `success` | `bool` | No |  |
 
 ### Operations
@@ -224,13 +225,14 @@ fmt.Println(search.GetName()) // "search"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `string` | No |  |
-| `album_id` | `string` | No |  |
+| `albumId` | `string` | No |  |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `[]any` | No |  |
+| `coverArt` | `string` | No |  |
 | `duration` | `int` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
 
 ### Operations
@@ -283,20 +285,21 @@ fmt.Println(song.GetName()) // "song"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `album` | `string` | No |  |
-| `album_id` | `string` | No |  |
+| `albumId` | `string` | No |  |
 | `artist` | `string` | No |  |
-| `cover_art` | `string` | No |  |
+| `artists` | `[]any` | No |  |
+| `coverArt` | `string` | No |  |
 | `duration` | `int` | No |  |
 | `explicit` | `bool` | No |  |
 | `genre` | `string` | No |  |
 | `id` | `string` | No |  |
 | `isrc` | `string` | No |  |
 | `label` | `string` | No |  |
-| `lyric` | `string` | No |  |
+| `lyrics` | `string` | No |  |
 | `popularity` | `int` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `title` | `string` | No |  |
-| `track_number` | `int` | No |  |
+| `trackNumber` | `int` | No |  |
 
 ### Operations
 

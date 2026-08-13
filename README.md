@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new ForzamusicSDK()
-const album = await client.Album().load()
+const album = await client.Album().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ForzamusicSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ForzamusicSDK.test({
+  entity: {
+    album: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const album = await client.Album().load({ id: 'test01' })
-// album is a bare Album populated with mock data
+// album is the Album entity, populated with mock data
+// — call album.data() for the record itself
 console.log(album)
 ```
 
@@ -185,7 +194,7 @@ require_once 'forzamusic_sdk.php';
 $client = new ForzamusicSDK();
 
 
-// Load a specific album (returns the bare record; throws on error)
+// Load a specific album (returns the ENTITY; call data_get() for the record; throws on error)
 $album = $client->Album()->load(["id" => "example_id"]);
 print_r($album);
 ```
@@ -213,7 +222,7 @@ require_relative "Forzamusic_sdk"
 client = ForzamusicSDK.new
 
 
-# Load a specific album (returns the bare record; raises on error)
+# Load a specific album (returns the ENTITY; call data_get for the record)
 album = client.Album.load({ "id" => "example_id" })
 puts album
 ```
@@ -347,6 +356,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://forzamusic-api-official.vercel.app/](https://forzamusic-api-official.vercel.app/)
 

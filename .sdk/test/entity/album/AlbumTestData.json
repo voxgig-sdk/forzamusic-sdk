@@ -2,51 +2,55 @@
   "existing": {
     "album": {
       "ALBUM00": {
-        "artist": "s5a",
-        "cover_art": "s5b",
-        "genre": "s5c",
+        "artist": "s64",
+        "artists": [],
+        "coverArt": "s66",
+        "genre": "s67",
         "id": "ALBUM00",
-        "label": "s5e",
-        "release_date": "s5f",
-        "title": "s60",
-        "total_track": "s61",
-        "track": []
+        "label": "s69",
+        "releaseDate": "s6a",
+        "title": "s6b",
+        "totalTracks": "s6c",
+        "tracks": []
       },
       "ALBUM01": {
-        "artist": "sb4",
-        "cover_art": "sb5",
-        "genre": "sb6",
+        "artist": "sc8",
+        "artists": [],
+        "coverArt": "sca",
+        "genre": "scb",
         "id": "ALBUM01",
-        "label": "sb8",
-        "release_date": "sb9",
-        "title": "sba",
-        "total_track": "sbb",
-        "track": []
+        "label": "scd",
+        "releaseDate": "sce",
+        "title": "scf",
+        "totalTracks": "sd0",
+        "tracks": []
       },
       "ALBUM02": {
-        "artist": "s10e",
-        "cover_art": "s10f",
-        "genre": "s110",
+        "artist": "s12c",
+        "artists": [],
+        "coverArt": "s12e",
+        "genre": "s12f",
         "id": "ALBUM02",
-        "label": "s112",
-        "release_date": "s113",
-        "title": "s114",
-        "total_track": "s115",
-        "track": []
+        "label": "s131",
+        "releaseDate": "s132",
+        "title": "s133",
+        "totalTracks": "s134",
+        "tracks": []
       }
     }
   },
   "new": {
     "album": {
       "album_ref01": {
-        "artist": "s168",
-        "cover_art": "s169",
-        "genre": "s16a",
-        "label": "s16c",
-        "release_date": "s16d",
-        "title": "s16e",
-        "total_track": "s16f",
-        "track": []
+        "artist": "s190",
+        "artists": [],
+        "coverArt": "s192",
+        "genre": "s193",
+        "label": "s195",
+        "releaseDate": "s196",
+        "title": "s197",
+        "totalTracks": "s198",
+        "tracks": []
       }
     }
   }

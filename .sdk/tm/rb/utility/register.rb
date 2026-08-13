@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ForzamusicUtility.registrar = ->(u) {
   u.prepare_params = ForzamusicUtilities::PrepareParams
   u.prepare_path = ForzamusicUtilities::PreparePath
   u.prepare_query = ForzamusicUtilities::PrepareQuery
+  u.graphql_body = ForzamusicUtilities::GraphqlBody
+  u.graphql_errors = ForzamusicUtilities::GraphqlErrors
   u.result_basic = ForzamusicUtilities::ResultBasic
   u.result_body = ForzamusicUtilities::ResultBody
   u.result_headers = ForzamusicUtilities::ResultHeaders

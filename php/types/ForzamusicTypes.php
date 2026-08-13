@@ -16,14 +16,15 @@ declare(strict_types=1);
 class Album
 {
     public ?string $artist = null;
-    public ?string $cover_art = null;
+    public ?array $artists = null;
+    public ?string $coverArt = null;
     public ?string $genre = null;
     public ?string $id = null;
     public ?string $label = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?string $title = null;
-    public ?int $total_track = null;
-    public ?array $track = null;
+    public ?int $totalTracks = null;
+    public ?array $tracks = null;
 }
 
 /** Request payload for Album#load. */
@@ -36,8 +37,8 @@ class AlbumLoadMatch
 class Lyric
 {
     public ?string $language = null;
-    public ?string $lyric = null;
-    public ?string $song_id = null;
+    public ?string $lyrics = null;
+    public ?string $songId = null;
     public ?bool $success = null;
 }
 
@@ -51,13 +52,14 @@ class LyricLoadMatch
 class Search
 {
     public ?string $album = null;
-    public ?string $album_id = null;
+    public ?string $albumId = null;
     public ?string $artist = null;
-    public ?string $cover_art = null;
+    public ?array $artists = null;
+    public ?string $coverArt = null;
     public ?int $duration = null;
     public ?string $genre = null;
     public ?string $id = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?string $title = null;
 }
 
@@ -65,13 +67,14 @@ class Search
 class SearchListMatch
 {
     public ?string $album = null;
-    public ?string $album_id = null;
+    public ?string $albumId = null;
     public ?string $artist = null;
-    public ?string $cover_art = null;
+    public ?array $artists = null;
+    public ?string $coverArt = null;
     public ?int $duration = null;
     public ?string $genre = null;
     public ?string $id = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?string $title = null;
 }
 
@@ -79,20 +82,21 @@ class SearchListMatch
 class Song
 {
     public ?string $album = null;
-    public ?string $album_id = null;
+    public ?string $albumId = null;
     public ?string $artist = null;
-    public ?string $cover_art = null;
+    public ?array $artists = null;
+    public ?string $coverArt = null;
     public ?int $duration = null;
     public ?bool $explicit = null;
     public ?string $genre = null;
     public ?string $id = null;
     public ?string $isrc = null;
     public ?string $label = null;
-    public ?string $lyric = null;
+    public ?string $lyrics = null;
     public ?int $popularity = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?string $title = null;
-    public ?int $track_number = null;
+    public ?int $trackNumber = null;
 }
 
 /** Request payload for Song#load. */

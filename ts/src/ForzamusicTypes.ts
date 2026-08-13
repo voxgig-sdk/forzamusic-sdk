@@ -7,14 +7,15 @@
 
 export interface Album {
   artist?: string
-  cover_art?: string
+  artists?: any[]
+  coverArt?: string
   genre?: string
   id?: string
   label?: string
-  release_date?: string
+  releaseDate?: string
   title?: string
-  total_track?: number
-  track?: any[]
+  totalTracks?: number
+  tracks?: any[]
 }
 
 export interface AlbumLoadMatch {
@@ -23,8 +24,8 @@ export interface AlbumLoadMatch {
 
 export interface Lyric {
   language?: string
-  lyric?: string
-  song_id?: string
+  lyrics?: string
+  songId?: string
   success?: boolean
 }
 
@@ -34,44 +35,47 @@ export interface LyricLoadMatch {
 
 export interface Search {
   album?: string
-  album_id?: string
+  albumId?: string
   artist?: string
-  cover_art?: string
+  artists?: any[]
+  coverArt?: string
   duration?: number
   genre?: string
   id?: string
-  release_date?: string
+  releaseDate?: string
   title?: string
 }
 
 export interface SearchListMatch {
   album?: string
-  album_id?: string
+  albumId?: string
   artist?: string
-  cover_art?: string
+  artists?: any[]
+  coverArt?: string
   duration?: number
   genre?: string
   id?: string
-  release_date?: string
+  releaseDate?: string
   title?: string
 }
 
 export interface Song {
   album?: string
-  album_id?: string
+  albumId?: string
   artist?: string
-  cover_art?: string
+  artists?: any[]
+  coverArt?: string
   duration?: number
   explicit?: boolean
   genre?: string
   id?: string
   isrc?: string
   label?: string
-  lyric?: string
+  lyrics?: string
   popularity?: number
-  release_date?: string
+  releaseDate?: string
   title?: string
-  track_number?: number
+  trackNumber?: number
 }
 
 export interface SongLoadMatch {

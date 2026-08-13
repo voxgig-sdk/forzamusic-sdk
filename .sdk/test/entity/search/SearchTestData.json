@@ -2,51 +2,55 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "album": "s5a",
-        "album_id": "ALBUM01",
-        "artist": "s5c",
-        "cover_art": "s5d",
-        "duration": "s5e",
-        "genre": "s5f",
+        "album": "s64",
+        "albumId": "s65",
+        "artist": "s66",
+        "artists": [],
+        "coverArt": "s68",
+        "duration": "s69",
+        "genre": "s6a",
         "id": "SEARCH00",
-        "release_date": "s61",
-        "title": "s62"
+        "releaseDate": "s6c",
+        "title": "s6d"
       },
       "SEARCH01": {
-        "album": "sb4",
-        "album_id": "ALBUM01",
-        "artist": "sb6",
-        "cover_art": "sb7",
-        "duration": "sb8",
-        "genre": "sb9",
+        "album": "sc8",
+        "albumId": "sc9",
+        "artist": "sca",
+        "artists": [],
+        "coverArt": "scc",
+        "duration": "scd",
+        "genre": "sce",
         "id": "SEARCH01",
-        "release_date": "sbb",
-        "title": "sbc"
+        "releaseDate": "sd0",
+        "title": "sd1"
       },
       "SEARCH02": {
-        "album": "s10e",
-        "album_id": "ALBUM01",
-        "artist": "s110",
-        "cover_art": "s111",
-        "duration": "s112",
-        "genre": "s113",
+        "album": "s12c",
+        "albumId": "s12d",
+        "artist": "s12e",
+        "artists": [],
+        "coverArt": "s130",
+        "duration": "s131",
+        "genre": "s132",
         "id": "SEARCH02",
-        "release_date": "s115",
-        "title": "s116"
+        "releaseDate": "s134",
+        "title": "s135"
       }
     }
   },
   "new": {
     "search": {
       "search_ref01": {
-        "album": "s168",
-        "album_id": "ALBUM01",
-        "artist": "s16a",
-        "cover_art": "s16b",
-        "duration": "s16c",
-        "genre": "s16d",
-        "release_date": "s16f",
-        "title": "s170"
+        "album": "s190",
+        "albumId": "s191",
+        "artist": "s192",
+        "artists": [],
+        "coverArt": "s194",
+        "duration": "s195",
+        "genre": "s196",
+        "releaseDate": "s198",
+        "title": "s199"
       }
     }
   }

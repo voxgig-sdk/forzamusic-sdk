@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from forzamusic_sdk.utility.voxgig_struct import voxgig_struct as vs
 from forzamusic_sdk import ForzamusicSDK
-from core import helpers
+from forzamusic_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -52,7 +52,7 @@ class TestAlbumEntity:
             "id": album_ref01_data["id"],
         }
         album_ref01_data_dt0_loaded = album_ref01_ent.load(album_ref01_match_dt0, None)
-        album_ref01_data_dt0_load_result = helpers.to_map(album_ref01_data_dt0_loaded)
+        album_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(album_ref01_data_dt0_loaded))
         assert album_ref01_data_dt0_load_result is not None
         assert album_ref01_data_dt0_load_result["id"] == album_ref01_data["id"]
 
