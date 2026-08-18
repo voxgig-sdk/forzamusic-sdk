@@ -33,7 +33,7 @@ class SearchEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = ForzamusicConfig.make_config
+    cfg = ForzamusicConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = ForzamusicSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

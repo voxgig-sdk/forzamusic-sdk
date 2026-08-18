@@ -28,7 +28,7 @@ class ForzamusicSDK
     utility = ForzamusicUtility.new
     @_utility = utility
 
-    config = ForzamusicConfig.make_config
+    config = ForzamusicConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

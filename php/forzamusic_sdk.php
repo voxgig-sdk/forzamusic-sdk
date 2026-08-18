@@ -40,7 +40,7 @@ class ForzamusicSDK
         $utility = new ForzamusicUtility();
         $this->_utility = $utility;
 
-        $config = ForzamusicConfig::make_config();
+        $config = ForzamusicConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
