@@ -252,15 +252,15 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `artist` |  |
+| `artist` | Primary artist |
 | `artists` |  |
 | `coverArt` |  |
 | `genre` |  |
-| `id` |  |
-| `label` |  |
+| `id` | Unique identifier of the album |
+| `label` | Record label |
 | `releaseDate` |  |
-| `title` |  |
-| `totalTracks` |  |
+| `title` | Album title |
+| `totalTracks` | Total number of tracks |
 | `tracks` |  |
 
 Operations: Load.
@@ -271,8 +271,8 @@ API path: `/api/album/{albumId}`
 
 | Field | Description |
 | --- | --- |
-| `language` |  |
-| `lyrics` |  |
+| `language` | Language of the lyrics |
+| `lyrics` | Full lyrics of the song |
 | `songId` |  |
 | `success` |  |
 
@@ -284,16 +284,16 @@ API path: `/api/lyrics/{songId}`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `genre` |  |
-| `id` |  |
-| `releaseDate` |  |
-| `title` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
 
 Operations: List.
 
@@ -303,22 +303,22 @@ API path: `/api/search`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `explicit` |  |
-| `genre` |  |
-| `id` |  |
-| `isrc` |  |
-| `label` |  |
-| `lyrics` |  |
-| `popularity` |  |
-| `releaseDate` |  |
-| `title` |  |
-| `trackNumber` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `explicit` | Whether the song contains explicit content |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `isrc` | International Standard Recording Code |
+| `label` | Record label |
+| `lyrics` | Full lyrics of the song |
+| `popularity` | Popularity score (0-100) |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
+| `trackNumber` | Track number on album |
 
 Operations: Load.
 
@@ -343,15 +343,15 @@ Create an instance: `$album = $client->Album();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | `string` |  |
+| `artist` | `string` | Primary artist |
 | `artists` | `array` |  |
 | `coverArt` | `string` |  |
 | `genre` | `string` |  |
-| `id` | `string` |  |
-| `label` | `string` |  |
+| `id` | `string` | Unique identifier of the album |
+| `label` | `string` | Record label |
 | `releaseDate` | `string` |  |
-| `title` | `string` |  |
-| `totalTracks` | `int` |  |
+| `title` | `string` | Album title |
+| `totalTracks` | `int` | Total number of tracks |
 | `tracks` | `array` |  |
 
 #### Example: Load
@@ -376,8 +376,8 @@ Create an instance: `$lyric = $client->Lyric();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `language` | `string` |  |
-| `lyrics` | `string` |  |
+| `language` | `string` | Language of the lyrics |
+| `lyrics` | `string` | Full lyrics of the song |
 | `songId` | `string` |  |
 | `success` | `bool` |  |
 
@@ -403,16 +403,16 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `albumId` | `string` |  |
-| `artist` | `string` |  |
-| `artists` | `array` |  |
-| `coverArt` | `string` |  |
-| `duration` | `int` |  |
-| `genre` | `string` |  |
-| `id` | `string` |  |
-| `releaseDate` | `string` |  |
-| `title` | `string` |  |
+| `album` | `string` | Album name |
+| `albumId` | `string` | Album identifier |
+| `artist` | `string` | Primary artist of the song |
+| `artists` | `array` | List of all artists involved |
+| `coverArt` | `string` | URL to cover art image |
+| `duration` | `int` | Duration in seconds |
+| `genre` | `string` | Primary genre |
+| `id` | `string` | Unique identifier of the song |
+| `releaseDate` | `string` | Release date of the song |
+| `title` | `string` | Title of the song |
 
 #### Example: List
 
@@ -436,22 +436,22 @@ Create an instance: `$song = $client->Song();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `albumId` | `string` |  |
-| `artist` | `string` |  |
-| `artists` | `array` |  |
-| `coverArt` | `string` |  |
-| `duration` | `int` |  |
-| `explicit` | `bool` |  |
-| `genre` | `string` |  |
-| `id` | `string` |  |
-| `isrc` | `string` |  |
-| `label` | `string` |  |
-| `lyrics` | `string` |  |
-| `popularity` | `int` |  |
-| `releaseDate` | `string` |  |
-| `title` | `string` |  |
-| `trackNumber` | `int` |  |
+| `album` | `string` | Album name |
+| `albumId` | `string` | Album identifier |
+| `artist` | `string` | Primary artist of the song |
+| `artists` | `array` | List of all artists involved |
+| `coverArt` | `string` | URL to cover art image |
+| `duration` | `int` | Duration in seconds |
+| `explicit` | `bool` | Whether the song contains explicit content |
+| `genre` | `string` | Primary genre |
+| `id` | `string` | Unique identifier of the song |
+| `isrc` | `string` | International Standard Recording Code |
+| `label` | `string` | Record label |
+| `lyrics` | `string` | Full lyrics of the song |
+| `popularity` | `int` | Popularity score (0-100) |
+| `releaseDate` | `string` | Release date of the song |
+| `title` | `string` | Title of the song |
+| `trackNumber` | `int` | Track number on album |
 
 #### Example: Load
 

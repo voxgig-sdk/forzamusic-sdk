@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Forzamusic",
+			"slug": "forzamusic",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -36,6 +39,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "artist",
+						"short": "Primary artist",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -52,10 +56,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier of the album",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "label",
+						"short": "Record label",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -64,10 +70,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Album title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "totalTracks",
+						"short": "Total number of tracks",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -127,10 +135,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "language",
+						"short": "Language of the lyrics",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lyrics",
+						"short": "Full lyrics of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -194,42 +204,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "album",
+						"short": "Album name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "albumId",
+						"short": "Album identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "artist",
+						"short": "Primary artist of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "artists",
+						"short": "List of all artists involved",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "coverArt",
+						"short": "URL to cover art image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "duration",
+						"short": "Duration in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "genre",
+						"short": "Primary genre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "releaseDate",
+						"short": "Release date of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Title of the song",
 						"type": "`$STRING`",
 					},
 				},
@@ -296,66 +316,82 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "album",
+						"short": "Album name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "albumId",
+						"short": "Album identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "artist",
+						"short": "Primary artist of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "artists",
+						"short": "List of all artists involved",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "coverArt",
+						"short": "URL to cover art image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "duration",
+						"short": "Duration in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "explicit",
+						"short": "Whether the song contains explicit content",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "genre",
+						"short": "Primary genre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isrc",
+						"short": "International Standard Recording Code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "label",
+						"short": "Record label",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "lyrics",
+						"short": "Full lyrics of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "popularity",
+						"short": "Popularity score (0-100)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "releaseDate",
+						"short": "Release date of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Title of the song",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "trackNumber",
+						"short": "Track number on album",
 						"type": "`$INTEGER`",
 					},
 				},

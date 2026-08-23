@@ -19,6 +19,9 @@ module ForzamusicConfig
     {
       "main" => {
         "name" => "Forzamusic",
+        "slug" => "forzamusic",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -44,6 +47,7 @@ module ForzamusicConfig
           "fields" => [
             {
               "name" => "artist",
+              "short" => "Primary artist",
               "type" => "`$STRING`",
             },
             {
@@ -60,10 +64,12 @@ module ForzamusicConfig
             },
             {
               "name" => "id",
+              "short" => "Unique identifier of the album",
               "type" => "`$STRING`",
             },
             {
               "name" => "label",
+              "short" => "Record label",
               "type" => "`$STRING`",
             },
             {
@@ -72,10 +78,12 @@ module ForzamusicConfig
             },
             {
               "name" => "title",
+              "short" => "Album title",
               "type" => "`$STRING`",
             },
             {
               "name" => "totalTracks",
+              "short" => "Total number of tracks",
               "type" => "`$INTEGER`",
             },
             {
@@ -135,10 +143,12 @@ module ForzamusicConfig
           "fields" => [
             {
               "name" => "language",
+              "short" => "Language of the lyrics",
               "type" => "`$STRING`",
             },
             {
               "name" => "lyrics",
+              "short" => "Full lyrics of the song",
               "type" => "`$STRING`",
             },
             {
@@ -202,42 +212,52 @@ module ForzamusicConfig
           "fields" => [
             {
               "name" => "album",
+              "short" => "Album name",
               "type" => "`$STRING`",
             },
             {
               "name" => "albumId",
+              "short" => "Album identifier",
               "type" => "`$STRING`",
             },
             {
               "name" => "artist",
+              "short" => "Primary artist of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "artists",
+              "short" => "List of all artists involved",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "coverArt",
+              "short" => "URL to cover art image",
               "type" => "`$STRING`",
             },
             {
               "name" => "duration",
+              "short" => "Duration in seconds",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "genre",
+              "short" => "Primary genre",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "releaseDate",
+              "short" => "Release date of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "title",
+              "short" => "Title of the song",
               "type" => "`$STRING`",
             },
           ],
@@ -304,66 +324,82 @@ module ForzamusicConfig
           "fields" => [
             {
               "name" => "album",
+              "short" => "Album name",
               "type" => "`$STRING`",
             },
             {
               "name" => "albumId",
+              "short" => "Album identifier",
               "type" => "`$STRING`",
             },
             {
               "name" => "artist",
+              "short" => "Primary artist of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "artists",
+              "short" => "List of all artists involved",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "coverArt",
+              "short" => "URL to cover art image",
               "type" => "`$STRING`",
             },
             {
               "name" => "duration",
+              "short" => "Duration in seconds",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "explicit",
+              "short" => "Whether the song contains explicit content",
               "type" => "`$BOOLEAN`",
             },
             {
               "name" => "genre",
+              "short" => "Primary genre",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "isrc",
+              "short" => "International Standard Recording Code",
               "type" => "`$STRING`",
             },
             {
               "name" => "label",
+              "short" => "Record label",
               "type" => "`$STRING`",
             },
             {
               "name" => "lyrics",
+              "short" => "Full lyrics of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "popularity",
+              "short" => "Popularity score (0-100)",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "releaseDate",
+              "short" => "Release date of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "title",
+              "short" => "Title of the song",
               "type" => "`$STRING`",
             },
             {
               "name" => "trackNumber",
+              "short" => "Track number on album",
               "type" => "`$INTEGER`",
             },
           ],

@@ -1,0 +1,156 @@
+# Entity: song
+
+main: kit: entity: song: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "album"
+      req: false
+      short: "Album name"
+      type: "`$STRING`"
+    }
+    {
+      name: "albumId"
+      req: false
+      short: "Album identifier"
+      type: "`$STRING`"
+    }
+    {
+      name: "artist"
+      req: false
+      short: "Primary artist of the song"
+      type: "`$STRING`"
+    }
+    {
+      name: "artists"
+      req: false
+      short: "List of all artists involved"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "coverArt"
+      req: false
+      short: "URL to cover art image"
+      type: "`$STRING`"
+    }
+    {
+      name: "duration"
+      req: false
+      short: "Duration in seconds"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "explicit"
+      req: false
+      short: "Whether the song contains explicit content"
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "genre"
+      req: false
+      short: "Primary genre"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "Unique identifier of the song"
+      type: "`$STRING`"
+    }
+    {
+      name: "isrc"
+      req: false
+      short: "International Standard Recording Code"
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      req: false
+      short: "Record label"
+      type: "`$STRING`"
+    }
+    {
+      name: "lyrics"
+      req: false
+      short: "Full lyrics of the song"
+      type: "`$STRING`"
+    }
+    {
+      name: "popularity"
+      req: false
+      short: "Popularity score (0-100)"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "releaseDate"
+      req: false
+      short: "Release date of the song"
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      short: "Title of the song"
+      type: "`$STRING`"
+    }
+    {
+      name: "trackNumber"
+      req: false
+      short: "Track number on album"
+      type: "`$INTEGER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "song"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "song_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/song/{songId}"
+          parts: [
+            "api"
+            "song"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              songId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -104,15 +104,15 @@ $album = $client->Album();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | `string` | No |  |
+| `artist` | `string` | No | Primary artist |
 | `artists` | `array` | No |  |
 | `coverArt` | `string` | No |  |
 | `genre` | `string` | No |  |
-| `id` | `string` | No |  |
-| `label` | `string` | No |  |
+| `id` | `string` | No | Unique identifier of the album |
+| `label` | `string` | No | Record label |
 | `releaseDate` | `string` | No |  |
-| `title` | `string` | No |  |
-| `totalTracks` | `int` | No |  |
+| `title` | `string` | No | Album title |
+| `totalTracks` | `int` | No | Total number of tracks |
 | `tracks` | `array` | No |  |
 
 ### Operations
@@ -165,8 +165,8 @@ $lyric = $client->Lyric();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | `string` | No |  |
-| `lyrics` | `string` | No |  |
+| `language` | `string` | No | Language of the lyrics |
+| `lyrics` | `string` | No | Full lyrics of the song |
 | `songId` | `string` | No |  |
 | `success` | `bool` | No |  |
 
@@ -220,16 +220,16 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `string` | No |  |
-| `albumId` | `string` | No |  |
-| `artist` | `string` | No |  |
-| `artists` | `array` | No |  |
-| `coverArt` | `string` | No |  |
-| `duration` | `int` | No |  |
-| `genre` | `string` | No |  |
-| `id` | `string` | No |  |
-| `releaseDate` | `string` | No |  |
-| `title` | `string` | No |  |
+| `album` | `string` | No | Album name |
+| `albumId` | `string` | No | Album identifier |
+| `artist` | `string` | No | Primary artist of the song |
+| `artists` | `array` | No | List of all artists involved |
+| `coverArt` | `string` | No | URL to cover art image |
+| `duration` | `int` | No | Duration in seconds |
+| `genre` | `string` | No | Primary genre |
+| `id` | `string` | No | Unique identifier of the song |
+| `releaseDate` | `string` | No | Release date of the song |
+| `title` | `string` | No | Title of the song |
 
 ### Operations
 
@@ -281,22 +281,22 @@ $song = $client->Song();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `string` | No |  |
-| `albumId` | `string` | No |  |
-| `artist` | `string` | No |  |
-| `artists` | `array` | No |  |
-| `coverArt` | `string` | No |  |
-| `duration` | `int` | No |  |
-| `explicit` | `bool` | No |  |
-| `genre` | `string` | No |  |
-| `id` | `string` | No |  |
-| `isrc` | `string` | No |  |
-| `label` | `string` | No |  |
-| `lyrics` | `string` | No |  |
-| `popularity` | `int` | No |  |
-| `releaseDate` | `string` | No |  |
-| `title` | `string` | No |  |
-| `trackNumber` | `int` | No |  |
+| `album` | `string` | No | Album name |
+| `albumId` | `string` | No | Album identifier |
+| `artist` | `string` | No | Primary artist of the song |
+| `artists` | `array` | No | List of all artists involved |
+| `coverArt` | `string` | No | URL to cover art image |
+| `duration` | `int` | No | Duration in seconds |
+| `explicit` | `bool` | No | Whether the song contains explicit content |
+| `genre` | `string` | No | Primary genre |
+| `id` | `string` | No | Unique identifier of the song |
+| `isrc` | `string` | No | International Standard Recording Code |
+| `label` | `string` | No | Record label |
+| `lyrics` | `string` | No | Full lyrics of the song |
+| `popularity` | `int` | No | Popularity score (0-100) |
+| `releaseDate` | `string` | No | Release date of the song |
+| `title` | `string` | No | Title of the song |
+| `trackNumber` | `int` | No | Track number on album |
 
 ### Operations
 

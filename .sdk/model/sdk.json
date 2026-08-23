@@ -36,6 +36,7 @@
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "Primary artist",
               "type": "`$STRING`"
             },
             {
@@ -60,12 +61,14 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier of the album",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "label",
               "req": false,
+              "short": "Record label",
               "type": "`$STRING`"
             },
             {
@@ -78,12 +81,14 @@
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Album title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "totalTracks",
               "req": false,
+              "short": "Total number of tracks",
               "type": "`$INTEGER`"
             },
             {
@@ -157,12 +162,14 @@
               "active": true,
               "name": "language",
               "req": false,
+              "short": "Language of the lyrics",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lyrics",
               "req": false,
+              "short": "Full lyrics of the song",
               "type": "`$STRING`"
             },
             {
@@ -238,60 +245,70 @@
               "active": true,
               "name": "album",
               "req": false,
+              "short": "Album name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "albumId",
               "req": false,
+              "short": "Album identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "Primary artist of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "artists",
               "req": false,
+              "short": "List of all artists involved",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "coverArt",
               "req": false,
+              "short": "URL to cover art image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "duration",
               "req": false,
+              "short": "Duration in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "genre",
               "req": false,
+              "short": "Primary genre",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "releaseDate",
               "req": false,
+              "short": "Release date of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Title of the song",
               "type": "`$STRING`"
             }
           ],
@@ -374,96 +391,112 @@
               "active": true,
               "name": "album",
               "req": false,
+              "short": "Album name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "albumId",
               "req": false,
+              "short": "Album identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "Primary artist of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "artists",
               "req": false,
+              "short": "List of all artists involved",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "coverArt",
               "req": false,
+              "short": "URL to cover art image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "duration",
               "req": false,
+              "short": "Duration in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "explicit",
               "req": false,
+              "short": "Whether the song contains explicit content",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "genre",
               "req": false,
+              "short": "Primary genre",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isrc",
               "req": false,
+              "short": "International Standard Recording Code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "label",
               "req": false,
+              "short": "Record label",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lyrics",
               "req": false,
+              "short": "Full lyrics of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "popularity",
               "req": false,
+              "short": "Popularity score (0-100)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "releaseDate",
               "req": false,
+              "short": "Release date of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Title of the song",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "trackNumber",
               "req": false,
+              "short": "Track number on album",
               "type": "`$INTEGER`"
             }
           ],

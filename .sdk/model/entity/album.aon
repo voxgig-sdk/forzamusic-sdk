@@ -1,0 +1,115 @@
+# Entity: album
+
+main: kit: entity: album: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "artist"
+      req: false
+      short: "Primary artist"
+      type: "`$STRING`"
+    }
+    {
+      name: "artists"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "coverArt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "genre"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "Unique identifier of the album"
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      req: false
+      short: "Record label"
+      type: "`$STRING`"
+    }
+    {
+      name: "releaseDate"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      short: "Album title"
+      type: "`$STRING`"
+    }
+    {
+      name: "totalTracks"
+      req: false
+      short: "Total number of tracks"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "tracks"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "album"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "album_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/album/{albumId}"
+          parts: [
+            "api"
+            "album"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              albumId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

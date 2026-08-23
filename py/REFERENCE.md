@@ -99,15 +99,15 @@ album = client.Album()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | `str` | No |  |
+| `artist` | `str` | No | Primary artist |
 | `artists` | `list` | No |  |
 | `coverArt` | `str` | No |  |
 | `genre` | `str` | No |  |
-| `id` | `str` | No |  |
-| `label` | `str` | No |  |
+| `id` | `str` | No | Unique identifier of the album |
+| `label` | `str` | No | Record label |
 | `releaseDate` | `str` | No |  |
-| `title` | `str` | No |  |
-| `totalTracks` | `int` | No |  |
+| `title` | `str` | No | Album title |
+| `totalTracks` | `int` | No | Total number of tracks |
 | `tracks` | `list` | No |  |
 
 ### Operations
@@ -159,8 +159,8 @@ lyric = client.Lyric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `language` | `str` | No |  |
-| `lyrics` | `str` | No |  |
+| `language` | `str` | No | Language of the lyrics |
+| `lyrics` | `str` | No | Full lyrics of the song |
 | `songId` | `str` | No |  |
 | `success` | `bool` | No |  |
 
@@ -213,16 +213,16 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `str` | No |  |
-| `albumId` | `str` | No |  |
-| `artist` | `str` | No |  |
-| `artists` | `list` | No |  |
-| `coverArt` | `str` | No |  |
-| `duration` | `int` | No |  |
-| `genre` | `str` | No |  |
-| `id` | `str` | No |  |
-| `releaseDate` | `str` | No |  |
-| `title` | `str` | No |  |
+| `album` | `str` | No | Album name |
+| `albumId` | `str` | No | Album identifier |
+| `artist` | `str` | No | Primary artist of the song |
+| `artists` | `list` | No | List of all artists involved |
+| `coverArt` | `str` | No | URL to cover art image |
+| `duration` | `int` | No | Duration in seconds |
+| `genre` | `str` | No | Primary genre |
+| `id` | `str` | No | Unique identifier of the song |
+| `releaseDate` | `str` | No | Release date of the song |
+| `title` | `str` | No | Title of the song |
 
 ### Operations
 
@@ -275,22 +275,22 @@ song = client.Song()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `album` | `str` | No |  |
-| `albumId` | `str` | No |  |
-| `artist` | `str` | No |  |
-| `artists` | `list` | No |  |
-| `coverArt` | `str` | No |  |
-| `duration` | `int` | No |  |
-| `explicit` | `bool` | No |  |
-| `genre` | `str` | No |  |
-| `id` | `str` | No |  |
-| `isrc` | `str` | No |  |
-| `label` | `str` | No |  |
-| `lyrics` | `str` | No |  |
-| `popularity` | `int` | No |  |
-| `releaseDate` | `str` | No |  |
-| `title` | `str` | No |  |
-| `trackNumber` | `int` | No |  |
+| `album` | `str` | No | Album name |
+| `albumId` | `str` | No | Album identifier |
+| `artist` | `str` | No | Primary artist of the song |
+| `artists` | `list` | No | List of all artists involved |
+| `coverArt` | `str` | No | URL to cover art image |
+| `duration` | `int` | No | Duration in seconds |
+| `explicit` | `bool` | No | Whether the song contains explicit content |
+| `genre` | `str` | No | Primary genre |
+| `id` | `str` | No | Unique identifier of the song |
+| `isrc` | `str` | No | International Standard Recording Code |
+| `label` | `str` | No | Record label |
+| `lyrics` | `str` | No | Full lyrics of the song |
+| `popularity` | `int` | No | Popularity score (0-100) |
+| `releaseDate` | `str` | No | Release date of the song |
+| `title` | `str` | No | Title of the song |
+| `trackNumber` | `int` | No | Track number on album |
 
 ### Operations
 

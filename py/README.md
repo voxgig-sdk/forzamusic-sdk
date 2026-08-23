@@ -245,15 +245,15 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `artist` |  |
+| `artist` | Primary artist |
 | `artists` |  |
 | `coverArt` |  |
 | `genre` |  |
-| `id` |  |
-| `label` |  |
+| `id` | Unique identifier of the album |
+| `label` | Record label |
 | `releaseDate` |  |
-| `title` |  |
-| `totalTracks` |  |
+| `title` | Album title |
+| `totalTracks` | Total number of tracks |
 | `tracks` |  |
 
 Operations: Load.
@@ -264,8 +264,8 @@ API path: `/api/album/{albumId}`
 
 | Field | Description |
 | --- | --- |
-| `language` |  |
-| `lyrics` |  |
+| `language` | Language of the lyrics |
+| `lyrics` | Full lyrics of the song |
 | `songId` |  |
 | `success` |  |
 
@@ -277,16 +277,16 @@ API path: `/api/lyrics/{songId}`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `genre` |  |
-| `id` |  |
-| `releaseDate` |  |
-| `title` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
 
 Operations: List.
 
@@ -296,22 +296,22 @@ API path: `/api/search`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `explicit` |  |
-| `genre` |  |
-| `id` |  |
-| `isrc` |  |
-| `label` |  |
-| `lyrics` |  |
-| `popularity` |  |
-| `releaseDate` |  |
-| `title` |  |
-| `trackNumber` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `explicit` | Whether the song contains explicit content |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `isrc` | International Standard Recording Code |
+| `label` | Record label |
+| `lyrics` | Full lyrics of the song |
+| `popularity` | Popularity score (0-100) |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
+| `trackNumber` | Track number on album |
 
 Operations: Load.
 
@@ -336,15 +336,15 @@ Create an instance: `album = client.Album()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | `str` |  |
+| `artist` | `str` | Primary artist |
 | `artists` | `list` |  |
 | `coverArt` | `str` |  |
 | `genre` | `str` |  |
-| `id` | `str` |  |
-| `label` | `str` |  |
+| `id` | `str` | Unique identifier of the album |
+| `label` | `str` | Record label |
 | `releaseDate` | `str` |  |
-| `title` | `str` |  |
-| `totalTracks` | `int` |  |
+| `title` | `str` | Album title |
+| `totalTracks` | `int` | Total number of tracks |
 | `tracks` | `list` |  |
 
 #### Example: Load
@@ -368,8 +368,8 @@ Create an instance: `lyric = client.Lyric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `language` | `str` |  |
-| `lyrics` | `str` |  |
+| `language` | `str` | Language of the lyrics |
+| `lyrics` | `str` | Full lyrics of the song |
 | `songId` | `str` |  |
 | `success` | `bool` |  |
 
@@ -394,16 +394,16 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `str` |  |
-| `albumId` | `str` |  |
-| `artist` | `str` |  |
-| `artists` | `list` |  |
-| `coverArt` | `str` |  |
-| `duration` | `int` |  |
-| `genre` | `str` |  |
-| `id` | `str` |  |
-| `releaseDate` | `str` |  |
-| `title` | `str` |  |
+| `album` | `str` | Album name |
+| `albumId` | `str` | Album identifier |
+| `artist` | `str` | Primary artist of the song |
+| `artists` | `list` | List of all artists involved |
+| `coverArt` | `str` | URL to cover art image |
+| `duration` | `int` | Duration in seconds |
+| `genre` | `str` | Primary genre |
+| `id` | `str` | Unique identifier of the song |
+| `releaseDate` | `str` | Release date of the song |
+| `title` | `str` | Title of the song |
 
 #### Example: List
 
@@ -426,22 +426,22 @@ Create an instance: `song = client.Song()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `str` |  |
-| `albumId` | `str` |  |
-| `artist` | `str` |  |
-| `artists` | `list` |  |
-| `coverArt` | `str` |  |
-| `duration` | `int` |  |
-| `explicit` | `bool` |  |
-| `genre` | `str` |  |
-| `id` | `str` |  |
-| `isrc` | `str` |  |
-| `label` | `str` |  |
-| `lyrics` | `str` |  |
-| `popularity` | `int` |  |
-| `releaseDate` | `str` |  |
-| `title` | `str` |  |
-| `trackNumber` | `int` |  |
+| `album` | `str` | Album name |
+| `albumId` | `str` | Album identifier |
+| `artist` | `str` | Primary artist of the song |
+| `artists` | `list` | List of all artists involved |
+| `coverArt` | `str` | URL to cover art image |
+| `duration` | `int` | Duration in seconds |
+| `explicit` | `bool` | Whether the song contains explicit content |
+| `genre` | `str` | Primary genre |
+| `id` | `str` | Unique identifier of the song |
+| `isrc` | `str` | International Standard Recording Code |
+| `label` | `str` | Record label |
+| `lyrics` | `str` | Full lyrics of the song |
+| `popularity` | `int` | Popularity score (0-100) |
+| `releaseDate` | `str` | Release date of the song |
+| `title` | `str` | Title of the song |
+| `trackNumber` | `int` | Track number on album |
 
 #### Example: Load
 

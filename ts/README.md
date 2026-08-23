@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -291,15 +291,15 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `artist` |  |
+| `artist` | Primary artist |
 | `artists` |  |
 | `coverArt` |  |
 | `genre` |  |
-| `id` |  |
-| `label` |  |
+| `id` | Unique identifier of the album |
+| `label` | Record label |
 | `releaseDate` |  |
-| `title` |  |
-| `totalTracks` |  |
+| `title` | Album title |
+| `totalTracks` | Total number of tracks |
 | `tracks` |  |
 
 Operations: load.
@@ -310,8 +310,8 @@ API path: `/api/album/{albumId}`
 
 | Field | Description |
 | --- | --- |
-| `language` |  |
-| `lyrics` |  |
+| `language` | Language of the lyrics |
+| `lyrics` | Full lyrics of the song |
 | `songId` |  |
 | `success` |  |
 
@@ -323,16 +323,16 @@ API path: `/api/lyrics/{songId}`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `genre` |  |
-| `id` |  |
-| `releaseDate` |  |
-| `title` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
 
 Operations: list.
 
@@ -342,22 +342,22 @@ API path: `/api/search`
 
 | Field | Description |
 | --- | --- |
-| `album` |  |
-| `albumId` |  |
-| `artist` |  |
-| `artists` |  |
-| `coverArt` |  |
-| `duration` |  |
-| `explicit` |  |
-| `genre` |  |
-| `id` |  |
-| `isrc` |  |
-| `label` |  |
-| `lyrics` |  |
-| `popularity` |  |
-| `releaseDate` |  |
-| `title` |  |
-| `trackNumber` |  |
+| `album` | Album name |
+| `albumId` | Album identifier |
+| `artist` | Primary artist of the song |
+| `artists` | List of all artists involved |
+| `coverArt` | URL to cover art image |
+| `duration` | Duration in seconds |
+| `explicit` | Whether the song contains explicit content |
+| `genre` | Primary genre |
+| `id` | Unique identifier of the song |
+| `isrc` | International Standard Recording Code |
+| `label` | Record label |
+| `lyrics` | Full lyrics of the song |
+| `popularity` | Popularity score (0-100) |
+| `releaseDate` | Release date of the song |
+| `title` | Title of the song |
+| `trackNumber` | Track number on album |
 
 Operations: load.
 
@@ -382,15 +382,15 @@ Create an instance: `const album = client.Album()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | `string` |  |
+| `artist` | `string` | Primary artist |
 | `artists` | `any[]` |  |
 | `coverArt` | `string` |  |
 | `genre` | `string` |  |
-| `id` | `string` |  |
-| `label` | `string` |  |
+| `id` | `string` | Unique identifier of the album |
+| `label` | `string` | Record label |
 | `releaseDate` | `string` |  |
-| `title` | `string` |  |
-| `totalTracks` | `number` |  |
+| `title` | `string` | Album title |
+| `totalTracks` | `number` | Total number of tracks |
 | `tracks` | `any[]` |  |
 
 #### Example: Load
@@ -414,8 +414,8 @@ Create an instance: `const lyric = client.Lyric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `language` | `string` |  |
-| `lyrics` | `string` |  |
+| `language` | `string` | Language of the lyrics |
+| `lyrics` | `string` | Full lyrics of the song |
 | `songId` | `string` |  |
 | `success` | `boolean` |  |
 
@@ -440,16 +440,16 @@ Create an instance: `const search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `albumId` | `string` |  |
-| `artist` | `string` |  |
-| `artists` | `any[]` |  |
-| `coverArt` | `string` |  |
-| `duration` | `number` |  |
-| `genre` | `string` |  |
-| `id` | `string` |  |
-| `releaseDate` | `string` |  |
-| `title` | `string` |  |
+| `album` | `string` | Album name |
+| `albumId` | `string` | Album identifier |
+| `artist` | `string` | Primary artist of the song |
+| `artists` | `any[]` | List of all artists involved |
+| `coverArt` | `string` | URL to cover art image |
+| `duration` | `number` | Duration in seconds |
+| `genre` | `string` | Primary genre |
+| `id` | `string` | Unique identifier of the song |
+| `releaseDate` | `string` | Release date of the song |
+| `title` | `string` | Title of the song |
 
 #### Example: List
 
@@ -472,22 +472,22 @@ Create an instance: `const song = client.Song()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `album` | `string` |  |
-| `albumId` | `string` |  |
-| `artist` | `string` |  |
-| `artists` | `any[]` |  |
-| `coverArt` | `string` |  |
-| `duration` | `number` |  |
-| `explicit` | `boolean` |  |
-| `genre` | `string` |  |
-| `id` | `string` |  |
-| `isrc` | `string` |  |
-| `label` | `string` |  |
-| `lyrics` | `string` |  |
-| `popularity` | `number` |  |
-| `releaseDate` | `string` |  |
-| `title` | `string` |  |
-| `trackNumber` | `number` |  |
+| `album` | `string` | Album name |
+| `albumId` | `string` | Album identifier |
+| `artist` | `string` | Primary artist of the song |
+| `artists` | `any[]` | List of all artists involved |
+| `coverArt` | `string` | URL to cover art image |
+| `duration` | `number` | Duration in seconds |
+| `explicit` | `boolean` | Whether the song contains explicit content |
+| `genre` | `string` | Primary genre |
+| `id` | `string` | Unique identifier of the song |
+| `isrc` | `string` | International Standard Recording Code |
+| `label` | `string` | Record label |
+| `lyrics` | `string` | Full lyrics of the song |
+| `popularity` | `number` | Popularity score (0-100) |
+| `releaseDate` | `string` | Release date of the song |
+| `title` | `string` | Title of the song |
+| `trackNumber` | `number` | Track number on album |
 
 #### Example: Load
 
