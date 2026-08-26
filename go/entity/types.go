@@ -33,6 +33,7 @@ type AlbumLoadMatch struct {
 
 // Lyric is the typed data model for the lyric entity.
 type Lyric struct {
+	Id *string `json:"id,omitempty"`
 	Language *string `json:"language,omitempty"`
 	Lyrics *string `json:"lyrics,omitempty"`
 	SongId *string `json:"songId,omitempty"`

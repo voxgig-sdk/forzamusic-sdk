@@ -48,9 +48,13 @@ class LyricEntityTest extends TestCase
 
         // LOAD
         $lyric_ref01_ent = $client->Lyric(null);
-        $lyric_ref01_match_dt0 = [];
+        $lyric_ref01_match_dt0 = [
+            "id" => $lyric_ref01_data["id"],
+        ];
         $lyric_ref01_data_dt0_loaded = $lyric_ref01_ent->load($lyric_ref01_match_dt0, null);
-        $this->assertNotNull($lyric_ref01_data_dt0_loaded);
+        $lyric_ref01_data_dt0_load_result = Helpers::to_map(is_object($lyric_ref01_data_dt0_loaded) && method_exists($lyric_ref01_data_dt0_loaded, 'data_get') ? $lyric_ref01_data_dt0_loaded->data_get() : $lyric_ref01_data_dt0_loaded);
+        $this->assertNotNull($lyric_ref01_data_dt0_load_result);
+        $this->assertEquals($lyric_ref01_data_dt0_load_result["id"], $lyric_ref01_data["id"]);
 
     }
 }

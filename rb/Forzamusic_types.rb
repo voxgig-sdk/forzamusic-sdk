@@ -64,6 +64,9 @@ AlbumLoadMatch = Struct.new(
 
 # Lyric entity data model.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] language
 #   @return [String, nil]
 #
@@ -76,6 +79,7 @@ AlbumLoadMatch = Struct.new(
 # @!attribute [rw] success
 #   @return [Boolean, nil]
 Lyric = Struct.new(
+  :id,
   :language,
   :lyrics,
   :songId,

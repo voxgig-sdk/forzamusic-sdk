@@ -22,6 +22,7 @@
 ---@field id string
 
 ---@class Lyric
+---@field id? string
 ---@field language? string
 ---@field lyrics? string
 ---@field songId? string

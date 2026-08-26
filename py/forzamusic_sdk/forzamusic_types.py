@@ -34,6 +34,7 @@ class AlbumLoadMatch(TypedDict):
 
 
 class Lyric(TypedDict, total=False):
+    id: str
     language: str
     lyrics: str
     songId: str

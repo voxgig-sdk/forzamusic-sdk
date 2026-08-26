@@ -41,9 +41,13 @@ class LyricEntityTest < Minitest::Test
 
     # LOAD
     lyric_ref01_ent = client.Lyric(nil)
-    lyric_ref01_match_dt0 = {}
+    lyric_ref01_match_dt0 = {
+      "id" => lyric_ref01_data["id"],
+    }
     lyric_ref01_data_dt0_loaded = lyric_ref01_ent.load(lyric_ref01_match_dt0, nil)
-    assert !lyric_ref01_data_dt0_loaded.nil?
+    lyric_ref01_data_dt0_load_result = Helpers.to_map(lyric_ref01_data_dt0_loaded.respond_to?(:data_get) ? lyric_ref01_data_dt0_loaded.data_get : lyric_ref01_data_dt0_loaded)
+    assert !lyric_ref01_data_dt0_load_result.nil?
+    assert_equal lyric_ref01_data_dt0_load_result["id"], lyric_ref01_data["id"]
 
   end
 end

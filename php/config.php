@@ -42,6 +42,7 @@ class ForzamusicConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -155,6 +156,10 @@ class ForzamusicConfig
         ],
         'lyric' => [
           'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
             [
               'name' => 'language',
               'short' => 'Language of the lyrics',

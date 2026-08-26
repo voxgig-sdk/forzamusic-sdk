@@ -23,6 +23,7 @@ export interface AlbumLoadMatch {
 }
 
 export interface Lyric {
+  id?: string
   language?: string
   lyrics?: string
   songId?: string

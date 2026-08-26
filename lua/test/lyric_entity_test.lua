@@ -44,10 +44,14 @@ describe("LyricEntity", function()
 
     -- LOAD
     local lyric_ref01_ent = client:Lyric(nil)
-    local lyric_ref01_match_dt0 = {}
+    local lyric_ref01_match_dt0 = {
+      id = lyric_ref01_data["id"],
+    }
     local lyric_ref01_data_dt0_loaded, err = lyric_ref01_ent:load(lyric_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(lyric_ref01_data_dt0_loaded)
+    local lyric_ref01_data_dt0_load_result = helpers.to_map(type(lyric_ref01_data_dt0_loaded) == 'table' and lyric_ref01_data_dt0_loaded.data_get and lyric_ref01_data_dt0_loaded:data_get() or lyric_ref01_data_dt0_loaded)
+    assert.is_not_nil(lyric_ref01_data_dt0_load_result)
+    assert.are.equal(lyric_ref01_data_dt0_load_result["id"], lyric_ref01_data["id"])
 
   end)
 end)

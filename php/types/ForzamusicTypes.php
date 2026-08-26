@@ -36,6 +36,7 @@ class AlbumLoadMatch
 /** Lyric entity data model. */
 class Lyric
 {
+    public ?string $id = null;
     public ?string $language = null;
     public ?string $lyrics = null;
     public ?string $songId = null;

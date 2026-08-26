@@ -48,9 +48,13 @@ class TestLyricEntity:
 
         # LOAD
         lyric_ref01_ent = client.Lyric(None)
-        lyric_ref01_match_dt0 = {}
+        lyric_ref01_match_dt0 = {
+            "id": lyric_ref01_data["id"],
+        }
         lyric_ref01_data_dt0_loaded = lyric_ref01_ent.load(lyric_ref01_match_dt0, None)
-        assert lyric_ref01_data_dt0_loaded is not None
+        lyric_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(lyric_ref01_data_dt0_loaded))
+        assert lyric_ref01_data_dt0_load_result is not None
+        assert lyric_ref01_data_dt0_load_result["id"] == lyric_ref01_data["id"]
 
 
 

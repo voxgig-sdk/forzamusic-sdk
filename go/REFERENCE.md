@@ -170,6 +170,7 @@ fmt.Println(lyric.GetName()) // "lyric"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `language` | `string` | No | Language of the lyrics |
 | `lyrics` | `string` | No | Full lyrics of the song |
 | `songId` | `string` | No |  |

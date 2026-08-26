@@ -59,9 +59,12 @@ describe('LyricEntity', async () => {
 
     let lyric_ref01_data = Object.values(setup.data.existing.lyric)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const lyric_ref01_ent = client.Lyric()
+    const lyric_ref01_match_dt0: any = {}
+    lyric_ref01_match_dt0.id = lyric_ref01_data.id
+    const lyric_ref01_data_dt0 = (await lyric_ref01_ent.load(lyric_ref01_match_dt0)).data()
+    assert(lyric_ref01_data_dt0.id === lyric_ref01_data.id)
 
 
   })

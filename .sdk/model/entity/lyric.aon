@@ -6,6 +6,11 @@ main: kit: entity: lyric: {
 
   fields: [
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "language"
       req: false
       short: "Language of the lyrics"
@@ -28,6 +33,11 @@ main: kit: entity: lyric: {
       type: "`$BOOLEAN`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "lyric"
   op: {

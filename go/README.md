@@ -282,6 +282,7 @@ API path: `/api/album/{albumId}`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 | `"language"` | Language of the lyrics |
 | `"lyrics"` | Full lyrics of the song |
 | `"songId"` |  |
@@ -390,6 +391,7 @@ Create an instance: `lyric := client.Lyric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `string` |  |
 | `language` | `string` | Language of the lyrics |
 | `lyrics` | `string` | Full lyrics of the song |
 | `songId` | `string` |  |

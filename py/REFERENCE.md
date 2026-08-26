@@ -159,6 +159,7 @@ lyric = client.Lyric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `str` | No |  |
 | `language` | `str` | No | Language of the lyrics |
 | `lyrics` | `str` | No | Full lyrics of the song |
 | `songId` | `str` | No |  |

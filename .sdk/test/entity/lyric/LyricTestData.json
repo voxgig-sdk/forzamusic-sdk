@@ -2,35 +2,35 @@
   "existing": {
     "lyric": {
       "LYRIC00": {
-        "language": "s28",
-        "lyrics": "s29",
-        "songId": "s2a",
-        "success": false,
-        "id": "LYRIC00"
+        "id": "LYRIC00",
+        "language": "s33",
+        "lyrics": "s34",
+        "songId": "s35",
+        "success": true
       },
       "LYRIC01": {
-        "language": "s50",
-        "lyrics": "s51",
-        "songId": "s52",
-        "success": false,
-        "id": "LYRIC01"
+        "id": "LYRIC01",
+        "language": "s65",
+        "lyrics": "s66",
+        "songId": "s67",
+        "success": true
       },
       "LYRIC02": {
-        "language": "s78",
-        "lyrics": "s79",
-        "songId": "s7a",
-        "success": false,
-        "id": "LYRIC02"
+        "id": "LYRIC02",
+        "language": "s97",
+        "lyrics": "s98",
+        "songId": "s99",
+        "success": true
       }
     }
   },
   "new": {
     "lyric": {
       "lyric_ref01": {
-        "language": "sa0",
-        "lyrics": "sa1",
-        "songId": "sa2",
-        "success": false
+        "language": "sc9",
+        "lyrics": "sca",
+        "songId": "scb",
+        "success": true
       }
     }
   }

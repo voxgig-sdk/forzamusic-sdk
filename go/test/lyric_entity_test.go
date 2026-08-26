@@ -61,13 +61,19 @@ func TestLyricEntity(t *testing.T) {
 
 		// LOAD
 		lyricRef01Ent := client.Lyric(nil)
-		lyricRef01MatchDt0 := map[string]any{}
+		lyricRef01MatchDt0 := map[string]any{
+			"id": lyricRef01Data["id"],
+		}
 		lyricRef01DataDt0Loaded, err := lyricRef01Ent.Load(lyricRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if lyricRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		lyricRef01DataDt0LoadResult := core.ToMapAny(entityData(lyricRef01DataDt0Loaded))
+		if lyricRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if lyricRef01DataDt0LoadResult["id"] != lyricRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
