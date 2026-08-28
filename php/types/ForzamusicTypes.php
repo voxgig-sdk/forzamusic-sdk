@@ -67,16 +67,9 @@ class Search
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?string $album = null;
-    public ?string $albumId = null;
-    public ?string $artist = null;
-    public ?array $artists = null;
-    public ?string $coverArt = null;
-    public ?int $duration = null;
-    public ?string $genre = null;
-    public ?string $id = null;
-    public ?string $releaseDate = null;
-    public ?string $title = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public string $query;
 }
 
 /** Song entity data model. */

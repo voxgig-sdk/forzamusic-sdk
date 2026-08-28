@@ -61,16 +61,9 @@ type Search struct {
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
-	Album *string `json:"album,omitempty"`
-	AlbumId *string `json:"albumId,omitempty"`
-	Artist *string `json:"artist,omitempty"`
-	Artists *[]any `json:"artists,omitempty"`
-	CoverArt *string `json:"coverArt,omitempty"`
-	Duration *int `json:"duration,omitempty"`
-	Genre *string `json:"genre,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Title *string `json:"title,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	Query string `json:"query"`
 }
 
 // Song is the typed data model for the song entity.

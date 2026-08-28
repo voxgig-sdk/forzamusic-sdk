@@ -48,16 +48,9 @@ export interface Search {
 }
 
 export interface SearchListMatch {
-  album?: string
-  albumId?: string
-  artist?: string
-  artists?: any[]
-  coverArt?: string
-  duration?: number
-  genre?: string
-  id?: string
-  releaseDate?: string
-  title?: string
+  limit?: number
+  offset?: number
+  query: string
 }
 
 export interface Song {

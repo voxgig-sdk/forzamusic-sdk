@@ -58,17 +58,13 @@ class Search(TypedDict, total=False):
     title: str
 
 
-class SearchListMatch(TypedDict, total=False):
-    album: str
-    albumId: str
-    artist: str
-    artists: list
-    coverArt: str
-    duration: int
-    genre: str
-    id: str
-    releaseDate: str
-    title: str
+class SearchListMatchRequired(TypedDict):
+    query: str
+
+
+class SearchListMatch(SearchListMatchRequired, total=False):
+    limit: int
+    offset: int
 
 
 class Song(TypedDict, total=False):

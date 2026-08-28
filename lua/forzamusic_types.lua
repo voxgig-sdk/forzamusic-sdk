@@ -44,16 +44,9 @@
 ---@field title? string
 
 ---@class SearchListMatch
----@field album? string
----@field albumId? string
----@field artist? string
----@field artists? table
----@field coverArt? string
----@field duration? number
----@field genre? string
----@field id? string
----@field releaseDate? string
----@field title? string
+---@field limit? number
+---@field offset? number
+---@field query string
 
 ---@class Song
 ---@field album? string

@@ -143,46 +143,18 @@ Search = Struct.new(
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] album
-#   @return [String, nil]
-#
-# @!attribute [rw] albumId
-#   @return [String, nil]
-#
-# @!attribute [rw] artist
-#   @return [String, nil]
-#
-# @!attribute [rw] artists
-#   @return [Array, nil]
-#
-# @!attribute [rw] coverArt
-#   @return [String, nil]
-#
-# @!attribute [rw] duration
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] genre
-#   @return [String, nil]
+# @!attribute [rw] offset
+#   @return [Integer, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] releaseDate
-#   @return [String, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
+# @!attribute [rw] query
+#   @return [String]
 SearchListMatch = Struct.new(
-  :album,
-  :albumId,
-  :artist,
-  :artists,
-  :coverArt,
-  :duration,
-  :genre,
-  :id,
-  :releaseDate,
-  :title,
+  :limit,
+  :offset,
+  :query,
   keyword_init: true
 )
 
