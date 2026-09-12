@@ -30,6 +30,7 @@ main: kit: entity: song: {
       type: "`$ARRAY`"
     }
     {
+      format: "uri"
       name: "coverArt"
       req: false
       short: "URL to cover art image"
@@ -84,6 +85,7 @@ main: kit: entity: song: {
       type: "`$INTEGER`"
     }
     {
+      format: "date"
       name: "releaseDate"
       req: false
       short: "Release date of the song"
@@ -127,16 +129,22 @@ main: kit: entity: song: {
           }
           method: "GET"
           orig: "/api/song/{songId}"
-          parts: [
-            "api"
-            "song"
-            "{id}"
-          ]
           rename: {
             param: {
               songId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "song"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

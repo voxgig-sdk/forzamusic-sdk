@@ -56,6 +56,7 @@ module ForzamusicConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "uri",
               "name" => "coverArt",
               "type" => "`$STRING`",
             },
@@ -74,6 +75,7 @@ module ForzamusicConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date",
               "name" => "releaseDate",
               "type" => "`$STRING`",
             },
@@ -92,6 +94,10 @@ module ForzamusicConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "album",
           "op" => {
             "load" => {
@@ -113,16 +119,22 @@ module ForzamusicConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/album/{albumId}",
-                  "parts" => [
-                    "api",
-                    "album",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "albumId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "album",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -132,6 +144,11 @@ module ForzamusicConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "album",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -165,6 +182,10 @@ module ForzamusicConfig
               "type" => "`$BOOLEAN`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "lyric",
           "op" => {
             "load" => {
@@ -186,16 +207,22 @@ module ForzamusicConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/lyrics/{songId}",
-                  "parts" => [
-                    "api",
-                    "lyrics",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "songId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "lyrics",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -205,6 +232,11 @@ module ForzamusicConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "lyrics",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -236,6 +268,7 @@ module ForzamusicConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "uri",
               "name" => "coverArt",
               "short" => "URL to cover art image",
               "type" => "`$STRING`",
@@ -256,6 +289,7 @@ module ForzamusicConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date",
               "name" => "releaseDate",
               "short" => "Release date of the song",
               "type" => "`$STRING`",
@@ -266,6 +300,10 @@ module ForzamusicConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "search",
           "op" => {
             "list" => {
@@ -302,9 +340,13 @@ module ForzamusicConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/search",
-                  "parts" => [
-                    "api",
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -317,6 +359,10 @@ module ForzamusicConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "api",
+                    "search",
+                  ],
                 },
               ],
             },
@@ -348,6 +394,7 @@ module ForzamusicConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "uri",
               "name" => "coverArt",
               "short" => "URL to cover art image",
               "type" => "`$STRING`",
@@ -393,6 +440,7 @@ module ForzamusicConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "date",
               "name" => "releaseDate",
               "short" => "Release date of the song",
               "type" => "`$STRING`",
@@ -408,6 +456,10 @@ module ForzamusicConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "song",
           "op" => {
             "load" => {
@@ -429,16 +481,22 @@ module ForzamusicConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/song/{songId}",
-                  "parts" => [
-                    "api",
-                    "song",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "songId" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "song",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -448,6 +506,11 @@ module ForzamusicConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "song",
+                    "{id}",
+                  ],
                 },
               ],
             },

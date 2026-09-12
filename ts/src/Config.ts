@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -85,6 +96,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "uri",
           "name": "coverArt",
           "type": "`$STRING`"
         },
@@ -103,6 +115,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date",
           "name": "releaseDate",
           "type": "`$STRING`"
         },
@@ -121,6 +134,10 @@ class Config {
           "type": "`$ARRAY`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "album",
       "op": {
         "load": {
@@ -142,16 +159,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/album/{albumId}",
-              "parts": [
-                "api",
-                "album",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "albumId": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "album"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -160,7 +183,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "album",
+                "{id}"
+              ]
             }
           ]
         }
@@ -194,6 +222,10 @@ class Config {
           "type": "`$BOOLEAN`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "lyric",
       "op": {
         "load": {
@@ -215,16 +247,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/lyrics/{songId}",
-              "parts": [
-                "api",
-                "lyrics",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "songId": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "lyrics"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -233,7 +271,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "lyrics",
+                "{id}"
+              ]
             }
           ]
         }
@@ -265,6 +308,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "uri",
           "name": "coverArt",
           "short": "URL to cover art image",
           "type": "`$STRING`"
@@ -285,6 +329,7 @@ class Config {
           "type": "`$STRING`"
         },
         {
+          "format": "date",
           "name": "releaseDate",
           "short": "Release date of the song",
           "type": "`$STRING`"
@@ -295,6 +340,10 @@ class Config {
           "type": "`$STRING`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "search",
       "op": {
         "list": {
@@ -331,9 +380,13 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/search",
-              "parts": [
-                "api",
-                "search"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "search"
+                }
               ],
               "select": {
                 "exist": [
@@ -345,7 +398,11 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.results`"
-              }
+              },
+              "parts": [
+                "api",
+                "search"
+              ]
             }
           ]
         }
@@ -377,6 +434,7 @@ class Config {
           "type": "`$ARRAY`"
         },
         {
+          "format": "uri",
           "name": "coverArt",
           "short": "URL to cover art image",
           "type": "`$STRING`"
@@ -422,6 +480,7 @@ class Config {
           "type": "`$INTEGER`"
         },
         {
+          "format": "date",
           "name": "releaseDate",
           "short": "Release date of the song",
           "type": "`$STRING`"
@@ -437,6 +496,10 @@ class Config {
           "type": "`$INTEGER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "song",
       "op": {
         "load": {
@@ -458,16 +521,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/song/{songId}",
-              "parts": [
-                "api",
-                "song",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "songId": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "song"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -476,7 +545,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "song",
+                "{id}"
+              ]
             }
           ]
         }
@@ -492,6 +566,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

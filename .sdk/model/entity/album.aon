@@ -17,6 +17,7 @@ main: kit: entity: album: {
       type: "`$ARRAY`"
     }
     {
+      format: "uri"
       name: "coverArt"
       req: false
       type: "`$STRING`"
@@ -39,6 +40,7 @@ main: kit: entity: album: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "releaseDate"
       req: false
       type: "`$STRING`"
@@ -86,16 +88,22 @@ main: kit: entity: album: {
           }
           method: "GET"
           orig: "/api/album/{albumId}"
-          parts: [
-            "api"
-            "album"
-            "{id}"
-          ]
           rename: {
             param: {
               albumId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "album"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

@@ -58,16 +58,22 @@ main: kit: entity: lyric: {
           }
           method: "GET"
           orig: "/api/lyrics/{songId}"
-          parts: [
-            "api"
-            "lyrics"
-            "{id}"
-          ]
           rename: {
             param: {
               songId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "lyrics"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

@@ -44,6 +44,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "coverArt",
             ["type"] = "`$STRING`",
           },
@@ -62,6 +63,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date",
             ["name"] = "releaseDate",
             ["type"] = "`$STRING`",
           },
@@ -79,6 +81,10 @@ local function make_config()
             ["name"] = "tracks",
             ["type"] = "`$ARRAY`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "album",
         ["op"] = {
@@ -101,14 +107,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/album/{albumId}",
-                ["parts"] = {
-                  "api",
-                  "album",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["albumId"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "album",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -119,6 +131,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "album",
+                  "{id}",
                 },
               },
             },
@@ -153,6 +170,10 @@ local function make_config()
             ["type"] = "`$BOOLEAN`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "lyric",
         ["op"] = {
           ["load"] = {
@@ -174,14 +195,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/lyrics/{songId}",
-                ["parts"] = {
-                  "api",
-                  "lyrics",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["songId"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "lyrics",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -192,6 +219,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "lyrics",
+                  "{id}",
                 },
               },
             },
@@ -224,6 +256,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "coverArt",
             ["short"] = "URL to cover art image",
             ["type"] = "`$STRING`",
@@ -244,6 +277,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date",
             ["name"] = "releaseDate",
             ["short"] = "Release date of the song",
             ["type"] = "`$STRING`",
@@ -253,6 +287,10 @@ local function make_config()
             ["short"] = "Title of the song",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "search",
         ["op"] = {
@@ -290,9 +328,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/search",
-                ["parts"] = {
-                  "api",
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -304,6 +346,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "api",
+                  "search",
                 },
               },
             },
@@ -336,6 +382,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "coverArt",
             ["short"] = "URL to cover art image",
             ["type"] = "`$STRING`",
@@ -381,6 +428,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "date",
             ["name"] = "releaseDate",
             ["short"] = "Release date of the song",
             ["type"] = "`$STRING`",
@@ -395,6 +443,10 @@ local function make_config()
             ["short"] = "Track number on album",
             ["type"] = "`$INTEGER`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "song",
         ["op"] = {
@@ -417,14 +469,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/song/{songId}",
-                ["parts"] = {
-                  "api",
-                  "song",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["songId"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "song",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -435,6 +493,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "song",
+                  "{id}",
                 },
               },
             },

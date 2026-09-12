@@ -48,6 +48,7 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "coverArt",
 						"type": "`$STRING`",
 					},
@@ -66,6 +67,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "releaseDate",
 						"type": "`$STRING`",
 					},
@@ -83,6 +85,10 @@ func MakeConfig() map[string]any {
 						"name": "tracks",
 						"type": "`$ARRAY`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "album",
 				"op": map[string]any{
@@ -105,14 +111,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/album/{albumId}",
-								"parts": []any{
-									"api",
-									"album",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"albumId": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "album",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -123,6 +135,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"album",
+									"{id}",
 								},
 							},
 						},
@@ -157,6 +174,10 @@ func MakeConfig() map[string]any {
 						"type": "`$BOOLEAN`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "lyric",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -178,14 +199,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/lyrics/{songId}",
-								"parts": []any{
-									"api",
-									"lyrics",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"songId": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "lyrics",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -196,6 +223,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"api",
+									"lyrics",
+									"{id}",
 								},
 							},
 						},
@@ -228,6 +260,7 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "coverArt",
 						"short": "URL to cover art image",
 						"type": "`$STRING`",
@@ -248,6 +281,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "releaseDate",
 						"short": "Release date of the song",
 						"type": "`$STRING`",
@@ -257,6 +291,10 @@ func MakeConfig() map[string]any {
 						"short": "Title of the song",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "search",
 				"op": map[string]any{
@@ -294,9 +332,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/search",
-								"parts": []any{
-									"api",
-									"search",
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "search",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -308,6 +350,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.results`",
+								},
+								"parts": []any{
+									"api",
+									"search",
 								},
 							},
 						},
@@ -340,6 +386,7 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "coverArt",
 						"short": "URL to cover art image",
 						"type": "`$STRING`",
@@ -385,6 +432,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date",
 						"name": "releaseDate",
 						"short": "Release date of the song",
 						"type": "`$STRING`",
@@ -399,6 +447,10 @@ func MakeConfig() map[string]any {
 						"short": "Track number on album",
 						"type": "`$INTEGER`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "song",
 				"op": map[string]any{
@@ -421,14 +473,20 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/song/{songId}",
-								"parts": []any{
-									"api",
-									"song",
-									"{id}",
-								},
 								"rename": map[string]any{
 									"param": map[string]any{
 										"songId": "id",
+									},
+								},
+								"segments": []any{
+									map[string]any{
+										"lit": "api",
+									},
+									map[string]any{
+										"lit": "song",
+									},
+									map[string]any{
+										"var": "id",
 									},
 								},
 								"select": map[string]any{
@@ -440,6 +498,11 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
+								"parts": []any{
+									"api",
+									"song",
+									"{id}",
+								},
 							},
 						},
 					},
@@ -450,6 +513,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

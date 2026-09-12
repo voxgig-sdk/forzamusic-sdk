@@ -1,6 +1,14 @@
 # Forzamusic SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -65,6 +73,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uri",
             "name": "coverArt",
             "type": "`$STRING`",
           },
@@ -83,6 +92,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "type": "`$STRING`",
           },
@@ -101,6 +111,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "album",
         "op": {
           "load": {
@@ -122,16 +136,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/album/{albumId}",
-                "parts": [
-                  "api",
-                  "album",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "albumId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "album",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -141,6 +161,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "album",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -174,6 +199,10 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "lyric",
         "op": {
           "load": {
@@ -195,16 +224,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/lyrics/{songId}",
-                "parts": [
-                  "api",
-                  "lyrics",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "songId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "lyrics",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -214,6 +249,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "lyrics",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -245,6 +285,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uri",
             "name": "coverArt",
             "short": "URL to cover art image",
             "type": "`$STRING`",
@@ -265,6 +306,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "short": "Release date of the song",
             "type": "`$STRING`",
@@ -275,6 +317,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "search",
         "op": {
           "list": {
@@ -311,9 +357,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/search",
-                "parts": [
-                  "api",
-                  "search",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -326,6 +376,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.results`",
                 },
+                "parts": [
+                  "api",
+                  "search",
+                ],
               },
             ],
           },
@@ -357,6 +411,7 @@ def make_config():
             "type": "`$ARRAY`",
           },
           {
+            "format": "uri",
             "name": "coverArt",
             "short": "URL to cover art image",
             "type": "`$STRING`",
@@ -402,6 +457,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "short": "Release date of the song",
             "type": "`$STRING`",
@@ -417,6 +473,10 @@ def make_config():
             "type": "`$INTEGER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "song",
         "op": {
           "load": {
@@ -438,16 +498,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/song/{songId}",
-                "parts": [
-                  "api",
-                  "song",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "songId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "song",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -457,6 +523,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "song",
+                  "{id}",
+                ],
               },
             ],
           },

@@ -30,6 +30,7 @@ main: kit: entity: search: {
       type: "`$ARRAY`"
     }
     {
+      format: "uri"
       name: "coverArt"
       req: false
       short: "URL to cover art image"
@@ -54,6 +55,7 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "releaseDate"
       req: false
       short: "Release date of the song"
@@ -108,9 +110,13 @@ main: kit: entity: search: {
           }
           method: "GET"
           orig: "/api/search"
-          parts: [
-            "api"
-            "search"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [
