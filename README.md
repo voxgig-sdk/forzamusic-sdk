@@ -105,7 +105,7 @@ local result, err = client:Album():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
+| TypeScript | `@voxgig-sdk/forzamusic-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
 | Python | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
 | PHP | `voxgig-sdk/forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/forzamusic-sdk/go` | `go get github.com/voxgig-sdk/forzamusic-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Album():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
+import { ForzamusicSDK } from '@voxgig-sdk/forzamusic-sdk'
 
 const client = new ForzamusicSDK()
 

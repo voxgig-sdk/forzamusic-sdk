@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
+import { ForzamusicSDK } from '@voxgig-sdk/forzamusic-sdk'
 
 const client = new ForzamusicSDK()
 ```
@@ -580,7 +580,7 @@ forzamusic/
 Import the SDK from the package root:
 
 ```ts
-import { ForzamusicSDK } from '@voxgig-sdk/forzamusic'
+import { ForzamusicSDK } from '@voxgig-sdk/forzamusic-sdk'
 ```
 
 ### Entity state
