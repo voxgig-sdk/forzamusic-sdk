@@ -1,12 +1,18 @@
 # Forzamusic SDK feature factory
 
 from forzamusic_sdk.feature.base_feature import ForzamusicBaseFeature
+from forzamusic_sdk.feature.ratelimit_feature import ForzamusicRatelimitFeature
+from forzamusic_sdk.feature.retry_feature import ForzamusicRetryFeature
 from forzamusic_sdk.feature.test_feature import ForzamusicTestFeature
+from forzamusic_sdk.feature.timeout_feature import ForzamusicTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ForzamusicBaseFeature(),
+    "ratelimit": lambda: ForzamusicRatelimitFeature(),
+    "retry": lambda: ForzamusicRetryFeature(),
     "test": lambda: ForzamusicTestFeature(),
+    "timeout": lambda: ForzamusicTimeoutFeature(),
 }
 
 

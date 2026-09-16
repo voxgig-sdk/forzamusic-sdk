@@ -7,7 +7,7 @@
         "artist": "s66",
         "artists": [],
         "coverArt": "s68",
-        "duration": "s69",
+        "duration": 105,
         "genre": "s6a",
         "id": "SEARCH00",
         "releaseDate": "s6c",
@@ -19,7 +19,7 @@
         "artist": "sca",
         "artists": [],
         "coverArt": "scc",
-        "duration": "scd",
+        "duration": 205,
         "genre": "sce",
         "id": "SEARCH01",
         "releaseDate": "sd0",
@@ -31,7 +31,7 @@
         "artist": "s12e",
         "artists": [],
         "coverArt": "s130",
-        "duration": "s131",
+        "duration": 305,
         "genre": "s132",
         "id": "SEARCH02",
         "releaseDate": "s134",
@@ -47,10 +47,208 @@
         "artist": "s192",
         "artists": [],
         "coverArt": "s194",
-        "duration": "s195",
+        "duration": 405,
         "genre": "s196",
         "releaseDate": "s198",
         "title": "s199"
+      }
+    }
+  },
+  "requests": {
+    "GET /api/search": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "searchSongs",
+        "parameters": [
+          {
+            "description": "Search query for song, artist, or album",
+            "example": "Shape of You",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results to skip for pagination",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "album": {
+                            "description": "Album name",
+                            "type": "string"
+                          },
+                          "albumId": {
+                            "description": "Album identifier",
+                            "type": "string"
+                          },
+                          "artist": {
+                            "description": "Primary artist of the song",
+                            "type": "string"
+                          },
+                          "artists": {
+                            "description": "List of all artists involved",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "coverArt": {
+                            "description": "URL to cover art image",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "duration": {
+                            "description": "Duration in seconds",
+                            "type": "integer"
+                          },
+                          "genre": {
+                            "description": "Primary genre",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique identifier of the song",
+                            "type": "string"
+                          },
+                          "releaseDate": {
+                            "description": "Release date of the song",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "title": {
+                            "description": "Title of the song",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "example": true,
+                      "type": "boolean"
+                    },
+                    "total": {
+                      "description": "Total number of results found",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful search response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "success": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - Invalid query parameters"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "success": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Too many requests - Rate limit exceeded"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "success": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

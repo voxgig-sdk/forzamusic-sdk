@@ -7,17 +7,17 @@
         "artist": "sa2",
         "artists": [],
         "coverArt": "sa4",
-        "duration": "sa5",
+        "duration": 165,
         "explicit": true,
         "genre": "sa7",
         "id": "SONG00",
         "isrc": "sa9",
         "label": "saa",
         "lyrics": "sab",
-        "popularity": "sac",
+        "popularity": 172,
         "releaseDate": "sad",
         "title": "sae",
-        "trackNumber": "saf"
+        "trackNumber": 175
       },
       "SONG01": {
         "album": "s140",
@@ -25,17 +25,17 @@
         "artist": "s142",
         "artists": [],
         "coverArt": "s144",
-        "duration": "s145",
+        "duration": 325,
         "explicit": true,
         "genre": "s147",
         "id": "SONG01",
         "isrc": "s149",
         "label": "s14a",
         "lyrics": "s14b",
-        "popularity": "s14c",
+        "popularity": 332,
         "releaseDate": "s14d",
         "title": "s14e",
-        "trackNumber": "s14f"
+        "trackNumber": 335
       },
       "SONG02": {
         "album": "s1e0",
@@ -43,17 +43,17 @@
         "artist": "s1e2",
         "artists": [],
         "coverArt": "s1e4",
-        "duration": "s1e5",
+        "duration": 485,
         "explicit": true,
         "genre": "s1e7",
         "id": "SONG02",
         "isrc": "s1e9",
         "label": "s1ea",
         "lyrics": "s1eb",
-        "popularity": "s1ec",
+        "popularity": 492,
         "releaseDate": "s1ed",
         "title": "s1ee",
-        "trackNumber": "s1ef"
+        "trackNumber": 495
       }
     }
   },
@@ -65,16 +65,177 @@
         "artist": "s282",
         "artists": [],
         "coverArt": "s284",
-        "duration": "s285",
+        "duration": 645,
         "explicit": true,
         "genre": "s287",
         "isrc": "s289",
         "label": "s28a",
         "lyrics": "s28b",
-        "popularity": "s28c",
+        "popularity": 652,
         "releaseDate": "s28d",
         "title": "s28e",
-        "trackNumber": "s28f"
+        "trackNumber": 655
+      }
+    }
+  },
+  "requests": {
+    "GET /api/song/{songId}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getSongById",
+        "parameters": [
+          {
+            "description": "Unique identifier of the song",
+            "in": "path",
+            "name": "songId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "properties": {
+                        "album": {
+                          "description": "Album name",
+                          "type": "string"
+                        },
+                        "albumId": {
+                          "description": "Album identifier",
+                          "type": "string"
+                        },
+                        "artist": {
+                          "description": "Primary artist of the song",
+                          "type": "string"
+                        },
+                        "artists": {
+                          "description": "List of all artists involved",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "coverArt": {
+                          "description": "URL to cover art image",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "duration": {
+                          "description": "Duration in seconds",
+                          "type": "integer"
+                        },
+                        "genre": {
+                          "description": "Primary genre",
+                          "type": "string"
+                        },
+                        "id": {
+                          "description": "Unique identifier of the song",
+                          "type": "string"
+                        },
+                        "releaseDate": {
+                          "description": "Release date of the song",
+                          "format": "date",
+                          "type": "string"
+                        },
+                        "title": {
+                          "description": "Title of the song",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    {
+                      "properties": {
+                        "explicit": {
+                          "description": "Whether the song contains explicit content",
+                          "type": "boolean"
+                        },
+                        "isrc": {
+                          "description": "International Standard Recording Code",
+                          "type": "string"
+                        },
+                        "label": {
+                          "description": "Record label",
+                          "type": "string"
+                        },
+                        "lyrics": {
+                          "description": "Full lyrics of the song",
+                          "type": "string"
+                        },
+                        "popularity": {
+                          "description": "Popularity score (0-100)",
+                          "type": "integer"
+                        },
+                        "trackNumber": {
+                          "description": "Track number on album",
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Song details retrieved successfully"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "success": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Song not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "success": {
+                      "example": false,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
