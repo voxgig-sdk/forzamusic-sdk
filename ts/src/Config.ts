@@ -127,18 +127,18 @@ class Config {
 
     entity: {
       
-      album: {
-      },
-
-      lyric: {
-      },
-
-      search: {
-      },
-
-      song: {
-      },
-
+        album: {
+        },
+  
+        lyric: {
+        },
+  
+        search: {
+        },
+  
+        song: {
+        },
+  
     }
   }
 

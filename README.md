@@ -105,12 +105,12 @@ local result, err = client:Album():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/forzamusic-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
-| Python | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
-| PHP | `voxgig-sdk/forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
+| TypeScript | `@voxgig-sdk/forzamusic-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/tags) |
+| Python | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/tags) |
+| PHP | `voxgig-sdk/forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/forzamusic-sdk/go` | `go get github.com/voxgig-sdk/forzamusic-sdk/go@latest` |
-| Ruby | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
-| Lua | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/releases) |
+| Ruby | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/tags) |
+| Lua | `voxgig-sdk-forzamusic` | publish pending — [install from git tag](https://github.com/voxgig-sdk/forzamusic-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/forzamusic-sdk/go-cli` | `go install github.com/voxgig-sdk/forzamusic-sdk/go-cli/cmd/forzamusic@latest` |
 | Go MCP server | `github.com/voxgig-sdk/forzamusic-sdk/go-mcp` | `go get github.com/voxgig-sdk/forzamusic-sdk/go-mcp@latest` |
 

@@ -1,6 +1,6 @@
 # Entity Models
 
-@"album.aon"
-@"lyric.aon"
-@"search.aon"
-@"song.aon"
+@"./album.aon"
+@"./lyric.aon"
+@"./search.aon"
+@"./song.aon"
