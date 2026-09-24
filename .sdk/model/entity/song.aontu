@@ -1,0 +1,185 @@
+# Entity: song
+
+main: kit: entity: song: {
+
+  alias: field: {}
+
+  fields: {
+    album: {
+      h: "Album"
+      n: "album"
+      r: false
+      sh: "Album name"
+      t: "`$STRING`"
+    }
+    albumId: {
+      h: "Album Id"
+      n: "albumId"
+      r: false
+      sh: "Album identifier"
+      t: "`$STRING`"
+    }
+    artist: {
+      h: "Artist"
+      n: "artist"
+      r: false
+      sh: "Primary artist of the song"
+      t: "`$STRING`"
+    }
+    artists: {
+      h: "Artists"
+      n: "artists"
+      r: false
+      sh: "List of all artists involved"
+      t: "`$ARRAY`"
+    }
+    coverArt: {
+      fo: "uri"
+      h: "Cover Art"
+      n: "coverArt"
+      r: false
+      sh: "URL to cover art image"
+      t: "`$STRING`"
+    }
+    duration: {
+      h: "Duration"
+      n: "duration"
+      r: false
+      sh: "Duration in seconds"
+      t: "`$INTEGER`"
+    }
+    explicit: {
+      h: "Explicit"
+      n: "explicit"
+      r: false
+      sh: "Whether the song contains explicit content"
+      t: "`$BOOLEAN`"
+    }
+    genre: {
+      h: "Genre"
+      n: "genre"
+      r: false
+      sh: "Primary genre"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier of the song"
+      t: "`$STRING`"
+    }
+    isrc: {
+      h: "Isrc"
+      n: "isrc"
+      r: false
+      sh: "International Standard Recording Code"
+      t: "`$STRING`"
+    }
+    label: {
+      h: "Label"
+      n: "label"
+      r: false
+      sh: "Record label"
+      t: "`$STRING`"
+    }
+    lyrics: {
+      h: "Lyrics"
+      n: "lyrics"
+      r: false
+      sh: "Full lyrics of the song"
+      t: "`$STRING`"
+    }
+    popularity: {
+      h: "Popularity"
+      n: "popularity"
+      r: false
+      sh: "Popularity score (0-100)"
+      t: "`$INTEGER`"
+    }
+    releaseDate: {
+      fo: "date"
+      h: "Release Date"
+      n: "releaseDate"
+      r: false
+      sh: "Release date of the song"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Title of the song"
+      t: "`$STRING`"
+    }
+    trackNumber: {
+      h: "Track Number"
+      n: "trackNumber"
+      r: false
+      sh: "Track number on album"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "song"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/song/{songId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "song_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/song/{songId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              songId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "song"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

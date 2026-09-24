@@ -119,49 +119,59 @@ def make_config():
         "fields": [
           {
             "name": "artist",
-            "short": "Primary artist",
+            "title": "Artist",
             "type": "`$STRING`",
+            "short": "Primary artist",
           },
           {
             "name": "artists",
+            "title": "Artists",
             "type": "`$ARRAY`",
           },
           {
-            "format": "uri",
             "name": "coverArt",
+            "title": "Cover Art",
             "type": "`$STRING`",
+            "format": "uri",
           },
           {
             "name": "genre",
+            "title": "Genre",
             "type": "`$STRING`",
           },
           {
             "name": "id",
-            "short": "Unique identifier of the album",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier of the album",
           },
           {
             "name": "label",
-            "short": "Record label",
+            "title": "Label",
             "type": "`$STRING`",
+            "short": "Record label",
           },
           {
-            "format": "date",
             "name": "releaseDate",
+            "title": "Release Date",
             "type": "`$STRING`",
+            "format": "date",
           },
           {
             "name": "title",
-            "short": "Album title",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Album title",
           },
           {
             "name": "totalTracks",
-            "short": "Total number of tracks",
+            "title": "Total Tracks",
             "type": "`$INTEGER`",
+            "short": "Total number of tracks",
           },
           {
             "name": "tracks",
+            "title": "Tracks",
             "type": "`$ARRAY`",
           },
         ],
@@ -176,25 +186,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "album_id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/album/{albumId}",
-                "rename": {
-                  "param": {
-                    "albumId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "api",
@@ -206,20 +200,36 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "album",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "albumId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "album_id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -232,24 +242,29 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "title": "Id",
             "type": "`$STRING`",
           },
           {
             "name": "language",
-            "short": "Language of the lyrics",
+            "title": "Language",
             "type": "`$STRING`",
+            "short": "Language of the lyrics",
           },
           {
             "name": "lyrics",
-            "short": "Full lyrics of the song",
+            "title": "Lyrics",
             "type": "`$STRING`",
+            "short": "Full lyrics of the song",
           },
           {
             "name": "songId",
+            "title": "Song Id",
             "type": "`$STRING`",
           },
           {
             "name": "success",
+            "title": "Success",
             "type": "`$BOOLEAN`",
           },
         ],
@@ -264,25 +279,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "song_id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/lyrics/{songId}",
-                "rename": {
-                  "param": {
-                    "songId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "api",
@@ -294,20 +293,36 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "lyrics",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "songId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "song_id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },
@@ -320,55 +335,65 @@ def make_config():
         "fields": [
           {
             "name": "album",
-            "short": "Album name",
+            "title": "Album",
             "type": "`$STRING`",
+            "short": "Album name",
           },
           {
             "name": "albumId",
-            "short": "Album identifier",
+            "title": "Album Id",
             "type": "`$STRING`",
+            "short": "Album identifier",
           },
           {
             "name": "artist",
-            "short": "Primary artist of the song",
+            "title": "Artist",
             "type": "`$STRING`",
+            "short": "Primary artist of the song",
           },
           {
             "name": "artists",
-            "short": "List of all artists involved",
+            "title": "Artists",
             "type": "`$ARRAY`",
+            "short": "List of all artists involved",
           },
           {
-            "format": "uri",
             "name": "coverArt",
-            "short": "URL to cover art image",
+            "title": "Cover Art",
             "type": "`$STRING`",
+            "short": "URL to cover art image",
+            "format": "uri",
           },
           {
             "name": "duration",
-            "short": "Duration in seconds",
+            "title": "Duration",
             "type": "`$INTEGER`",
+            "short": "Duration in seconds",
           },
           {
             "name": "genre",
-            "short": "Primary genre",
+            "title": "Genre",
             "type": "`$STRING`",
+            "short": "Primary genre",
           },
           {
             "name": "id",
-            "short": "Unique identifier of the song",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier of the song",
           },
           {
-            "format": "date",
             "name": "releaseDate",
-            "short": "Release date of the song",
+            "title": "Release Date",
             "type": "`$STRING`",
+            "short": "Release date of the song",
+            "format": "date",
           },
           {
             "name": "title",
-            "short": "Title of the song",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Title of the song",
           },
         ],
         "id": {
@@ -382,32 +407,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": 10,
-                      "kind": "query",
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": 0,
-                      "kind": "query",
-                      "name": "offset",
-                      "orig": "offset",
-                      "type": "`$INTEGER`",
-                    },
-                    {
-                      "example": "Shape of You",
-                      "kind": "query",
-                      "name": "query",
-                      "orig": "query",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/search",
@@ -419,6 +418,41 @@ def make_config():
                     "lit": "search",
                   },
                 ],
+                "parts": [
+                  "api",
+                  "search",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.results`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 10,
+                    },
+                    {
+                      "name": "offset",
+                      "orig": "offset",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 0,
+                    },
+                    {
+                      "name": "query",
+                      "orig": "query",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "Shape of You",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "limit",
@@ -426,14 +460,6 @@ def make_config():
                     "query",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.results`",
-                },
-                "parts": [
-                  "api",
-                  "search",
-                ],
               },
             ],
           },
@@ -446,85 +472,101 @@ def make_config():
         "fields": [
           {
             "name": "album",
-            "short": "Album name",
+            "title": "Album",
             "type": "`$STRING`",
+            "short": "Album name",
           },
           {
             "name": "albumId",
-            "short": "Album identifier",
+            "title": "Album Id",
             "type": "`$STRING`",
+            "short": "Album identifier",
           },
           {
             "name": "artist",
-            "short": "Primary artist of the song",
+            "title": "Artist",
             "type": "`$STRING`",
+            "short": "Primary artist of the song",
           },
           {
             "name": "artists",
-            "short": "List of all artists involved",
+            "title": "Artists",
             "type": "`$ARRAY`",
+            "short": "List of all artists involved",
           },
           {
-            "format": "uri",
             "name": "coverArt",
-            "short": "URL to cover art image",
+            "title": "Cover Art",
             "type": "`$STRING`",
+            "short": "URL to cover art image",
+            "format": "uri",
           },
           {
             "name": "duration",
-            "short": "Duration in seconds",
+            "title": "Duration",
             "type": "`$INTEGER`",
+            "short": "Duration in seconds",
           },
           {
             "name": "explicit",
-            "short": "Whether the song contains explicit content",
+            "title": "Explicit",
             "type": "`$BOOLEAN`",
+            "short": "Whether the song contains explicit content",
           },
           {
             "name": "genre",
-            "short": "Primary genre",
+            "title": "Genre",
             "type": "`$STRING`",
+            "short": "Primary genre",
           },
           {
             "name": "id",
-            "short": "Unique identifier of the song",
+            "title": "Id",
             "type": "`$STRING`",
+            "short": "Unique identifier of the song",
           },
           {
             "name": "isrc",
-            "short": "International Standard Recording Code",
+            "title": "Isrc",
             "type": "`$STRING`",
+            "short": "International Standard Recording Code",
           },
           {
             "name": "label",
-            "short": "Record label",
+            "title": "Label",
             "type": "`$STRING`",
+            "short": "Record label",
           },
           {
             "name": "lyrics",
-            "short": "Full lyrics of the song",
+            "title": "Lyrics",
             "type": "`$STRING`",
+            "short": "Full lyrics of the song",
           },
           {
             "name": "popularity",
-            "short": "Popularity score (0-100)",
+            "title": "Popularity",
             "type": "`$INTEGER`",
+            "short": "Popularity score (0-100)",
           },
           {
-            "format": "date",
             "name": "releaseDate",
-            "short": "Release date of the song",
+            "title": "Release Date",
             "type": "`$STRING`",
+            "short": "Release date of the song",
+            "format": "date",
           },
           {
             "name": "title",
-            "short": "Title of the song",
+            "title": "Title",
             "type": "`$STRING`",
+            "short": "Title of the song",
           },
           {
             "name": "trackNumber",
-            "short": "Track number on album",
+            "title": "Track Number",
             "type": "`$INTEGER`",
+            "short": "Track number on album",
           },
         ],
         "id": {
@@ -538,25 +580,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "song_id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/song/{songId}",
-                "rename": {
-                  "param": {
-                    "songId": "id",
-                  },
-                },
                 "segments": [
                   {
                     "lit": "api",
@@ -568,20 +594,36 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "song",
                   "{id}",
                 ],
+                "rename": {
+                  "param": {
+                    "songId": "id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "song_id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },

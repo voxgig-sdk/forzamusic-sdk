@@ -1,0 +1,138 @@
+# Entity: album
+
+main: kit: entity: album: {
+
+  alias: field: {}
+
+  fields: {
+    artist: {
+      h: "Artist"
+      n: "artist"
+      r: false
+      sh: "Primary artist"
+      t: "`$STRING`"
+    }
+    artists: {
+      h: "Artists"
+      n: "artists"
+      r: false
+      t: "`$ARRAY`"
+    }
+    coverArt: {
+      fo: "uri"
+      h: "Cover Art"
+      n: "coverArt"
+      r: false
+      t: "`$STRING`"
+    }
+    genre: {
+      h: "Genre"
+      n: "genre"
+      r: false
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier of the album"
+      t: "`$STRING`"
+    }
+    label: {
+      h: "Label"
+      n: "label"
+      r: false
+      sh: "Record label"
+      t: "`$STRING`"
+    }
+    releaseDate: {
+      fo: "date"
+      h: "Release Date"
+      n: "releaseDate"
+      r: false
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Album title"
+      t: "`$STRING`"
+    }
+    totalTracks: {
+      h: "Total Tracks"
+      n: "totalTracks"
+      r: false
+      sh: "Total number of tracks"
+      t: "`$INTEGER`"
+    }
+    tracks: {
+      h: "Tracks"
+      n: "tracks"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "album"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/album/{albumId}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "album_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/album/{albumId}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              albumId: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "album"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

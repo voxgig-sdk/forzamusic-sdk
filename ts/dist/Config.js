@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -117,49 +110,59 @@ class Config {
             "fields": [
                 {
                     "name": "artist",
-                    "short": "Primary artist",
-                    "type": "`$STRING`"
+                    "title": "Artist",
+                    "type": "`$STRING`",
+                    "short": "Primary artist"
                 },
                 {
                     "name": "artists",
+                    "title": "Artists",
                     "type": "`$ARRAY`"
                 },
                 {
-                    "format": "uri",
                     "name": "coverArt",
-                    "type": "`$STRING`"
+                    "title": "Cover Art",
+                    "type": "`$STRING`",
+                    "format": "uri"
                 },
                 {
                     "name": "genre",
+                    "title": "Genre",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier of the album",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier of the album"
                 },
                 {
                     "name": "label",
-                    "short": "Record label",
-                    "type": "`$STRING`"
+                    "title": "Label",
+                    "type": "`$STRING`",
+                    "short": "Record label"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
-                    "type": "`$STRING`"
+                    "title": "Release Date",
+                    "type": "`$STRING`",
+                    "format": "date"
                 },
                 {
                     "name": "title",
-                    "short": "Album title",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Album title"
                 },
                 {
                     "name": "totalTracks",
-                    "short": "Total number of tracks",
-                    "type": "`$INTEGER`"
+                    "title": "Total Tracks",
+                    "type": "`$INTEGER`",
+                    "short": "Total number of tracks"
                 },
                 {
                     "name": "tracks",
+                    "title": "Tracks",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -174,25 +177,9 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "album_id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/api/album/{albumId}",
-                            "rename": {
-                                "param": {
-                                    "albumId": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "api"
@@ -204,20 +191,36 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "api",
+                                "album",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "albumId": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "api",
-                                "album",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "album_id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -230,24 +233,29 @@ class Config {
             "fields": [
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "language",
-                    "short": "Language of the lyrics",
-                    "type": "`$STRING`"
+                    "title": "Language",
+                    "type": "`$STRING`",
+                    "short": "Language of the lyrics"
                 },
                 {
                     "name": "lyrics",
-                    "short": "Full lyrics of the song",
-                    "type": "`$STRING`"
+                    "title": "Lyrics",
+                    "type": "`$STRING`",
+                    "short": "Full lyrics of the song"
                 },
                 {
                     "name": "songId",
+                    "title": "Song Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "success",
+                    "title": "Success",
                     "type": "`$BOOLEAN`"
                 }
             ],
@@ -262,25 +270,9 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "song_id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/api/lyrics/{songId}",
-                            "rename": {
-                                "param": {
-                                    "songId": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "api"
@@ -292,20 +284,36 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "api",
+                                "lyrics",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "songId": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "api",
-                                "lyrics",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "song_id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -318,55 +326,65 @@ class Config {
             "fields": [
                 {
                     "name": "album",
-                    "short": "Album name",
-                    "type": "`$STRING`"
+                    "title": "Album",
+                    "type": "`$STRING`",
+                    "short": "Album name"
                 },
                 {
                     "name": "albumId",
-                    "short": "Album identifier",
-                    "type": "`$STRING`"
+                    "title": "Album Id",
+                    "type": "`$STRING`",
+                    "short": "Album identifier"
                 },
                 {
                     "name": "artist",
-                    "short": "Primary artist of the song",
-                    "type": "`$STRING`"
+                    "title": "Artist",
+                    "type": "`$STRING`",
+                    "short": "Primary artist of the song"
                 },
                 {
                     "name": "artists",
-                    "short": "List of all artists involved",
-                    "type": "`$ARRAY`"
+                    "title": "Artists",
+                    "type": "`$ARRAY`",
+                    "short": "List of all artists involved"
                 },
                 {
-                    "format": "uri",
                     "name": "coverArt",
+                    "title": "Cover Art",
+                    "type": "`$STRING`",
                     "short": "URL to cover art image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "duration",
-                    "short": "Duration in seconds",
-                    "type": "`$INTEGER`"
+                    "title": "Duration",
+                    "type": "`$INTEGER`",
+                    "short": "Duration in seconds"
                 },
                 {
                     "name": "genre",
-                    "short": "Primary genre",
-                    "type": "`$STRING`"
+                    "title": "Genre",
+                    "type": "`$STRING`",
+                    "short": "Primary genre"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier of the song",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier of the song"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
+                    "title": "Release Date",
+                    "type": "`$STRING`",
                     "short": "Release date of the song",
-                    "type": "`$STRING`"
+                    "format": "date"
                 },
                 {
                     "name": "title",
-                    "short": "Title of the song",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Title of the song"
                 }
             ],
             "id": {
@@ -380,32 +398,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": "Shape of You",
-                                        "kind": "query",
-                                        "name": "query",
-                                        "orig": "query",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/api/search",
@@ -417,21 +409,48 @@ class Config {
                                     "lit": "search"
                                 }
                             ],
+                            "parts": [
+                                "api",
+                                "search"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.results`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "query",
+                                        "orig": "query",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "Shape of You"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
                                     "offset",
                                     "query"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.results`"
-                            },
-                            "parts": [
-                                "api",
-                                "search"
-                            ]
+                            }
                         }
                     ]
                 }
@@ -444,85 +463,101 @@ class Config {
             "fields": [
                 {
                     "name": "album",
-                    "short": "Album name",
-                    "type": "`$STRING`"
+                    "title": "Album",
+                    "type": "`$STRING`",
+                    "short": "Album name"
                 },
                 {
                     "name": "albumId",
-                    "short": "Album identifier",
-                    "type": "`$STRING`"
+                    "title": "Album Id",
+                    "type": "`$STRING`",
+                    "short": "Album identifier"
                 },
                 {
                     "name": "artist",
-                    "short": "Primary artist of the song",
-                    "type": "`$STRING`"
+                    "title": "Artist",
+                    "type": "`$STRING`",
+                    "short": "Primary artist of the song"
                 },
                 {
                     "name": "artists",
-                    "short": "List of all artists involved",
-                    "type": "`$ARRAY`"
+                    "title": "Artists",
+                    "type": "`$ARRAY`",
+                    "short": "List of all artists involved"
                 },
                 {
-                    "format": "uri",
                     "name": "coverArt",
+                    "title": "Cover Art",
+                    "type": "`$STRING`",
                     "short": "URL to cover art image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "duration",
-                    "short": "Duration in seconds",
-                    "type": "`$INTEGER`"
+                    "title": "Duration",
+                    "type": "`$INTEGER`",
+                    "short": "Duration in seconds"
                 },
                 {
                     "name": "explicit",
-                    "short": "Whether the song contains explicit content",
-                    "type": "`$BOOLEAN`"
+                    "title": "Explicit",
+                    "type": "`$BOOLEAN`",
+                    "short": "Whether the song contains explicit content"
                 },
                 {
                     "name": "genre",
-                    "short": "Primary genre",
-                    "type": "`$STRING`"
+                    "title": "Genre",
+                    "type": "`$STRING`",
+                    "short": "Primary genre"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier of the song",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier of the song"
                 },
                 {
                     "name": "isrc",
-                    "short": "International Standard Recording Code",
-                    "type": "`$STRING`"
+                    "title": "Isrc",
+                    "type": "`$STRING`",
+                    "short": "International Standard Recording Code"
                 },
                 {
                     "name": "label",
-                    "short": "Record label",
-                    "type": "`$STRING`"
+                    "title": "Label",
+                    "type": "`$STRING`",
+                    "short": "Record label"
                 },
                 {
                     "name": "lyrics",
-                    "short": "Full lyrics of the song",
-                    "type": "`$STRING`"
+                    "title": "Lyrics",
+                    "type": "`$STRING`",
+                    "short": "Full lyrics of the song"
                 },
                 {
                     "name": "popularity",
-                    "short": "Popularity score (0-100)",
-                    "type": "`$INTEGER`"
+                    "title": "Popularity",
+                    "type": "`$INTEGER`",
+                    "short": "Popularity score (0-100)"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
+                    "title": "Release Date",
+                    "type": "`$STRING`",
                     "short": "Release date of the song",
-                    "type": "`$STRING`"
+                    "format": "date"
                 },
                 {
                     "name": "title",
-                    "short": "Title of the song",
-                    "type": "`$STRING`"
+                    "title": "Title",
+                    "type": "`$STRING`",
+                    "short": "Title of the song"
                 },
                 {
                     "name": "trackNumber",
-                    "short": "Track number on album",
-                    "type": "`$INTEGER`"
+                    "title": "Track Number",
+                    "type": "`$INTEGER`",
+                    "short": "Track number on album"
                 }
             ],
             "id": {
@@ -536,25 +571,9 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "song_id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/api/song/{songId}",
-                            "rename": {
-                                "param": {
-                                    "songId": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "api"
@@ -566,20 +585,36 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "api",
+                                "song",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "songId": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "api",
-                                "song",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "song_id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }

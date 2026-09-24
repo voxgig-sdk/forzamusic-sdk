@@ -94,49 +94,59 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "artist",
-						"short": "Primary artist",
+						"title": "Artist",
 						"type": "`$STRING`",
+						"short": "Primary artist",
 					},
 					map[string]any{
 						"name": "artists",
+						"title": "Artists",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "coverArt",
+						"title": "Cover Art",
 						"type": "`$STRING`",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "genre",
+						"title": "Genre",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier of the album",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier of the album",
 					},
 					map[string]any{
 						"name": "label",
-						"short": "Record label",
+						"title": "Label",
 						"type": "`$STRING`",
+						"short": "Record label",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "releaseDate",
+						"title": "Release Date",
 						"type": "`$STRING`",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Album title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Album title",
 					},
 					map[string]any{
 						"name": "totalTracks",
-						"short": "Total number of tracks",
+						"title": "Total Tracks",
 						"type": "`$INTEGER`",
+						"short": "Total number of tracks",
 					},
 					map[string]any{
 						"name": "tracks",
+						"title": "Tracks",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -151,25 +161,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "album_id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/album/{albumId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"albumId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
@@ -181,19 +175,35 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"api",
+									"album",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"albumId": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"api",
-									"album",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "album_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -207,24 +217,29 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "language",
-						"short": "Language of the lyrics",
+						"title": "Language",
 						"type": "`$STRING`",
+						"short": "Language of the lyrics",
 					},
 					map[string]any{
 						"name": "lyrics",
-						"short": "Full lyrics of the song",
+						"title": "Lyrics",
 						"type": "`$STRING`",
+						"short": "Full lyrics of the song",
 					},
 					map[string]any{
 						"name": "songId",
+						"title": "Song Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "success",
+						"title": "Success",
 						"type": "`$BOOLEAN`",
 					},
 				},
@@ -239,25 +254,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "song_id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/lyrics/{songId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"songId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
@@ -269,19 +268,35 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"api",
+									"lyrics",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"songId": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"api",
-									"lyrics",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "song_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -295,55 +310,65 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "album",
-						"short": "Album name",
+						"title": "Album",
 						"type": "`$STRING`",
+						"short": "Album name",
 					},
 					map[string]any{
 						"name": "albumId",
-						"short": "Album identifier",
+						"title": "Album Id",
 						"type": "`$STRING`",
+						"short": "Album identifier",
 					},
 					map[string]any{
 						"name": "artist",
-						"short": "Primary artist of the song",
+						"title": "Artist",
 						"type": "`$STRING`",
+						"short": "Primary artist of the song",
 					},
 					map[string]any{
 						"name": "artists",
-						"short": "List of all artists involved",
+						"title": "Artists",
 						"type": "`$ARRAY`",
+						"short": "List of all artists involved",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "coverArt",
-						"short": "URL to cover art image",
+						"title": "Cover Art",
 						"type": "`$STRING`",
+						"short": "URL to cover art image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "duration",
-						"short": "Duration in seconds",
+						"title": "Duration",
 						"type": "`$INTEGER`",
+						"short": "Duration in seconds",
 					},
 					map[string]any{
 						"name": "genre",
-						"short": "Primary genre",
+						"title": "Genre",
 						"type": "`$STRING`",
+						"short": "Primary genre",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier of the song",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier of the song",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "releaseDate",
-						"short": "Release date of the song",
+						"title": "Release Date",
 						"type": "`$STRING`",
+						"short": "Release date of the song",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Title of the song",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Title of the song",
 					},
 				},
 				"id": map[string]any{
@@ -357,32 +382,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": "Shape of You",
-											"kind": "query",
-											"name": "query",
-											"orig": "query",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/search",
@@ -394,20 +393,47 @@ func MakeConfig() map[string]any {
 										"lit": "search",
 									},
 								},
+								"parts": []any{
+									"api",
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.results`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "query",
+											"orig": "query",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "Shape of You",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"limit",
 										"offset",
 										"query",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.results`",
-								},
-								"parts": []any{
-									"api",
-									"search",
 								},
 							},
 						},
@@ -421,85 +447,101 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "album",
-						"short": "Album name",
+						"title": "Album",
 						"type": "`$STRING`",
+						"short": "Album name",
 					},
 					map[string]any{
 						"name": "albumId",
-						"short": "Album identifier",
+						"title": "Album Id",
 						"type": "`$STRING`",
+						"short": "Album identifier",
 					},
 					map[string]any{
 						"name": "artist",
-						"short": "Primary artist of the song",
+						"title": "Artist",
 						"type": "`$STRING`",
+						"short": "Primary artist of the song",
 					},
 					map[string]any{
 						"name": "artists",
-						"short": "List of all artists involved",
+						"title": "Artists",
 						"type": "`$ARRAY`",
+						"short": "List of all artists involved",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "coverArt",
-						"short": "URL to cover art image",
+						"title": "Cover Art",
 						"type": "`$STRING`",
+						"short": "URL to cover art image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "duration",
-						"short": "Duration in seconds",
+						"title": "Duration",
 						"type": "`$INTEGER`",
+						"short": "Duration in seconds",
 					},
 					map[string]any{
 						"name": "explicit",
-						"short": "Whether the song contains explicit content",
+						"title": "Explicit",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the song contains explicit content",
 					},
 					map[string]any{
 						"name": "genre",
-						"short": "Primary genre",
+						"title": "Genre",
 						"type": "`$STRING`",
+						"short": "Primary genre",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier of the song",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier of the song",
 					},
 					map[string]any{
 						"name": "isrc",
-						"short": "International Standard Recording Code",
+						"title": "Isrc",
 						"type": "`$STRING`",
+						"short": "International Standard Recording Code",
 					},
 					map[string]any{
 						"name": "label",
-						"short": "Record label",
+						"title": "Label",
 						"type": "`$STRING`",
+						"short": "Record label",
 					},
 					map[string]any{
 						"name": "lyrics",
-						"short": "Full lyrics of the song",
+						"title": "Lyrics",
 						"type": "`$STRING`",
+						"short": "Full lyrics of the song",
 					},
 					map[string]any{
 						"name": "popularity",
-						"short": "Popularity score (0-100)",
+						"title": "Popularity",
 						"type": "`$INTEGER`",
+						"short": "Popularity score (0-100)",
 					},
 					map[string]any{
-						"format": "date",
 						"name": "releaseDate",
-						"short": "Release date of the song",
+						"title": "Release Date",
 						"type": "`$STRING`",
+						"short": "Release date of the song",
+						"format": "date",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Title of the song",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Title of the song",
 					},
 					map[string]any{
 						"name": "trackNumber",
-						"short": "Track number on album",
+						"title": "Track Number",
 						"type": "`$INTEGER`",
+						"short": "Track number on album",
 					},
 				},
 				"id": map[string]any{
@@ -513,25 +555,9 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "song_id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/song/{songId}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"songId": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
@@ -543,19 +569,35 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"api",
+									"song",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"songId": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"api",
-									"song",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "song_id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

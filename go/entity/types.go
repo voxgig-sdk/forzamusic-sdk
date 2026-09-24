@@ -1,7 +1,7 @@
 // Typed models for the Forzamusic SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // Album is the typed data model for the album entity.
 type Album struct {
-	Artist *string `json:"artist,omitempty"`
-	Artists *[]any `json:"artists,omitempty"`
-	CoverArt *string `json:"coverArt,omitempty"`
-	Genre *string `json:"genre,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Label *string `json:"label,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Title *string `json:"title,omitempty"`
-	TotalTracks *int `json:"totalTracks,omitempty"`
-	Tracks *[]any `json:"tracks,omitempty"`
 }
 
 // AlbumLoadMatch is the typed request payload for Album.LoadTyped.
@@ -33,11 +23,6 @@ type AlbumLoadMatch struct {
 
 // Lyric is the typed data model for the lyric entity.
 type Lyric struct {
-	Id *string `json:"id,omitempty"`
-	Language *string `json:"language,omitempty"`
-	Lyrics *string `json:"lyrics,omitempty"`
-	SongId *string `json:"songId,omitempty"`
-	Success *bool `json:"success,omitempty"`
 }
 
 // LyricLoadMatch is the typed request payload for Lyric.LoadTyped.
@@ -47,16 +32,6 @@ type LyricLoadMatch struct {
 
 // Search is the typed data model for the search entity.
 type Search struct {
-	Album *string `json:"album,omitempty"`
-	AlbumId *string `json:"albumId,omitempty"`
-	Artist *string `json:"artist,omitempty"`
-	Artists *[]any `json:"artists,omitempty"`
-	CoverArt *string `json:"coverArt,omitempty"`
-	Duration *int `json:"duration,omitempty"`
-	Genre *string `json:"genre,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Title *string `json:"title,omitempty"`
 }
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
@@ -68,22 +43,6 @@ type SearchListMatch struct {
 
 // Song is the typed data model for the song entity.
 type Song struct {
-	Album *string `json:"album,omitempty"`
-	AlbumId *string `json:"albumId,omitempty"`
-	Artist *string `json:"artist,omitempty"`
-	Artists *[]any `json:"artists,omitempty"`
-	CoverArt *string `json:"coverArt,omitempty"`
-	Duration *int `json:"duration,omitempty"`
-	Explicit *bool `json:"explicit,omitempty"`
-	Genre *string `json:"genre,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Isrc *string `json:"isrc,omitempty"`
-	Label *string `json:"label,omitempty"`
-	Lyrics *string `json:"lyrics,omitempty"`
-	Popularity *int `json:"popularity,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Title *string `json:"title,omitempty"`
-	TrackNumber *int `json:"trackNumber,omitempty"`
 }
 
 // SongLoadMatch is the typed request payload for Song.LoadTyped.

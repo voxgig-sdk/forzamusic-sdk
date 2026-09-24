@@ -1,0 +1,32 @@
+# BasicLyricFlow
+
+main: kit: flow: BasicLyricFlow:
+{
+  entity: "lyric",
+  kind: "basic",
+  name: "BasicLyricFlow",
+  step: [
+    {
+      i: {
+        ref: "lyric_ref01",
+        srcdatavar: "lyric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "lyric01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-lyric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLyricFlow"
+}

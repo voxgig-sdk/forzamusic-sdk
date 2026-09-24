@@ -1,0 +1,32 @@
+# BasicAlbumFlow
+
+main: kit: flow: BasicAlbumFlow:
+{
+  entity: "album",
+  kind: "basic",
+  name: "BasicAlbumFlow",
+  step: [
+    {
+      i: {
+        ref: "album_ref01",
+        srcdatavar: "album_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "album01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-album_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAlbumFlow"
+}

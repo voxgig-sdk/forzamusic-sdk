@@ -24,81 +24,157 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "album": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "artist",
-              "req": false,
-              "short": "Primary artist",
-              "type": "`$STRING`"
+          "fields": {
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": false,
+              "sh": "Primary artist",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artists",
-              "req": false,
-              "type": "`$ARRAY`"
+            "artists": {
+              "a": true,
+              "h": "Artists",
+              "n": "artists",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "coverArt",
-              "req": false,
-              "type": "`$STRING`"
+            "coverArt": {
+              "a": true,
+              "fo": "uri",
+              "h": "Cover Art",
+              "n": "coverArt",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "genre",
-              "req": false,
-              "type": "`$STRING`"
+            "genre": {
+              "a": true,
+              "h": "Genre",
+              "n": "genre",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier of the album",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier of the album",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "label",
-              "req": false,
-              "short": "Record label",
-              "type": "`$STRING`"
+            "label": {
+              "a": true,
+              "h": "Label",
+              "n": "label",
+              "r": false,
+              "sh": "Record label",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "releaseDate",
-              "req": false,
-              "type": "`$STRING`"
+            "releaseDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Release Date",
+              "n": "releaseDate",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Album title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Album title",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "totalTracks",
-              "req": false,
-              "short": "Total number of tracks",
-              "type": "`$INTEGER`"
+            "totalTracks": {
+              "a": true,
+              "h": "Total Tracks",
+              "n": "totalTracks",
+              "r": false,
+              "sh": "Total number of tracks",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "tracks",
-              "req": false,
-              "type": "`$ARRAY`"
+            "tracks": {
+              "a": true,
+              "h": "Tracks",
+              "n": "tracks",
+              "r": false,
+              "t": "`$ARRAY`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -110,34 +186,38 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/album/{albumId}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "album_id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "album_id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/album/{albumId}",
-                    "json": "{\"operationId\":\"getAlbumById\",\"parameters\":[{\"description\":\"Unique identifier of the album\",\"in\":\"path\",\"name\":\"albumId\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"artist\":{\"description\":\"Primary artist\",\"type\":\"string\"},\"artists\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverArt\":{\"format\":\"uri\",\"type\":\"string\"},\"genre\":{\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier of the album\",\"type\":\"string\"},\"label\":{\"description\":\"Record label\",\"type\":\"string\"},\"releaseDate\":{\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Album title\",\"type\":\"string\"},\"totalTracks\":{\"description\":\"Total number of tracks\",\"type\":\"integer\"},\"tracks\":{\"items\":{\"properties\":{\"album\":{\"description\":\"Album name\",\"type\":\"string\"},\"albumId\":{\"description\":\"Album identifier\",\"type\":\"string\"},\"artist\":{\"description\":\"Primary artist of the song\",\"type\":\"string\"},\"artists\":{\"description\":\"List of all artists involved\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverArt\":{\"description\":\"URL to cover art image\",\"format\":\"uri\",\"type\":\"string\"},\"duration\":{\"description\":\"Duration in seconds\",\"type\":\"integer\"},\"genre\":{\"description\":\"Primary genre\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier of the song\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"Release date of the song\",\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the song\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Album details retrieved successfully\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Album not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/album/{albumId}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/album/{albumId}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "albumId": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -148,12 +228,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -170,40 +245,45 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "language",
-              "req": false,
-              "short": "Language of the lyrics",
-              "type": "`$STRING`"
+            "language": {
+              "a": true,
+              "h": "Language",
+              "n": "language",
+              "r": false,
+              "sh": "Language of the lyrics",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "lyrics",
-              "req": false,
-              "short": "Full lyrics of the song",
-              "type": "`$STRING`"
+            "lyrics": {
+              "a": true,
+              "h": "Lyrics",
+              "n": "lyrics",
+              "r": false,
+              "sh": "Full lyrics of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "songId",
-              "req": false,
-              "type": "`$STRING`"
+            "songId": {
+              "a": true,
+              "h": "Song Id",
+              "n": "songId",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "success",
-              "req": false,
-              "type": "`$BOOLEAN`"
+            "success": {
+              "a": true,
+              "h": "Success",
+              "n": "success",
+              "r": false,
+              "t": "`$BOOLEAN`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -215,34 +295,38 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/lyrics/{songId}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "song_id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "song_id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/lyrics/{songId}",
-                    "json": "{\"operationId\":\"getLyrics\",\"parameters\":[{\"description\":\"Unique identifier of the song\",\"in\":\"path\",\"name\":\"songId\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"language\":{\"description\":\"Language of the lyrics\",\"type\":\"string\"},\"lyrics\":{\"description\":\"Full lyrics of the song\",\"type\":\"string\"},\"songId\":{\"type\":\"string\"},\"success\":{\"example\":true,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Lyrics retrieved successfully\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Lyrics not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/lyrics/{songId}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/lyrics/{songId}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "songId": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -253,12 +337,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -275,80 +354,90 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "album",
-              "req": false,
-              "short": "Album name",
-              "type": "`$STRING`"
+          "fields": {
+            "album": {
+              "a": true,
+              "h": "Album",
+              "n": "album",
+              "r": false,
+              "sh": "Album name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "albumId",
-              "req": false,
-              "short": "Album identifier",
-              "type": "`$STRING`"
+            "albumId": {
+              "a": true,
+              "h": "Album Id",
+              "n": "albumId",
+              "r": false,
+              "sh": "Album identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artist",
-              "req": false,
-              "short": "Primary artist of the song",
-              "type": "`$STRING`"
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": false,
+              "sh": "Primary artist of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artists",
-              "req": false,
-              "short": "List of all artists involved",
-              "type": "`$ARRAY`"
+            "artists": {
+              "a": true,
+              "h": "Artists",
+              "n": "artists",
+              "r": false,
+              "sh": "List of all artists involved",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "coverArt",
-              "req": false,
-              "short": "URL to cover art image",
-              "type": "`$STRING`"
+            "coverArt": {
+              "a": true,
+              "fo": "uri",
+              "h": "Cover Art",
+              "n": "coverArt",
+              "r": false,
+              "sh": "URL to cover art image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "duration",
-              "req": false,
-              "short": "Duration in seconds",
-              "type": "`$INTEGER`"
+            "duration": {
+              "a": true,
+              "h": "Duration",
+              "n": "duration",
+              "r": false,
+              "sh": "Duration in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "genre",
-              "req": false,
-              "short": "Primary genre",
-              "type": "`$STRING`"
+            "genre": {
+              "a": true,
+              "h": "Genre",
+              "n": "genre",
+              "r": false,
+              "sh": "Primary genre",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier of the song",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "releaseDate",
-              "req": false,
-              "short": "Release date of the song",
-              "type": "`$STRING`"
+            "releaseDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Release Date",
+              "n": "releaseDate",
+              "r": false,
+              "sh": "Release date of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Title of the song",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Title of the song",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -360,48 +449,55 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 10,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 10,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": "Shape of You",
-                        "kind": "query",
-                        "name": "query",
-                        "orig": "query",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "Shape of You",
+                        "k": "query",
+                        "n": "query",
+                        "or": "query",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/search",
-                    "json": "{\"operationId\":\"searchSongs\",\"parameters\":[{\"description\":\"Search query for song, artist, or album\",\"example\":\"Shape of You\",\"in\":\"query\",\"name\":\"query\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of results to skip for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"minimum\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"limit\":{\"type\":\"integer\"},\"offset\":{\"type\":\"integer\"},\"results\":{\"items\":{\"properties\":{\"album\":{\"description\":\"Album name\",\"type\":\"string\"},\"albumId\":{\"description\":\"Album identifier\",\"type\":\"string\"},\"artist\":{\"description\":\"Primary artist of the song\",\"type\":\"string\"},\"artists\":{\"description\":\"List of all artists involved\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverArt\":{\"description\":\"URL to cover art image\",\"format\":\"uri\",\"type\":\"string\"},\"duration\":{\"description\":\"Duration in seconds\",\"type\":\"integer\"},\"genre\":{\"description\":\"Primary genre\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier of the song\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"Release date of the song\",\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the song\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"success\":{\"example\":true,\"type\":\"boolean\"},\"total\":{\"description\":\"Total number of results found\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful search response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid query parameters\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Too many requests - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/search",
+                  "q": {
+                    "exist": [
+                      "limit",
+                      "offset",
+                      "query"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/search",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -409,14 +505,7 @@
                       "lit": "search"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "limit",
-                      "offset",
-                      "query"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.results`"
                   }
@@ -433,122 +522,138 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "album",
-              "req": false,
-              "short": "Album name",
-              "type": "`$STRING`"
+          "fields": {
+            "album": {
+              "a": true,
+              "h": "Album",
+              "n": "album",
+              "r": false,
+              "sh": "Album name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "albumId",
-              "req": false,
-              "short": "Album identifier",
-              "type": "`$STRING`"
+            "albumId": {
+              "a": true,
+              "h": "Album Id",
+              "n": "albumId",
+              "r": false,
+              "sh": "Album identifier",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artist",
-              "req": false,
-              "short": "Primary artist of the song",
-              "type": "`$STRING`"
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": false,
+              "sh": "Primary artist of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "artists",
-              "req": false,
-              "short": "List of all artists involved",
-              "type": "`$ARRAY`"
+            "artists": {
+              "a": true,
+              "h": "Artists",
+              "n": "artists",
+              "r": false,
+              "sh": "List of all artists involved",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "coverArt",
-              "req": false,
-              "short": "URL to cover art image",
-              "type": "`$STRING`"
+            "coverArt": {
+              "a": true,
+              "fo": "uri",
+              "h": "Cover Art",
+              "n": "coverArt",
+              "r": false,
+              "sh": "URL to cover art image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "duration",
-              "req": false,
-              "short": "Duration in seconds",
-              "type": "`$INTEGER`"
+            "duration": {
+              "a": true,
+              "h": "Duration",
+              "n": "duration",
+              "r": false,
+              "sh": "Duration in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "explicit",
-              "req": false,
-              "short": "Whether the song contains explicit content",
-              "type": "`$BOOLEAN`"
+            "explicit": {
+              "a": true,
+              "h": "Explicit",
+              "n": "explicit",
+              "r": false,
+              "sh": "Whether the song contains explicit content",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "genre",
-              "req": false,
-              "short": "Primary genre",
-              "type": "`$STRING`"
+            "genre": {
+              "a": true,
+              "h": "Genre",
+              "n": "genre",
+              "r": false,
+              "sh": "Primary genre",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier of the song",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isrc",
-              "req": false,
-              "short": "International Standard Recording Code",
-              "type": "`$STRING`"
+            "isrc": {
+              "a": true,
+              "h": "Isrc",
+              "n": "isrc",
+              "r": false,
+              "sh": "International Standard Recording Code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "label",
-              "req": false,
-              "short": "Record label",
-              "type": "`$STRING`"
+            "label": {
+              "a": true,
+              "h": "Label",
+              "n": "label",
+              "r": false,
+              "sh": "Record label",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "lyrics",
-              "req": false,
-              "short": "Full lyrics of the song",
-              "type": "`$STRING`"
+            "lyrics": {
+              "a": true,
+              "h": "Lyrics",
+              "n": "lyrics",
+              "r": false,
+              "sh": "Full lyrics of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "popularity",
-              "req": false,
-              "short": "Popularity score (0-100)",
-              "type": "`$INTEGER`"
+            "popularity": {
+              "a": true,
+              "h": "Popularity",
+              "n": "popularity",
+              "r": false,
+              "sh": "Popularity score (0-100)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "date",
-              "name": "releaseDate",
-              "req": false,
-              "short": "Release date of the song",
-              "type": "`$STRING`"
+            "releaseDate": {
+              "a": true,
+              "fo": "date",
+              "h": "Release Date",
+              "n": "releaseDate",
+              "r": false,
+              "sh": "Release date of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Title of the song",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Title of the song",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "trackNumber",
-              "req": false,
-              "short": "Track number on album",
-              "type": "`$INTEGER`"
+            "trackNumber": {
+              "a": true,
+              "h": "Track Number",
+              "n": "trackNumber",
+              "r": false,
+              "sh": "Track number on album",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -560,34 +665,38 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/song/{songId}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "song_id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "song_id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/song/{songId}",
-                    "json": "{\"operationId\":\"getSongById\",\"parameters\":[{\"description\":\"Unique identifier of the song\",\"in\":\"path\",\"name\":\"songId\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"allOf\":[{\"properties\":{\"album\":{\"description\":\"Album name\",\"type\":\"string\"},\"albumId\":{\"description\":\"Album identifier\",\"type\":\"string\"},\"artist\":{\"description\":\"Primary artist of the song\",\"type\":\"string\"},\"artists\":{\"description\":\"List of all artists involved\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"coverArt\":{\"description\":\"URL to cover art image\",\"format\":\"uri\",\"type\":\"string\"},\"duration\":{\"description\":\"Duration in seconds\",\"type\":\"integer\"},\"genre\":{\"description\":\"Primary genre\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier of the song\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"Release date of the song\",\"format\":\"date\",\"type\":\"string\"},\"title\":{\"description\":\"Title of the song\",\"type\":\"string\"}},\"type\":\"object\"},{\"properties\":{\"explicit\":{\"description\":\"Whether the song contains explicit content\",\"type\":\"boolean\"},\"isrc\":{\"description\":\"International Standard Recording Code\",\"type\":\"string\"},\"label\":{\"description\":\"Record label\",\"type\":\"string\"},\"lyrics\":{\"description\":\"Full lyrics of the song\",\"type\":\"string\"},\"popularity\":{\"description\":\"Popularity score (0-100)\",\"type\":\"integer\"},\"trackNumber\":{\"description\":\"Track number on album\",\"type\":\"integer\"}},\"type\":\"object\"}]}}},\"description\":\"Song details retrieved successfully\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Song not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/song/{songId}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/song/{songId}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "songId": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -598,12 +707,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1032,19 +1136,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "album_ref01",
                 "srcdatavar": "album_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "album01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1064,19 +1168,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "lyric_ref01",
                 "srcdatavar": "lyric_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "lyric01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1096,13 +1200,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1122,19 +1226,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "song_ref01",
                 "srcdatavar": "song_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "song01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

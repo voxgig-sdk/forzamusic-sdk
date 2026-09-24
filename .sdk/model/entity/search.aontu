@@ -1,0 +1,154 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    album: {
+      h: "Album"
+      n: "album"
+      r: false
+      sh: "Album name"
+      t: "`$STRING`"
+    }
+    albumId: {
+      h: "Album Id"
+      n: "albumId"
+      r: false
+      sh: "Album identifier"
+      t: "`$STRING`"
+    }
+    artist: {
+      h: "Artist"
+      n: "artist"
+      r: false
+      sh: "Primary artist of the song"
+      t: "`$STRING`"
+    }
+    artists: {
+      h: "Artists"
+      n: "artists"
+      r: false
+      sh: "List of all artists involved"
+      t: "`$ARRAY`"
+    }
+    coverArt: {
+      fo: "uri"
+      h: "Cover Art"
+      n: "coverArt"
+      r: false
+      sh: "URL to cover art image"
+      t: "`$STRING`"
+    }
+    duration: {
+      h: "Duration"
+      n: "duration"
+      r: false
+      sh: "Duration in seconds"
+      t: "`$INTEGER`"
+    }
+    genre: {
+      h: "Genre"
+      n: "genre"
+      r: false
+      sh: "Primary genre"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier of the song"
+      t: "`$STRING`"
+    }
+    releaseDate: {
+      fo: "date"
+      h: "Release Date"
+      n: "releaseDate"
+      r: false
+      sh: "Release date of the song"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Title of the song"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "Shape of You"
+                k: "query"
+                n: "query"
+                or: "query"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/search"
+          q: {
+            exist: [
+              "limit"
+              "offset"
+              "query"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.results`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

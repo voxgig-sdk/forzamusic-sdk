@@ -19,7 +19,6 @@ import type {
   SearchListMatch,
 } from '../ForzamusicTypes'
 
-// TODO: needs Entity superclass
 class SearchEntity extends ForzamusicEntityBase<Search> {
 
   constructor(client: ForzamusicSDK, entopts: any) {
